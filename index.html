@@ -162,6 +162,26 @@
   @media (max-width: 900px) { .vt-bloco { grid-template-columns: 1fr; gap: 36px; } .vt-video { max-width: 340px; margin: 0 auto; } .vt-aviso { right: -6px; width: 250px; } }
   @media (max-width: 420px) { .fone-video { width: 280px; } .vt-aviso { width: 220px; right: -4px; bottom: 40px; } }
 
+
+  /* dores em 2x2 e pilares da solução */
+  .dores.q4 { grid-template-columns: repeat(2, 1fr); }
+  .pilares { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .pilar { background: linear-gradient(180deg, var(--card-2), var(--card)); border: 1px solid rgba(212,175,55,.3); border-radius: 20px; padding: 26px; text-align: center; }
+  .pilar .ic { width: 52px; height: 52px; margin: 0 auto 14px; border-radius: 15px; display: grid; place-items: center; background: var(--grad); color: #111; }
+  .pilar .ic svg { width: 24px; height: 24px; }
+  .pilar h3 { margin: 0 0 8px; font-size: 22px; }
+  .pilar p { margin: 0; color: var(--muted); font-size: 15px; }
+  .plano-card .dia { color: var(--gold-2); font-size: 14px; font-weight: 700; margin: -2px 0 10px; min-height: 20px; }
+  @media (max-width: 760px) { .dores.q4, .pilares { grid-template-columns: 1fr; } }
+  /* barra fixa no celular */
+  .cta-fixo { display: none; }
+  @media (max-width: 700px) {
+    .cta-fixo { position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 30; display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 12px 16px; border-radius: 14px; background: var(--grad); color: #111; font-size: 13px; box-shadow: 0 12px 30px rgba(0,0,0,.6); transform: translateY(140%); transition: transform .35s ease; }
+    .cta-fixo.on { transform: none; }
+    .cta-fixo b:last-child { font-size: 15px; white-space: nowrap; }
+    footer { padding-bottom: 90px; }
+  }
+
   /* como funciona */
   .passos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; counter-reset: p; }
   .passo3 { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 24px; }
@@ -256,9 +276,9 @@
   <div class="wrap">
     <a class="marca" href="#topo"><svg><use href="#logo"/></svg> Reparo <span class="gold">Simples</span></a>
     <nav>
-      <a href="#recursos">Recursos</a>
       <a href="#acompanhamento">Acompanhamento</a>
       <a href="#vitrine">Vitrine</a>
+      <a href="#recursos">Recursos</a>
       <a href="#planos">Planos</a>
       <a href="#duvidas">Dúvidas</a>
     </nav>
@@ -272,19 +292,18 @@
     <div class="wrap">
       <div>
         <span class="selo">Feito para assistência técnica de celulares</span>
-        <h1>Sua assistência <span class="grad-text">organizada</span> do balcão ao caixa.</h1>
-        <p class="lead">Ordens de serviço, orçamentos, vendas, estoque e financeiro num só lugar. E o seu cliente acompanha o conserto pelo celular, sem precisar ligar para a loja.</p>
+        <h1>Sistema de assistência <span class="grad-text">simples</span>, barato e com a cara da sua loja.</h1>
+        <p class="lead">Pare de perder tempo e dinheiro com sistemas complicados, caros e iguais para todo mundo. O Reparo Simples organiza OS, vendas, estoque e financeiro, e ainda mostra ao seu cliente, com a sua marca, cada etapa do conserto.</p>
         <div class="ctas">
-          <a class="btn primary" data-link="teste" href="#planos">Começar teste grátis de 7 dias <svg><use href="#i-seta"/></svg></a>
-          <a class="btn" href="#planos">Ver planos</a>
+          <a class="btn primary" data-link="teste" href="#planos">Testar grátis por 7 dias <svg><use href="#i-seta"/></svg></a>
+          <a class="btn" href="#acompanhamento">Ver funcionando</a>
         </div>
         <div class="garantias">
-          <span><svg><use href="#i-check"/></svg> Funciona no celular e no computador</span>
+          <span><svg><use href="#i-check"/></svg> A partir de <b class="gold">&nbsp;R$ 1,26 por dia</b></span>
           <span><svg><use href="#i-check"/></svg> Sem instalar nada</span>
-          <span><svg><use href="#i-check"/></svg> Cancele quando quiser</span>
+          <span><svg><use href="#i-check"/></svg> Sem fidelidade</span>
         </div>
       </div>
-
       <div class="fone" aria-hidden="true">
         <div class="tela">
           <div class="topo"><svg><use href="#logo"/></svg><div>Reparo Simples<small>Sua Loja</small></div></div>
@@ -302,51 +321,46 @@
   <section style="padding-top:24px">
     <div class="wrap">
       <div class="titulo surge">
-        <span class="tag">Chega de improviso</span>
-        <h2>O dia a dia da assistência sem papel e sem caderno</h2>
-        <p>Se alguma dessas situações é comum na sua loja, o Reparo Simples resolve.</p>
+        <span class="tag">Você se reconhece?</span>
+        <h2>Sistema bom não pode custar seu tempo nem seu dinheiro</h2>
+        <p>Estes são os problemas que mais travam uma assistência técnica. O Reparo Simples foi feito para acabar com cada um.</p>
       </div>
-      <div class="dores">
+      <div class="dores q4">
+        <div class="dor surge">
+          <div class="x"><svg><use href="#i-x"/></svg> Perde tempo com sistema complicado</div>
+          <p>Telas confusas, treinamento longo e equipe que não usa. A OS acaba voltando para o caderno.</p>
+          <div class="v"><svg><use href="#i-check"/></svg> Abrir uma OS leva segundos. A equipe aprende no primeiro dia.</div>
+        </div>
+        <div class="dor surge">
+          <div class="x"><svg><use href="#i-x"/></svg> Paga caro pelo que não usa</div>
+          <p>Mensalidade alta, módulos que a loja nunca abriu e, no fim do mês, ninguém sabe se teve lucro.</p>
+          <div class="v"><svg><use href="#i-check"/></svg> A partir de R$ 1,26 por dia, com faturamento e lucro do dia na tela inicial.</div>
+        </div>
+        <div class="dor surge">
+          <div class="x"><svg><use href="#i-x"/></svg> Sistema igual para todo mundo</div>
+          <p>Genérico, sem a sua marca e cheio de menus que não fazem sentido para assistência de celular.</p>
+          <div class="v"><svg><use href="#i-check"/></svg> Sua logo e suas cores em todos os planos. No Pro, você ainda escolhe os módulos que aparecem.</div>
+        </div>
         <div class="dor surge">
           <div class="x"><svg><use href="#i-x"/></svg> Cliente ligando toda hora</div>
-          <p>"Meu celular já ficou pronto?" atrapalha o técnico e o atendimento.</p>
-          <div class="v"><svg><use href="#i-check"/></svg> O cliente recebe um link e acompanha cada etapa do conserto.</div>
-        </div>
-        <div class="dor surge">
-          <div class="x"><svg><use href="#i-x"/></svg> OS perdida no papel</div>
-          <p>Comanda rasgada, defeito anotado errado, aparelho sem identificação.</p>
-          <div class="v"><svg><use href="#i-check"/></svg> Toda OS registrada com cliente, aparelho, defeito, valor e garantia.</div>
-        </div>
-        <div class="dor surge">
-          <div class="x"><svg><use href="#i-x"/></svg> Sem saber se teve lucro</div>
-          <p>Entra dinheiro, sai peça, e no fim do mês ninguém sabe quanto sobrou.</p>
-          <div class="v"><svg><use href="#i-check"/></svg> Faturamento, custos e lucro do dia na tela inicial.</div>
+          <p>"Meu celular já ficou pronto?" trava o balcão e atrapalha o técnico na bancada.</p>
+          <div class="v"><svg><use href="#i-check"/></svg> O cliente acompanha o conserto por um link, com a cara da sua loja.</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- RECURSOS -->
-  <section id="recursos">
+  <!-- PILARES -->
+  <section style="padding-top:24px">
     <div class="wrap">
       <div class="titulo surge">
-        <span class="tag">Recursos</span>
-        <h2>Tudo o que a sua loja precisa</h2>
-        <p>Do aparelho que entra na bancada até o dinheiro no caixa.</p>
+        <span class="tag">A solução</span>
+        <h2>Pensado para o lojista <span class="gold">e</span> para o cliente dele</h2>
       </div>
-      <div class="recursos">
-        <div class="rec surge"><div class="ic"><svg><use href="#i-os"/></svg></div><h3>Ordens de serviço</h3><p>Abra OS em segundos, controle o status na bancada, imprima o comprovante e registre a garantia.</p></div>
-        <div class="rec surge"><div class="ic"><svg><use href="#i-radar"/></svg></div><h3>Acompanhamento em tempo real</h3><p>O cliente acompanha o conserto por um link. Cada mudança de status aparece na hora.</p></div>
-        <div class="rec surge"><div class="ic"><svg><use href="#i-carrinho"/></svg></div><h3>Vendas e orçamentos</h3><p>Venda de produtos e acessórios, orçamentos para aprovar e recibos prontos para enviar.</p></div>
-        <div class="rec surge"><div class="ic"><svg><use href="#i-caixa"/></svg></div><h3>Estoque de peças e produtos</h3><p>Baixa automática na venda, estoque mínimo e controle de seminovos com IMEI.</p></div>
-        <div class="rec surge"><div class="ic"><svg><use href="#i-grafico"/></svg></div><h3>Financeiro</h3><p>Entradas, saídas, formas de pagamento e lucro real, descontando peças, taxas e despesas.</p></div>
-        <div class="rec surge"><div class="ic"><svg><use href="#i-xml"/></svg></div><h3>Estoque pela nota fiscal</h3><p>Importe o XML da NF-e de compra e o estoque entra sozinho, com controle por lote.</p></div>
-        <div class="rec surge"><div class="ic"><svg><use href="#i-pincel"/></svg></div><h3>A cara da sua loja</h3><p>Sua logo, suas cores e os dados da empresa nos comprovantes e na página do cliente.</p></div>
-        <div class="rec surge"><div class="ic"><svg><use href="#i-loja"/></svg></div><h3>Vitrine online</h3><p>Seus produtos num link. O cliente monta o carrinho, escolhe a hora da retirada e você recebe o aviso.</p><span class="plano">Plano Pro</span></div>
-        <div class="rec surge"><div class="ic"><svg><use href="#i-whats"/></svg></div><h3>Follow-up e pós-venda</h3><p>Agenda de retornos para chamar o cliente no WhatsApp e vender de novo.</p><span class="plano">Plano Pro</span></div>
-        <div class="rec surge"><div class="ic"><svg><use href="#i-alvo"/></svg></div><h3>Metas por funcionário</h3><p>Defina metas da loja e de cada vendedor ou técnico, e acompanhe o resultado.</p><span class="plano">Plano Pro</span></div>
-        <div class="rec surge"><div class="ic"><svg><use href="#i-equipe"/></svg></div><h3>Equipe com permissões</h3><p>Atendente e técnico entram com o próprio login e só veem o que precisam.</p></div>
-        <div class="rec surge"><div class="ic"><svg><use href="#i-nuvem"/></svg></div><h3>Na nuvem, em todo aparelho</h3><p>Celular, tablet ou computador sincronizados. Funciona até sem internet e envia depois.</p></div>
+      <div class="pilares">
+        <div class="pilar surge"><div class="ic"><svg><use href="#i-check"/></svg></div><h3>Simples</h3><p>Feito só para assistência de celular. Sem menus sobrando, sem curso, sem instalar nada. Funciona no celular e no computador.</p></div>
+        <div class="pilar surge"><div class="ic"><svg><use href="#i-grafico"/></svg></div><h3>Barato</h3><p>A partir de <b class="gold">R$ 1,26 por dia</b>. Um único conserto no mês já paga o sistema. Sem fidelidade.</p></div>
+        <div class="pilar surge"><div class="ic"><svg><use href="#i-pincel"/></svg></div><h3>Com a sua cara</h3><p>Para a loja: sua marca, cada funcionário com o próprio acesso e, no Pro, só os módulos que você usa. Para o cliente: acompanhamento e vitrine com a sua logo.</p></div>
       </div>
     </div>
   </section>
@@ -355,7 +369,7 @@
   <section id="acompanhamento" style="padding-top:24px">
     <div class="wrap">
       <div class="titulo surge">
-        <span class="tag">Acompanhamento da OS em tempo real</span>
+        <span class="tag">Personalizado para o seu cliente</span>
         <h2>Seu cliente acompanha o conserto pelo celular, sem ligar para a loja</h2>
         <p>Ao abrir a OS, você manda o link pelo WhatsApp com um toque. Cada vez que o técnico muda o status na bancada, a tela do cliente atualiza sozinha.</p>
       </div>
@@ -406,15 +420,41 @@
     </div>
   </section>
 
+  <!-- RECURSOS -->
+  <section id="recursos">
+    <div class="wrap">
+      <div class="titulo surge">
+        <span class="tag">Tudo num lugar só</span>
+        <h2>E tudo o que a loja precisa, sem complicação</h2>
+        <p>Do aparelho que entra na bancada até o dinheiro no caixa.</p>
+      </div>
+      <div class="recursos">
+        <div class="rec surge"><div class="ic"><svg><use href="#i-os"/></svg></div><h3>Ordens de serviço</h3><p>Abra OS em segundos, controle o status na bancada, imprima o comprovante e registre a garantia.</p></div>
+        <div class="rec surge"><div class="ic"><svg><use href="#i-radar"/></svg></div><h3>Acompanhamento em tempo real</h3><p>O cliente acompanha o conserto por um link. Cada mudança de status aparece na hora.</p></div>
+        <div class="rec surge"><div class="ic"><svg><use href="#i-carrinho"/></svg></div><h3>Vendas e orçamentos</h3><p>Venda de produtos e acessórios, orçamentos para aprovar e recibos prontos para enviar.</p></div>
+        <div class="rec surge"><div class="ic"><svg><use href="#i-caixa"/></svg></div><h3>Estoque de peças e produtos</h3><p>Baixa automática na venda, estoque mínimo e controle de seminovos com IMEI.</p></div>
+        <div class="rec surge"><div class="ic"><svg><use href="#i-grafico"/></svg></div><h3>Financeiro</h3><p>Entradas, saídas, formas de pagamento e lucro real, descontando peças, taxas e despesas.</p></div>
+        <div class="rec surge"><div class="ic"><svg><use href="#i-xml"/></svg></div><h3>Estoque pela nota fiscal</h3><p>Importe o XML da NF-e de compra e o estoque entra sozinho, com controle por lote.</p></div>
+        <div class="rec surge"><div class="ic"><svg><use href="#i-pincel"/></svg></div><h3>A cara da sua loja</h3><p>Sua logo, suas cores e os dados da empresa nos comprovantes e na página do cliente.</p></div>
+        <div class="rec surge"><div class="ic"><svg><use href="#i-loja"/></svg></div><h3>Vitrine online</h3><p>Seus produtos num link. O cliente monta o carrinho, escolhe a hora da retirada e você recebe o aviso.</p><span class="plano">Plano Pro</span></div>
+        <div class="rec surge"><div class="ic"><svg><use href="#i-whats"/></svg></div><h3>Follow-up e pós-venda</h3><p>Agenda de retornos para chamar o cliente no WhatsApp e vender de novo.</p><span class="plano">Plano Pro</span></div>
+        <div class="rec surge"><div class="ic"><svg><use href="#i-alvo"/></svg></div><h3>Metas por funcionário</h3><p>Defina metas da loja e de cada vendedor ou técnico, e acompanhe o resultado.</p><span class="plano">Plano Pro</span></div>
+        <div class="rec surge"><div class="ic"><svg><use href="#i-equipe"/></svg></div><h3>Equipe com permissões</h3><p>Atendente e técnico entram com o próprio login e só veem o que precisam.</p></div>
+        <div class="rec surge"><div class="ic"><svg><use href="#i-nuvem"/></svg></div><h3>Na nuvem, em todo aparelho</h3><p>Celular, tablet ou computador sincronizados. Funciona até sem internet e envia depois.</p></div>
+      </div>
+    </div>
+  </section>
+
   <!-- COMO FUNCIONA -->
   <section>
     <div class="wrap">
       <div class="titulo surge">
         <span class="tag">Como começar</span>
-        <h2>Em poucos minutos sua loja está no ar</h2>
+        <h2>Sem complicação desde o primeiro dia</h2>
+        <p>Em poucos minutos sua loja está pronta para abrir a primeira OS.</p>
       </div>
       <div class="passos">
-        <div class="passo3 surge"><h3>Crie sua conta</h3><p>Cadastre e-mail e senha e dê um nome para a sua loja. Você ganha 7 dias grátis do plano Pro.</p></div>
+        <div class="passo3 surge"><h3>Crie sua conta</h3><p>Cadastre e-mail e senha e dê um nome para a sua loja. Você ganha 7 dias grátis para testar.</p></div>
         <div class="passo3 surge"><h3>Deixe com a cara da loja</h3><p>Coloque sua logo e suas cores, cadastre serviços, peças e produtos.</p></div>
         <div class="passo3 surge"><h3>Chame a equipe</h3><p>Convide atendentes e técnicos pelo e-mail e comece a abrir as OS.</p></div>
       </div>
@@ -426,14 +466,15 @@
     <div class="wrap">
       <div class="titulo surge">
         <span class="tag">Planos</span>
-        <h2>Escolha o plano da sua loja</h2>
-        <p>Teste grátis por 7 dias. Pagamento mensal, sem fidelidade.</p>
+        <h2>Menos de R$ 1,30 por dia</h2>
+        <p>Teste grátis por 7 dias. Pagamento mensal, sem fidelidade. Um único conserto no mês já paga o sistema.</p>
       </div>
       <div class="planos">
         <div class="plano-card surge">
           <h3>Essencial</h3>
           <div class="para">Para a assistência que quer sair do papel.</div>
           <div class="preco"><span class="rs">R$</span><span class="v" data-preco="essencial"></span><span class="m">/mês</span></div>
+          <div class="dia" data-dia="essencial"></div>
           <div class="equipe">Dono + 2 funcionários</div>
           <ul>
             <li><svg><use href="#i-check"/></svg> Ordens de serviço e orçamentos</li>
@@ -450,6 +491,7 @@
           <h3>Pro</h3>
           <div class="para">Para a loja que quer vender mais e fidelizar clientes.</div>
           <div class="preco"><span class="rs">R$</span><span class="v" data-preco="pro"></span><span class="m">/mês</span></div>
+          <div class="dia" data-dia="pro"></div>
           <div class="equipe">Dono + 5 funcionários</div>
           <ul>
             <li><svg><use href="#i-check"/></svg> Tudo do Essencial</li>
@@ -466,6 +508,7 @@
           <h3>Pro Max</h3>
           <div class="para">Para a loja que também emite notas fiscais.</div>
           <div class="preco"><span class="rs">R$</span><span class="v" data-preco="promax"></span><span class="m">/mês</span></div>
+          <div class="dia" data-dia="promax"></div>
           <div class="equipe">Dono + 5 funcionários</div>
           <ul>
             <li><svg><use href="#i-check"/></svg> Tudo do Pro</li>
@@ -475,7 +518,7 @@
           <a class="btn block" data-link="promax" href="#">Assinar o Pro Max</a>
         </div>
       </div>
-      <p class="nota-planos">Todos os planos começam com 7 dias grátis do Pro. Mude de plano quando quiser.</p>
+      <p class="nota-planos">Todo plano começa com 7 dias grátis. A vitrine online é liberada ao assinar o Pro. Mude de plano quando quiser.</p>
     </div>
   </section>
 
@@ -487,8 +530,9 @@
         <h2>Perguntas frequentes</h2>
       </div>
       <div class="faq">
+        <details class="surge" open><summary>É difícil de usar?</summary><p>Não. O Reparo Simples foi feito só para assistência técnica de celular, sem menus sobrando. Abrir uma OS leva segundos e a equipe aprende no primeiro dia. No plano Pro, você ainda escolhe quais módulos aparecem.</p></details>
         <details class="surge"><summary>Preciso instalar alguma coisa?</summary><p>Não. O Reparo Simples abre no navegador do celular, do tablet ou do computador. No celular, dá para adicionar à tela inicial e usar como um aplicativo.</p></details>
-        <details class="surge"><summary>Como funciona o teste grátis?</summary><p>Ao criar a conta, sua loja ganha 7 dias do plano Pro, com todos os recursos liberados. Depois, é só escolher o plano para continuar.</p></details>
+        <details class="surge"><summary>Como funciona o teste grátis?</summary><p>Ao criar a conta, sua loja ganha 7 dias grátis para testar OS, acompanhamento do cliente, vendas, estoque, financeiro, follow-up e metas. A vitrine online é liberada quando você assina o plano Pro.</p></details>
         <details class="surge"><summary>E se a internet cair?</summary><p>O sistema continua funcionando no aparelho. Quando a conexão volta, tudo é enviado para a nuvem automaticamente.</p></details>
         <details class="surge"><summary>Meus funcionários veem o financeiro?</summary><p>Não. O atendente e o técnico entram com o próprio login e só veem o que o cargo permite. Financeiro e relatórios ficam com o dono.</p></details>
         <details class="surge"><summary>Posso cancelar quando quiser?</summary><p>Sim. O plano é mensal, sem fidelidade. Se cancelar, você continua com acesso até o fim do período já pago.</p></details>
@@ -502,13 +546,15 @@
     <div class="wrap">
       <div class="final surge">
         <svg style="width:72px;height:72px;margin:0 auto 18px"><use href="#logo"/></svg>
-        <h2>Organize sua assistência hoje</h2>
-        <p>Comece com 7 dias grátis. Em poucos minutos sua loja está pronta para abrir a primeira OS.</p>
+        <h2>Menos tempo com sistema. Mais tempo consertando.</h2>
+        <p>Comece com 7 dias grátis. Depois, a partir de R$ 1,26 por dia, sem fidelidade.</p>
         <a class="btn primary" data-link="teste" href="#planos">Começar teste grátis <svg><use href="#i-seta"/></svg></a>
       </div>
     </div>
   </section>
 </main>
+
+<a class="cta-fixo" id="cta-fixo" data-link="teste" href="#planos"><span>7 dias grátis · <b>R$ 1,26/dia</b> depois</span><b>Testar agora</b></a>
 
 <footer>
   <div class="wrap">
@@ -545,6 +591,21 @@
   });
   document.getElementById('ano').textContent = new Date().getFullYear();
 
+
+
+  // preço por dia nos cartões dos planos
+  document.querySelectorAll('[data-dia]').forEach(el => {
+    const v = parseFloat(String(CONFIG.precos[el.dataset.dia] || '').replace('.', '').replace(',', '.'));
+    el.textContent = v > 0 ? 'Só R$ ' + (v / 30).toFixed(2).replace('.', ',') + ' por dia' : '';
+  });
+  // barra fixa (celular): aparece depois da abertura e some na seção de planos e no final
+  const fixo = document.getElementById('cta-fixo'), hero = document.querySelector('.hero');
+  if (fixo && hero && 'IntersectionObserver' in window) {
+    const vis = new Set();
+    const atualiza = () => fixo.classList.toggle('on', !vis.has('hero') && !vis.has('planos') && !vis.has('final'));
+    const obs = new IntersectionObserver(es => { es.forEach(e => e.isIntersecting ? vis.add(e.target.dataset.obs) : vis.delete(e.target.dataset.obs)); atualiza(); }, { threshold: .15 });
+    [[hero, 'hero'], [document.getElementById('planos'), 'planos'], [document.querySelector('.final'), 'final']].forEach(([el, k]) => { if (el) { el.dataset.obs = k; obs.observe(el); } });
+  }
 
   // telas do acompanhamento: destaca uma etapa por vez
   const telas = [...document.querySelectorAll('.tela-real')]; let etapa = 0;
