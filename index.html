@@ -182,6 +182,26 @@
     footer { padding-bottom: 90px; }
   }
 
+
+  /* comparativo */
+  .comparar { display: grid; grid-template-columns: 1fr 1fr 1.15fr; gap: 18px; align-items: stretch; }
+  .cmp { position: relative; display: flex; flex-direction: column; background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: 26px 24px; }
+  .cmp h3 { margin: 0 0 16px; font-size: 19px; }
+  .cmp-ic { width: 48px; height: 48px; border-radius: 14px; display: grid; place-items: center; background: #1c1c1c; color: #8a8a8a; margin-bottom: 14px; }
+  .cmp-ic svg { width: 24px; height: 24px; }
+  .cmp ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; align-content: start; flex: 1; }
+  .cmp li { display: flex; gap: 10px; font-size: 15px; line-height: 1.45; }
+  .cmp li svg { width: 18px; height: 18px; flex: none; margin-top: 2px; color: var(--green); }
+  .cmp li.nao { color: var(--muted); }
+  .cmp li.nao svg { color: #f87171; }
+  .cmp.rs { border: 1px solid transparent; background: linear-gradient(var(--card), var(--card)) padding-box, var(--grad) border-box; box-shadow: 0 20px 60px rgba(212,175,55,.16); }
+  .cmp.rs .cmp-ic { background: none; width: 52px; height: 52px; }
+  .cmp.rs .cmp-ic svg { width: 52px; height: 52px; }
+  .cmp.rs h3 { font-size: 22px; }
+  .cmp.rs .btn { margin-top: 22px; }
+  .cmp-faixa { position: absolute; top: -13px; left: 24px; background: var(--grad); color: #111; font-size: 12px; font-weight: 800; padding: 5px 12px; border-radius: 999px; }
+  @media (max-width: 900px) { .comparar { grid-template-columns: 1fr; max-width: 520px; margin: 0 auto; } }
+
   /* como funciona */
   .passos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; counter-reset: p; }
   .passo3 { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 24px; }
@@ -252,6 +272,8 @@
         <g mask="url(#lg-boca)" fill="url(#lg-ouro)"><circle cx="256" cy="150" r="74"/><rect x="234" y="190" width="44" height="236" rx="22"/><circle cx="256" cy="398" r="9" fill="#0b0b0b"/></g>
       </g>
     </symbol>
+    <symbol id="i-pc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="13" rx="2"/><path d="M8 21h8M12 16v5"/></symbol>
+    <symbol id="i-camadas" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 10 5-10 5L2 7z"/><path d="m2 12 10 5 10-5M2 17l10 5 10-5"/></symbol>
     <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></symbol>
     <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></symbol>
     <symbol id="i-seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
@@ -345,6 +367,53 @@
           <div class="x"><svg><use href="#i-x"/></svg> Atendimento sobrecarregado</div>
           <p>Ligações e mensagens perguntando sobre o reparo interrompem o balcão e a bancada o dia todo.</p>
           <div class="v"><svg><use href="#i-check"/></svg> O cliente acompanha o reparo por um link, em tempo real, com a identidade da sua loja.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARATIVO -->
+  <section id="comparativo" style="padding-top:24px">
+    <div class="wrap">
+      <div class="titulo surge">
+        <span class="tag">Compare</span>
+        <h2>Por que as assistências estão trocando de sistema</h2>
+        <p>Veja a diferença entre as opções mais comuns no mercado e o Reparo Simples.</p>
+      </div>
+      <div class="comparar">
+        <div class="cmp surge">
+          <div class="cmp-ic"><svg><use href="#i-pc"/></svg></div>
+          <h3>Sistema instalado no computador</h3>
+          <ul>
+            <li class="nao"><svg><use href="#i-x"/></svg><span>Dados salvos só no computador da loja</span></li>
+            <li class="nao"><svg><use href="#i-x"/></svg><span>O computador estragou ou foi roubado: as informações vão junto</span></li>
+            <li class="nao"><svg><use href="#i-x"/></svg><span>Acesso apenas de dentro da loja</span></li>
+            <li class="nao"><svg><use href="#i-x"/></svg><span>Backup depende de alguém lembrar de fazer</span></li>
+          </ul>
+        </div>
+        <div class="cmp surge">
+          <div class="cmp-ic"><svg><use href="#i-camadas"/></svg></div>
+          <h3>Sistemas de gestão genéricos</h3>
+          <ul>
+            <li class="nao"><svg><use href="#i-x"/></svg><span>Feitos para qualquer tipo de comércio, não para assistência técnica</span></li>
+            <li class="nao"><svg><use href="#i-x"/></svg><span>Muitas telas e configurações, com treinamento longo</span></li>
+            <li class="nao"><svg><use href="#i-x"/></svg><span>Mensalidade alta por módulos que a loja não usa</span></li>
+            <li class="nao"><svg><use href="#i-x"/></svg><span>Sem acompanhamento do reparo para o cliente</span></li>
+          </ul>
+        </div>
+        <div class="cmp rs surge">
+          <span class="cmp-faixa">A solução</span>
+          <div class="cmp-ic"><svg><use href="#logo"/></svg></div>
+          <h3>Reparo <span class="gold">Simples</span></h3>
+          <ul>
+            <li><svg><use href="#i-check"/></svg><span>Dados na nuvem: se o computador estragar, é só entrar em outro aparelho e continuar de onde parou</span></li>
+            <li><svg><use href="#i-check"/></svg><span>Acesso pelo celular, tablet ou computador, de qualquer lugar</span></li>
+            <li><svg><use href="#i-check"/></svg><span>Feito exclusivamente para assistência técnica de celulares</span></li>
+            <li><svg><use href="#i-check"/></svg><span>Cliente acompanha o reparo em tempo real, com a sua marca</span></li>
+            <li><svg><use href="#i-check"/></svg><span>Backup completo para baixar quando quiser</span></li>
+            <li><svg><use href="#i-check"/></svg><span>A partir de <b class="gold">R$ 1,26 por dia</b>, sem fidelidade</span></li>
+          </ul>
+          <a class="btn primary block" data-link="teste" href="#planos">Testar grátis por 7 dias</a>
         </div>
       </div>
     </div>
