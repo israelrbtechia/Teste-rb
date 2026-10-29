@@ -584,7 +584,7 @@
             <li class="mais"><svg><use href="#i-check"/></svg><span>40 notas fiscais por mês <span class="em-breve">em breve</span></span></li>
             <li class="mais"><svg><use href="#i-check"/></svg><span>Pacotes de notas extras <span class="em-breve">em breve</span></span></li>
           </ul>
-          <a class="btn block" data-link="promax" href="#">Assinar o Pro Max</a>
+          <span class="btn block" aria-disabled="true" style="opacity:.6;cursor:default">Em breve</span>
         </div>
       </div>
       <p class="nota-planos">Todos os planos começam com 7 dias de teste grátis. A vitrine online é liberada na assinatura do Pro. Troque de plano quando quiser.</p>
@@ -641,9 +641,9 @@
     checkout: {
       essencial: 'https://pay.kiwify.com.br/f3hCYii',
       pro: 'https://pay.kiwify.com.br/zhBYoDf',
-      promax: 'https://pay.kiwify.com.br/OTYNjjD',
+      promax: '',   // Pro Max ainda não está à venda (botão "Em breve")
     },
-    precos: { essencial: '37,90', pro: '77,90', promax: 'Consulte' },  // confira se bate com a Kiwify
+    precos: { essencial: '37,90', pro: '77,90', promax: 'Em breve' },  // confira se bate com a Kiwify
   };
   /* ============================== */
 
