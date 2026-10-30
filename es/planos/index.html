@@ -338,6 +338,23 @@
   @media (max-width: 900px) { .hero .fone { display: none; } .hero { padding-bottom: 24px; } }
   @media (max-width: 600px) { .recursos.q4 .rec { padding: 18px; } .recursos.q4 .rec .ic { margin-bottom: 10px; } }
 </style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1395792166092365');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1395792166092365&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
 </head>
 <body>
 
@@ -699,6 +716,16 @@
     if (/^https?:/.test(url)) { a.target = '_blank'; a.rel = 'noopener'; }
   });
   document.getElementById('ano').textContent = new Date().getFullYear();
+
+  // Meta Pixel: clique em comprar (InitiateCheckout, com plano, valor e moeda) e em teste grátis (StartTrial)
+  document.querySelectorAll('a[data-link]').forEach(a => a.addEventListener('click', () => {
+    if (typeof fbq !== 'function') return;
+    const k = a.dataset.link;
+    if (k === 'teste') return fbq('track', 'StartTrial');
+    const bruto = String(CONFIG.precos[k] || '');
+    const valor = Number(bruto.includes(',') ? bruto.replace(/\./g, '').replace(',', '.') : bruto.replace(/\./g, ''));
+    fbq('track', 'InitiateCheckout', { content_name: k === 'pro' ? 'Plano Pro' : 'Plano Essencial', value: valor || 0, currency: 'CLP' });
+  }));
   // precio por día (pesos chilenos, sin decimales)
   document.querySelectorAll('[data-dia]').forEach(el => {
     const v = Number(String(CONFIG.precos[el.dataset.dia] || '').replace(/\./g, '').replace(',', '.'));
