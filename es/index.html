@@ -547,7 +547,7 @@
     <div class="wrap">
       <div class="titulo surge">
         <span class="tag">Planes</span>
-        <h2>Empieza gratis y elige tu plan después</h2>
+        <h2>Gestión completa por menos de CLP 1.200 al día</h2>
         <p>7 días de prueba gratis, sin tarjeta. Plan mensual, sin permanencia. Una sola reparación al mes cubre la inversión.</p>
       </div>
       <div class="planos">
@@ -652,12 +652,12 @@
   const CONFIG = {
     site: 'https://reparorb.vercel.app/?idioma=es&cadastro=1',   // prueba gratis: abre el registro ya en español
     checkout: {
-      essencial: '',   // ej.: enlace de pago de Stripe del plan Esencial
+      essencial: '',   // enlace de pago de la Hotmart del plan Esencial (vacío: va a la prueba gratis)
       pro: '',
       promax: '',      // Pro Max todavía no está a la venta ("Próximamente")
     },
-    moneda: 'US$',
-    precos: { essencial: '', pro: '', promax: 'Próximamente' },   // ej.: '9.90'
+    moneda: 'CLP',
+    precos: { essencial: '20.000', pro: '34.000', promax: 'Próximamente' },   // pesos chilenos (igual que en la Hotmart)
   };
   /* ============================== */
 
@@ -677,8 +677,8 @@
 
   // precio por día en las tarjetas (solo cuando hay precio)
   document.querySelectorAll('[data-dia]').forEach(el => {
-    const v = parseFloat(String(CONFIG.precos[el.dataset.dia] || '').replace(',', '.'));
-    el.textContent = v > 0 ? 'Solo ' + CONFIG.moneda + ' ' + (v / 30).toFixed(2) + ' por día' : (CONFIG.precos[el.dataset.dia] ? '' : 'Después, elige si quieres suscribirte');
+    const v = Number(String(CONFIG.precos[el.dataset.dia] || '').replace(/\./g, '').replace(',', '.'));
+    el.textContent = v > 0 ? 'Solo ' + CONFIG.moneda + ' ' + Math.round(v / 30).toLocaleString('es-CL') + ' por día' : (CONFIG.precos[el.dataset.dia] ? '' : 'Después, elige si quieres suscribirte');
   });
   // barra fija (celular): aparece después de la portada y se oculta en planes y al final
   const fixo = document.getElementById('cta-fixo'), hero = document.querySelector('.hero');
