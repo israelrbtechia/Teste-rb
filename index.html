@@ -294,6 +294,20 @@
   .oferta-final .btn { min-width: min(100%, 340px); }
   #funcionando .vt-bloco { margin-top: 64px; }
   details p a { text-decoration: underline; }
+  /* teste grátis */
+  .teste-faixa { display: grid; grid-template-columns: 1fr auto; gap: 28px; align-items: center; background: linear-gradient(135deg, #111, #070707); border: 1px solid rgba(212, 175, 55, .35); border-radius: 26px; padding: 36px; }
+  .teste-faixa h2 { margin: 8px 0 8px; font-size: clamp(24px, 3.2vw, 34px); }
+  .teste-faixa > div > p { color: var(--muted); margin: 0 0 18px; }
+  .teste-faixa .tag { font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); }
+  .passos-t { list-style: none; counter-reset: t; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .passos-t li { counter-increment: t; font-size: 14px; color: var(--muted); }
+  .passos-t li::before { content: counter(t); display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: var(--gold-soft); border: 1px solid rgba(212, 175, 55, .4); color: var(--gold-2); font-weight: 800; margin-bottom: 8px; }
+  .passos-t b { display: block; color: var(--text); font-size: 15px; }
+  .teste-acao { text-align: center; }
+  .teste-acao small { display: block; color: var(--muted); font-size: 13px; margin-top: 10px; max-width: 260px; }
+  .ctas-hero { display: flex; gap: 12px; flex-wrap: wrap; }
+  @media (max-width: 900px) { .teste-faixa { grid-template-columns: 1fr; padding: 28px 22px; } .teste-acao small { max-width: none; } }
+  @media (max-width: 600px) { .passos-t { grid-template-columns: 1fr; } .ctas-hero .btn { width: 100%; } }
   .seguro.centro { text-align: center; }
   /* celular: o exemplo do topo sai para a oferta aparecer antes; benefícios mais compactos */
   @media (max-width: 900px) { .hero .fone { display: none; } .hero { padding-bottom: 24px; } }
@@ -350,7 +364,7 @@
     </nav>
     <div class="acoes">
       <div class="idioma" role="group" aria-label="Idioma"><a href="/es/" hreflang="es" lang="es" title="Español">ES</a><a class="on" href="/" hreflang="pt-BR" aria-current="true" title="Português">PT</a></div>
-      <a class="btn" href="#oferta">Ver oferta</a>
+      <a class="btn primary" data-link="teste" href="#teste">Testar grátis</a>
     </div>
   </div>
 </header>
@@ -369,7 +383,10 @@
           <li><svg><use href="#i-check"/></svg> Lucro real do dia, já descontando peças e taxas</li>
           <li><svg><use href="#i-check"/></svg> Funciona no celular e no computador, sem instalar</li>
         </ul>
-        <a class="btn primary" href="#oferta">Ver o plano e o preço <svg><use href="#i-seta"/></svg></a>
+        <div class="ctas-hero">
+          <a class="btn primary" href="#oferta">Ver o plano e o preço <svg><use href="#i-seta"/></svg></a>
+          <a class="btn" data-link="teste" href="#teste">Testar grátis por 7 dias</a>
+        </div>
       </div>
       <div class="fone" aria-hidden="true">
         <div class="tela">
@@ -527,6 +544,24 @@
         <details class="surge"><summary>Como recebo o acesso?</summary><p>Depois do pagamento, crie sua conta com o mesmo e-mail da compra: o plano Pro é ativado na hora.</p></details>
         <details class="surge"><summary>Emite nota fiscal?</summary><p>A emissão de notas fiscais não está no Pro: ela chega em breve num plano próprio. O Pro já dá entrada no estoque pelo XML da nota de compra.</p></details>
         <details class="surge"><summary>Posso testar antes de pagar?</summary><p>Pode. Crie sua conta e use <a class="gold" data-link="teste" href="#">7 dias grátis</a>.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTE GRÁTIS -->
+  <section id="teste" class="curta">
+    <div class="wrap">
+      <div class="teste-faixa surge">
+        <div>
+          <span class="tag">Teste grátis</span>
+          <h2>Teste grátis por 7 dias antes de assinar</h2>
+          <p>Crie sua conta e use o sistema na sua loja. Sem cartão de crédito.</p>
+          <ol class="passos-t"><li><b>Crie sua conta</b>E-mail, senha e o nome da loja. O teste começa na hora.</li><li><b>Configure a sua cara</b>Sua logo, suas cores, serviços, peças e produtos.</li><li><b>Use com a equipe</b>Abra OS, venda e acompanhe o financeiro de verdade.</li></ol>
+        </div>
+        <div class="teste-acao">
+          <a class="btn grande" data-link="teste" href="#">Começar o teste grátis <svg><use href="#i-seta"/></svg></a>
+          <small>A vitrine online é liberada quando você assina.</small>
+        </div>
       </div>
     </div>
   </section>
