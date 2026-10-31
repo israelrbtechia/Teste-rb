@@ -610,7 +610,8 @@ src="https://www.facebook.com/tr?id=1395792166092365&ev=PageView&noscript=1"
   /* ========= EDITE AQUI =========
      Página do plano Essencial: link de checkout (Kiwify) e preço mostrados nos dois blocos de oferta. */
   const CONFIG = {
-    site: 'https://reparorb.vercel.app/?idioma=pt&cadastro=1',   // teste grátis (link nas dúvidas)
+    site: 'https://app.reparosimples.com/?idioma=pt&cadastro=1',   // teste grátis: cadastro no sistema
+    siteReserva: 'https://reparorb.vercel.app/?idioma=pt&cadastro=1',   // usado se o endereço novo não responder
     checkout: {
       pro: 'https://pay.kiwify.com.br/shZh8Ji',          // não aparece nesta página
       essencial: 'https://pay.kiwify.com.br/f3hCYii',
@@ -620,12 +621,19 @@ src="https://www.facebook.com/tr?id=1395792166092365&ev=PageView&noscript=1"
   /* ============================== */
 
   document.querySelectorAll('[data-preco]').forEach(el => { el.textContent = CONFIG.precos[el.dataset.preco] || ''; });
+  // teste grátis: começa no endereço de reserva (sempre no ar) e passa para o novo assim que ele responder
+  const linkTeste = url => document.querySelectorAll('a[data-link="teste"]').forEach(a => { a.href = url; });
   document.querySelectorAll('[data-link]').forEach(a => {
     const k = a.dataset.link;
-    const url = k === 'teste' ? CONFIG.site : (CONFIG.checkout[k] || CONFIG.site);
+    const url = k === 'teste' ? CONFIG.siteReserva : (CONFIG.checkout[k] || CONFIG.siteReserva);
     a.href = url;
     if (/^https?:/.test(url)) { a.target = '_blank'; a.rel = 'noopener'; }
   });
+  (() => {
+    const ctl = 'AbortController' in window ? new AbortController() : null; const tempo = setTimeout(() => ctl && ctl.abort(), 5000);
+    fetch(new URL('/versao.json', CONFIG.site).href, { mode: 'no-cors', cache: 'no-store', signal: ctl && ctl.signal })
+      .then(() => linkTeste(CONFIG.site)).catch(() => {}).finally(() => clearTimeout(tempo));
+  })();
   document.getElementById('ano').textContent = new Date().getFullYear();
 
   // Meta Pixel: clique em comprar (InitiateCheckout, com plano, valor e moeda) e em teste grátis (StartTrial)
