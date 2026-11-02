@@ -349,6 +349,20 @@
   .barra-compra .t { flex: 1; font-size: 14px; line-height: 1.3; color: #ddd; }
   .barra-compra .t b { color: var(--gold, #d4af37); font-size: 16px; }
   .barra-compra .btn { min-height: 46px; padding: 10px 18px; white-space: nowrap; }
+  .demo-grid { display: grid; grid-template-columns: auto 1fr; grid-template-areas: "fone topo" "fone lado"; column-gap: 48px; align-items: end; }
+  .demo-topo { grid-area: topo; } .demo-fone { grid-area: fone; } .demo-lado { grid-area: lado; align-self: start; }
+  .demo-fone { position: relative; width: min(300px, 76vw); aspect-ratio: 390 / 844; border: 10px solid #1b1b1b; border-radius: 44px; overflow: hidden; background: #000;
+    box-shadow: 0 0 0 1px rgba(212,175,55,.35), 0 30px 80px rgba(0,0,0,.6), 0 0 60px rgba(212,175,55,.12); margin: 0 auto; }
+  .demo-fone video { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .demo-play { position: absolute; inset: 0; margin: auto; width: 72px; height: 72px; border-radius: 50%; border: 0; cursor: pointer; display: grid; place-items: center;
+    background: linear-gradient(135deg,#f7e08a,#d4af37 55%,#b8860b); box-shadow: 0 10px 30px rgba(0,0,0,.5); transition: opacity .2s; }
+  .demo-play svg { width: 34px; height: 34px; fill: #111; margin-left: 4px; }
+  .demo-fone.tocando .demo-play { opacity: 0; pointer-events: none; }
+  .demo-passos { list-style: none; padding: 0; margin: 22px 0 26px; display: grid; gap: 16px; }
+  .demo-passos li { display: flex; gap: 14px; align-items: flex-start; }
+  .demo-passos li > b { flex: none; width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; background: rgba(212,175,55,.14); color: var(--gold, #d4af37); border: 1px solid rgba(212,175,55,.45); }
+  .demo-passos h3 { margin: 2px 0 2px; font-size: 18px; } .demo-passos p { margin: 0; color: var(--muted, #a3a3a3); font-size: 15px; }
+  @media (max-width: 900px) { .demo-grid { grid-template-columns: 1fr; grid-template-areas: "topo" "fone" "lado"; row-gap: 22px; } .demo-topo { text-align: center; } #demo .btn { width: 100%; } }
   @media (max-width: 900px) { .barra-compra { display: flex; } body { padding-bottom: 76px; } .hero h1 { font-size: clamp(34px, 9.4vw, 44px); } }
 </style>
 <!-- Meta Pixel Code -->
@@ -414,7 +428,7 @@ src="https://www.facebook.com/tr?id=1395792166092365&ev=PageView&noscript=1"
     <a class="marca" href="#topo"><svg><use href="#logo"/></svg> <span>Reparo <span class="gold">Simples</span></span></a>
     <nav>
       <a href="#beneficios">Benefícios</a>
-      <a href="#funcionando">Veja funcionando</a>
+      <a href="#demo">Veja funcionando</a>
       <a href="#duvidas">Dúvidas</a>
     </nav>
     <div class="acoes">
@@ -520,6 +534,19 @@ src="https://www.facebook.com/tr?id=1395792166092365&ev=PageView&noscript=1"
         <div class="rec surge"><div class="ic"><svg><use href="#i-loja"/></svg></div><h3>Venda pelo link</h3><p>Produtos e seminovos numa vitrine. O cliente reserva e você recebe o aviso na hora.</p></div>
         <div class="rec surge"><div class="ic"><svg><use href="#i-grafico"/></svg></div><h3>Lucro de verdade</h3><p>Faturamento, custos e lucro do dia, descontando peças, taxas de cartão e despesas.</p></div>
         <div class="rec surge"><div class="ic"><svg><use href="#i-os"/></svg></div><h3>OS em segundos</h3><p>Telas diretas, feitas para assistência. A equipe aprende no primeiro dia.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEMO: vídeo real do sistema -->
+  <section id="demo" class="curta">
+    <div class="wrap demo-grid">
+      <div class="demo-topo"><h2>Veja funcionando em 30 segundos</h2><p class="lead" style="margin-top:6px">Gravado no próprio sistema: da OS aberta ao lucro no painel.</p></div>
+      <div class="demo-fone"><video id="demo-video" muted playsinline loop preload="none" poster="/planos/m/demo-poster.jpg" aria-label="Vídeo do sistema: abrindo uma ordem de serviço, o cliente acompanhando o reparo e o lucro do dia no painel"><source src="/planos/m/demo.mp4" type="video/mp4"></video>
+        <button type="button" class="demo-play" id="demo-play" aria-label="Play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button></div>
+      <div class="demo-lado">
+        <ol class="demo-passos"><li><b>1</b><div><h3>Abra a OS em segundos</h3><p>Cliente, aparelho, defeito e valor em poucos toques.</p></div></li><li><b>2</b><div><h3>O cliente acompanha pelo link</h3><p>Ele vê o conserto ficar pronto, sem ligar para a loja.</p></div></li><li><b>3</b><div><h3>Veja o lucro real do dia</h3><p>Faturamento e lucro já descontando peças e taxas.</p></div></li></ol>
+        <a class="btn primary" data-link="teste" href="#teste">Testar grátis por 7 dias <svg><use href="#i-seta"/></svg></a>
       </div>
     </div>
   </section>
@@ -766,6 +793,14 @@ src="https://www.facebook.com/tr?id=1395792166092365&ev=PageView&noscript=1"
   const io = 'IntersectionObserver' in window ? new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } }), { threshold: 0, rootMargin: '0px 0px 20% 0px' }) : null;
   document.querySelectorAll('.surge').forEach(el => io ? io.observe(el) : el.classList.add('on'));
 
+  // vídeo demonstrativo: começa a baixar e tocar quando chega perto da tela; toque pausa/continua
+  const dv = document.getElementById('demo-video'), dbox = dv && dv.parentElement, dplay = document.getElementById('demo-play');
+  if (dv) {
+    const tocar = () => dv.play().then(() => dbox.classList.add('tocando')).catch(() => dbox.classList.remove('tocando'));
+    dv.addEventListener('pause', () => dbox.classList.remove('tocando')); dv.addEventListener('playing', () => dbox.classList.add('tocando'));
+    dplay.onclick = tocar; dv.onclick = () => dv.paused ? tocar() : dv.pause();
+    if ('IntersectionObserver' in window) new IntersectionObserver(es => es.forEach(e => e.isIntersecting ? tocar() : dv.pause()), { threshold: .35 }).observe(dv);
+  }
   // barra fixa: aparece depois do topo e some enquanto os planos estão na tela
   const barra = document.getElementById('barra-compra'), topo = document.querySelector('.hero'), planos = document.querySelectorAll('#oferta, #assinar');
   if (barra && 'IntersectionObserver' in window) {
