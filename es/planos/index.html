@@ -344,7 +344,13 @@
   .dores li { display: flex; gap: 10px; font-size: 16.5px; font-weight: 600; line-height: 1.35; }
   .dores svg { width: 20px; height: 20px; color: #f87171; flex: none; margin-top: 2px; }
   .ancora { margin: 0 0 18px; font-size: 15px; color: var(--muted, #a3a3a3); }
-  .ancora b { color: var(--gold, #d4af37); font-size: 17px; }
+  .ancora b { color: var(--gold, #d4af37); font-size: 16px; }
+  .resumo { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .res { display: flex; gap: 12px; align-items: flex-start; background: linear-gradient(180deg, var(--card-2), var(--card)); border: 1px solid var(--line); border-radius: 16px; padding: 16px; }
+  .res .ic { flex: none; width: 38px; height: 38px; border-radius: 11px; display: grid; place-items: center; background: var(--gold-soft); color: var(--gold); }
+  .res .ic svg { width: 19px; height: 19px; }
+  .res b { display: block; font-size: 15.5px; line-height: 1.3; margin-bottom: 3px; } .res span { display: block; color: var(--muted); font-size: 14px; line-height: 1.35; }
+  @media (max-width: 900px) { .resumo { grid-template-columns: 1fr 1fr; gap: 10px; } .res { flex-direction: column; gap: 8px; padding: 14px; } .res b { font-size: 14.5px; } .res span { font-size: 13px; } }
   .barra-compra { position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; display: none; align-items: center; gap: 12px;
     padding: 10px 16px calc(10px + env(safe-area-inset-bottom, 0px)); background: rgba(10,10,10,.92);
     -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); border-top: 1px solid rgba(212,175,55,.35);
@@ -449,12 +455,12 @@ src="https://www.facebook.com/tr?id=1395792166092365&ev=PageView&noscript=1"
       <div>
         <span class="selo">Para dueños de talleres de reparación de celulares</span>
         <h1>Tu taller está <span class="grad-text">perdiendo dinero</span> y ni te das cuenta.</h1>
-        <p class="lead">Órdenes en un cuaderno, repuestos usados y no cobrados, clientes llamando a cada rato y fin de mes sin saber cuánto quedó. ReparaYa pone todo bajo control, desde el celular.</p>
+        <p class="lead">ReparaYa pone tu taller bajo control, desde el celular. Mira si alguno de estos te pasa:</p>
         <ul class="dores"><li><svg><use href="#i-x"/></svg> Órdenes olvidadas y equipos parados en el mesón</li><li><svg><use href="#i-x"/></svg> Repuesto usado en la reparación y no cobrado al cliente</li><li><svg><use href="#i-x"/></svg> Clientes llamando a cada rato: “¿ya está listo?”</li><li><svg><use href="#i-x"/></svg> Fin de mes sin saber cuánto ganaste de verdad</li></ul>
-        <p class="ancora">Planes desde <b>CLP <span data-preco="essencial"></span>/mes</b> · 7 días gratis · sin permanencia</p>
+        <p class="ancora"><b>7 días gratis</b> · sin tarjeta de crédito · sin permanencia</p>
         <div class="ctas-hero">
-          <a class="btn primary" href="#oferta">Ver planes y precios <svg><use href="#i-seta"/></svg></a>
-          <a class="btn" data-link="teste" href="#teste">Probar gratis 7 días</a>
+          <a class="btn primary" data-link="teste" href="#teste">Probar gratis 7 días <svg><use href="#i-seta"/></svg></a>
+          <a class="btn" href="#demo">Míralo funcionando</a>
         </div>
       </div>
       <div class="fone" aria-hidden="true">
@@ -470,75 +476,13 @@ src="https://www.facebook.com/tr?id=1395792166092365&ev=PageView&noscript=1"
     </div>
   </section>
 
-  <!-- OFERTA 1: comparativo de los planes -->
-  <section id="oferta" class="curta">
-    <div class="wrap">
-      <div class="titulo surge">
-        <h2>Elige tu plan</h2>
-      </div>
-      <div class="comp-planos">
-          <div class="cp surge">
-            <h3>Esencial</h3>
-            <div class="cp-para">Para organizar la operación</div>
-            <div class="preco"><span class="rs">CLP</span><span class="v" data-preco="essencial"></span><span class="m">/mes</span></div>
-            <div class="dia" data-dia="essencial"></div>
-            <div class="cp-equipe">Dueño + 2 empleados</div>
-            <a class="btn block grande" data-link="essencial" href="#">Suscribirme al Esencial <svg><use href="#i-seta"/></svg></a>
-            <ul>
-              <li><svg><use href="#i-check"/></svg><span>Órdenes de servicio, presupuestos y garantía en PDF</span></li>
-              <li><svg><use href="#i-check"/></svg><span>Seguimiento de la reparación en tiempo real para el cliente</span></li>
-              <li><svg><use href="#i-check"/></svg><span>Ventas, recibos y caja</span></li>
-              <li><svg><use href="#i-check"/></svg><span>Inventario de repuestos, productos y seminuevos con IMEI</span></li>
-              <li><svg><use href="#i-check"/></svg><span>Control de inventario por lotes</span></li>
-              <li><svg><use href="#i-check"/></svg><span>Finanzas con ganancia real</span></li>
-              <li><svg><use href="#i-check"/></svg><span>Tu logo, tus colores y los datos de la empresa</span></li>
-              <li><svg><use href="#i-check"/></svg><span>Datos en la nube y respaldo para descargar</span></li>
-              <li class="nao"><svg><use href="#i-x"/></svg><span>Vitrina online con carrito y retiro en tienda</span><em class="sr">no incluido</em></li>
-              <li class="nao"><svg><use href="#i-x"/></svg><span>Seguimiento y posventa por WhatsApp</span><em class="sr">no incluido</em></li>
-              <li class="nao"><svg><use href="#i-x"/></svg><span>Metas de la tienda y por empleado</span><em class="sr">no incluido</em></li>
-              <li class="nao"><svg><use href="#i-x"/></svg><span>Elegir los módulos que se muestran</span><em class="sr">no incluido</em></li>
-            </ul>
-          </div>
-          <div class="cp top surge">
-            <span class="faixa-cp">Más completo</span>
-            <h3>Pro</h3>
-            <div class="cp-para">Para vender más y fidelizar clientes</div>
-            <div class="preco"><span class="rs">CLP</span><span class="v" data-preco="pro"></span><span class="m">/mes</span></div>
-            <div class="dia" data-dia="pro"></div>
-            <div class="cp-equipe">Dueño + 5 empleados</div>
-            <a class="btn primary block grande" data-link="pro" href="#">Suscribirme al Pro <svg><use href="#i-seta"/></svg></a>
-            <ul>
-              <li><svg><use href="#i-check"/></svg><span>Órdenes de servicio, presupuestos y garantía en PDF</span></li>
-              <li><svg><use href="#i-check"/></svg><span>Seguimiento de la reparación en tiempo real para el cliente</span></li>
-              <li><svg><use href="#i-check"/></svg><span>Ventas, recibos y caja</span></li>
-              <li><svg><use href="#i-check"/></svg><span>Inventario de repuestos, productos y seminuevos con IMEI</span></li>
-              <li><svg><use href="#i-check"/></svg><span>Control de inventario por lotes</span></li>
-              <li><svg><use href="#i-check"/></svg><span>Finanzas con ganancia real</span></li>
-              <li><svg><use href="#i-check"/></svg><span>Tu logo, tus colores y los datos de la empresa</span></li>
-              <li><svg><use href="#i-check"/></svg><span>Datos en la nube y respaldo para descargar</span></li>
-              <li><svg><use href="#i-check"/></svg><span>Vitrina online con carrito y retiro en tienda</span></li>
-              <li><svg><use href="#i-check"/></svg><span>Seguimiento y posventa por WhatsApp</span></li>
-              <li><svg><use href="#i-check"/></svg><span>Metas de la tienda y por empleado</span></li>
-              <li><svg><use href="#i-check"/></svg><span>Elegir los módulos que se muestran</span></li>
-            </ul>
-          </div>
-        </div>
-        <p class="seguro centro"><svg><use href="#i-escudo"/></svg> Plan mensual, sin permanencia · Cancela cuando quieras · Pago seguro por Hotmart</p>
-    </div>
-  </section>
-
   <!-- BENEFICIOS -->
   <section id="beneficios" class="curta">
     <div class="wrap">
       <div class="titulo surge">
         <h2>Control total de tu taller. Sin papeles y sin adivinar.</h2>
       </div>
-      <div class="recursos q4">
-        <div class="rec surge"><div class="ic"><svg><use href="#i-radar"/></svg></div><h3>Adiós al "¿ya está listo mi celular?"</h3><p>El cliente recibe un enlace por WhatsApp y ve cada etapa de la reparación, con tu marca.</p></div>
-        <div class="rec surge"><div class="ic"><svg><use href="#i-loja"/></svg></div><h3>Vende con un enlace</h3><p>Productos y seminuevos en una vitrina. El cliente reserva y tú recibes el aviso al instante.</p></div>
-        <div class="rec surge"><div class="ic"><svg><use href="#i-grafico"/></svg></div><h3>Ganancia de verdad</h3><p>Facturación, costos y ganancia del día, descontando repuestos, comisiones y gastos.</p></div>
-        <div class="rec surge"><div class="ic"><svg><use href="#i-os"/></svg></div><h3>OS en segundos</h3><p>Pantallas directas, hechas para talleres. El equipo aprende el primer día.</p></div>
-      </div>
+      <div class="resumo"><div class="res surge"><div class="ic"><svg><use href="#i-os"/></svg></div><div><b>Órdenes en segundos</b><span>Cliente, equipo y falla en pocos toques.</span></div></div><div class="res surge"><div class="ic"><svg><use href="#i-radar"/></svg></div><div><b>Seguimiento por enlace</b><span>Se acaban las llamadas de “¿ya está listo?”.</span></div></div><div class="res surge"><div class="ic"><svg><use href="#i-grafico"/></svg></div><div><b>Ganancia real del día</b><span>Descontando repuestos, comisiones y gastos.</span></div></div><div class="res surge"><div class="ic"><svg><use href="#i-alvo"/></svg></div><div><b>Metas del equipo</b><span>Cada técnico ve cuánto vendió.</span></div></div><div class="res surge"><div class="ic"><svg><use href="#i-caixa"/></svg></div><div><b>Stock y repuestos</b><span>Entradas y salidas bajo control.</span></div></div><div class="res surge"><div class="ic"><svg><use href="#i-whats"/></svg></div><div><b>Cotiza por WhatsApp</b><span>Pide el precio al proveedor con un toque.</span></div></div><div class="res surge"><div class="ic"><svg><use href="#i-loja"/></svg></div><div><b>Vitrina online</b><span>El cliente reserva y te llega el aviso.</span></div></div><div class="res surge"><div class="ic"><svg><use href="#i-pincel"/></svg></div><div><b>Con tu marca</b><span>Tu logo y tus colores en el sistema.</span></div></div></div>
     </div>
   </section>
 
@@ -627,6 +571,63 @@ src="https://www.facebook.com/tr?id=1395792166092365&ev=PageView&noscript=1"
           </ul>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- OFERTA 1: comparativo de los planes -->
+  <section id="oferta" class="curta">
+    <div class="wrap">
+      <div class="titulo surge">
+        <h2>Elige tu plan</h2>
+      </div>
+      <div class="comp-planos">
+          <div class="cp surge">
+            <h3>Esencial</h3>
+            <div class="cp-para">Para organizar la operación</div>
+            <div class="preco"><span class="rs">CLP</span><span class="v" data-preco="essencial"></span><span class="m">/mes</span></div>
+            <div class="dia" data-dia="essencial"></div>
+            <div class="cp-equipe">Dueño + 2 empleados</div>
+            <a class="btn block grande" data-link="essencial" href="#">Suscribirme al Esencial <svg><use href="#i-seta"/></svg></a>
+            <ul>
+              <li><svg><use href="#i-check"/></svg><span>Órdenes de servicio, presupuestos y garantía en PDF</span></li>
+              <li><svg><use href="#i-check"/></svg><span>Seguimiento de la reparación en tiempo real para el cliente</span></li>
+              <li><svg><use href="#i-check"/></svg><span>Ventas, recibos y caja</span></li>
+              <li><svg><use href="#i-check"/></svg><span>Inventario de repuestos, productos y seminuevos con IMEI</span></li>
+              <li><svg><use href="#i-check"/></svg><span>Control de inventario por lotes</span></li>
+              <li><svg><use href="#i-check"/></svg><span>Finanzas con ganancia real</span></li>
+              <li><svg><use href="#i-check"/></svg><span>Tu logo, tus colores y los datos de la empresa</span></li>
+              <li><svg><use href="#i-check"/></svg><span>Datos en la nube y respaldo para descargar</span></li>
+              <li class="nao"><svg><use href="#i-x"/></svg><span>Vitrina online con carrito y retiro en tienda</span><em class="sr">no incluido</em></li>
+              <li class="nao"><svg><use href="#i-x"/></svg><span>Seguimiento y posventa por WhatsApp</span><em class="sr">no incluido</em></li>
+              <li class="nao"><svg><use href="#i-x"/></svg><span>Metas de la tienda y por empleado</span><em class="sr">no incluido</em></li>
+              <li class="nao"><svg><use href="#i-x"/></svg><span>Elegir los módulos que se muestran</span><em class="sr">no incluido</em></li>
+            </ul>
+          </div>
+          <div class="cp top surge">
+            <span class="faixa-cp">Más completo</span>
+            <h3>Pro</h3>
+            <div class="cp-para">Para vender más y fidelizar clientes</div>
+            <div class="preco"><span class="rs">CLP</span><span class="v" data-preco="pro"></span><span class="m">/mes</span></div>
+            <div class="dia" data-dia="pro"></div>
+            <div class="cp-equipe">Dueño + 5 empleados</div>
+            <a class="btn primary block grande" data-link="pro" href="#">Suscribirme al Pro <svg><use href="#i-seta"/></svg></a>
+            <ul>
+              <li><svg><use href="#i-check"/></svg><span>Órdenes de servicio, presupuestos y garantía en PDF</span></li>
+              <li><svg><use href="#i-check"/></svg><span>Seguimiento de la reparación en tiempo real para el cliente</span></li>
+              <li><svg><use href="#i-check"/></svg><span>Ventas, recibos y caja</span></li>
+              <li><svg><use href="#i-check"/></svg><span>Inventario de repuestos, productos y seminuevos con IMEI</span></li>
+              <li><svg><use href="#i-check"/></svg><span>Control de inventario por lotes</span></li>
+              <li><svg><use href="#i-check"/></svg><span>Finanzas con ganancia real</span></li>
+              <li><svg><use href="#i-check"/></svg><span>Tu logo, tus colores y los datos de la empresa</span></li>
+              <li><svg><use href="#i-check"/></svg><span>Datos en la nube y respaldo para descargar</span></li>
+              <li><svg><use href="#i-check"/></svg><span>Vitrina online con carrito y retiro en tienda</span></li>
+              <li><svg><use href="#i-check"/></svg><span>Seguimiento y posventa por WhatsApp</span></li>
+              <li><svg><use href="#i-check"/></svg><span>Metas de la tienda y por empleado</span></li>
+              <li><svg><use href="#i-check"/></svg><span>Elegir los módulos que se muestran</span></li>
+            </ul>
+          </div>
+        </div>
+        <p class="seguro centro"><svg><use href="#i-escudo"/></svg> Plan mensual, sin permanencia · Cancela cuando quieras · Pago seguro por Hotmart</p>
     </div>
   </section>
 
@@ -727,7 +728,7 @@ src="https://www.facebook.com/tr?id=1395792166092365&ev=PageView&noscript=1"
     </div>
   </section>
 </main>
-<div class="barra-compra" id="barra-compra" aria-hidden="true"><div class="t">Desde <b>CLP <span data-preco="essencial"></span>/mes</b></div><a class="btn primary" href="#oferta">Ver planes</a></div>
+<div class="barra-compra" id="barra-compra" aria-hidden="true"><div class="t"><b>7 días gratis</b><br>sin tarjeta de crédito</div><a class="btn primary" data-link="teste" href="#teste">Probar gratis</a></div>
 
 <footer>
   <div class="wrap">
@@ -806,7 +807,7 @@ src="https://www.facebook.com/tr?id=1395792166092365&ev=PageView&noscript=1"
     if ('IntersectionObserver' in window) new IntersectionObserver(es => es.forEach(e => e.isIntersecting ? tocar() : dv.pause()), { threshold: .35 }).observe(dv);
   }
   // barra fixa: aparece depois do topo e some enquanto os planos estão na tela
-  const barra = document.getElementById('barra-compra'), topo = document.querySelector('.hero'), planos = document.querySelectorAll('#oferta, #assinar');
+  const barra = document.getElementById('barra-compra'), topo = document.querySelector('.hero'), planos = document.querySelectorAll('#oferta, #teste, #assinar');
   if (barra && 'IntersectionObserver' in window) {
     const vis = new Map(); const atualiza = () => barra.classList.toggle('on', ![...vis.values()].some(Boolean));
     const ob = new IntersectionObserver(es => { es.forEach(e => vis.set(e.target, e.isIntersecting)); atualiza(); }, { threshold: 0 });

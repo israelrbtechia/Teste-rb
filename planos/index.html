@@ -340,7 +340,13 @@
   .dores li { display: flex; gap: 10px; font-size: 16.5px; font-weight: 600; line-height: 1.35; }
   .dores svg { width: 20px; height: 20px; color: #f87171; flex: none; margin-top: 2px; }
   .ancora { margin: 0 0 18px; font-size: 15px; color: var(--muted, #a3a3a3); }
-  .ancora b { color: var(--gold, #d4af37); font-size: 17px; }
+  .ancora b { color: var(--gold, #d4af37); font-size: 16px; }
+  .resumo { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .res { display: flex; gap: 12px; align-items: flex-start; background: linear-gradient(180deg, var(--card-2), var(--card)); border: 1px solid var(--line); border-radius: 16px; padding: 16px; }
+  .res .ic { flex: none; width: 38px; height: 38px; border-radius: 11px; display: grid; place-items: center; background: var(--gold-soft); color: var(--gold); }
+  .res .ic svg { width: 19px; height: 19px; }
+  .res b { display: block; font-size: 15.5px; line-height: 1.3; margin-bottom: 3px; } .res span { display: block; color: var(--muted); font-size: 14px; line-height: 1.35; }
+  @media (max-width: 900px) { .resumo { grid-template-columns: 1fr 1fr; gap: 10px; } .res { flex-direction: column; gap: 8px; padding: 14px; } .res b { font-size: 14.5px; } .res span { font-size: 13px; } }
   .barra-compra { position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; display: none; align-items: center; gap: 12px;
     padding: 10px 16px calc(10px + env(safe-area-inset-bottom, 0px)); background: rgba(10,10,10,.92);
     -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); border-top: 1px solid rgba(212,175,55,.35);
@@ -445,12 +451,12 @@ src="https://www.facebook.com/tr?id=1395792166092365&ev=PageView&noscript=1"
       <div>
         <span class="selo">Para donos de assistência técnica de celulares</span>
         <h1>Sua assistência está <span class="grad-text">perdendo dinheiro</span> e você nem percebe.</h1>
-        <p class="lead">Ordem de serviço no caderno, peça usada e não cobrada, cliente ligando toda hora e o fim do mês sem saber quanto sobrou. O Reparo Simples coloca tudo isso no controle, direto do celular.</p>
+        <p class="lead">O Reparo Simples coloca a sua assistência no controle, direto do celular. Veja se algum destes acontece na sua loja:</p>
         <ul class="dores"><li><svg><use href="#i-x"/></svg> OS esquecida e aparelho parado na bancada</li><li><svg><use href="#i-x"/></svg> Peça usada no conserto e não cobrada do cliente</li><li><svg><use href="#i-x"/></svg> Cliente ligando toda hora: “já ficou pronto?”</li><li><svg><use href="#i-x"/></svg> Fim do mês sem saber quanto lucrou de verdade</li></ul>
-        <p class="ancora">Planos a partir de <b>R$ <span data-preco="essencial"></span>/mês</b> · 7 dias grátis · sem fidelidade</p>
+        <p class="ancora"><b>7 dias grátis</b> · sem cartão de crédito · sem fidelidade</p>
         <div class="ctas-hero">
-          <a class="btn primary" href="#oferta">Ver planos e preços <svg><use href="#i-seta"/></svg></a>
-          <a class="btn" data-link="teste" href="#teste">Testar grátis por 7 dias</a>
+          <a class="btn primary" data-link="teste" href="#teste">Testar grátis por 7 dias <svg><use href="#i-seta"/></svg></a>
+          <a class="btn" href="#demo">Ver funcionando</a>
         </div>
       </div>
       <div class="fone" aria-hidden="true">
@@ -466,75 +472,13 @@ src="https://www.facebook.com/tr?id=1395792166092365&ev=PageView&noscript=1"
     </div>
   </section>
 
-  <!-- OFERTA 1: comparativo dos planos -->
-  <section id="oferta" class="curta">
-    <div class="wrap">
-      <div class="titulo surge">
-        <h2>Escolha seu plano</h2>
-      </div>
-      <div class="comp-planos">
-          <div class="cp surge">
-            <h3>Essencial</h3>
-            <div class="cp-para">Para organizar a operação</div>
-            <div class="preco"><span class="rs">R$</span><span class="v" data-preco="essencial"></span><span class="m">/mês</span></div>
-            <div class="dia" data-dia="essencial"></div>
-            <div class="cp-equipe">Dono + 2 funcionários</div>
-            <a class="btn block grande" data-link="essencial" href="#">Assinar o Essencial <svg><use href="#i-seta"/></svg></a>
-            <ul>
-              <li class=""><svg><use href="#i-check"/></svg><span>Ordens de serviço, orçamentos e garantia em PDF</span></li>
-              <li class=""><svg><use href="#i-check"/></svg><span>Acompanhamento do reparo em tempo real para o cliente</span></li>
-              <li class=""><svg><use href="#i-check"/></svg><span>Vendas, recibos e caixa</span></li>
-              <li class=""><svg><use href="#i-check"/></svg><span>Estoque de peças, produtos e seminovos com IMEI</span></li>
-              <li class=""><svg><use href="#i-check"/></svg><span>Entrada de estoque pelo XML da nota fiscal, com lotes</span></li>
-              <li class=""><svg><use href="#i-check"/></svg><span>Financeiro com lucro real</span></li>
-              <li class=""><svg><use href="#i-check"/></svg><span>Sua logo, suas cores e os dados da empresa</span></li>
-              <li class=""><svg><use href="#i-check"/></svg><span>Dados na nuvem e backup para baixar</span></li>
-              <li class="nao"><svg><use href="#i-x"/></svg><span>Vitrine online com carrinho e retirada na loja</span><em class="sr">não incluso</em></li>
-              <li class="nao"><svg><use href="#i-x"/></svg><span>Follow-up e pós-venda pelo WhatsApp</span><em class="sr">não incluso</em></li>
-              <li class="nao"><svg><use href="#i-x"/></svg><span>Metas da loja e por funcionário</span><em class="sr">não incluso</em></li>
-              <li class="nao"><svg><use href="#i-x"/></svg><span>Escolher os módulos que aparecem</span><em class="sr">não incluso</em></li>
-            </ul>
-          </div>
-          <div class="cp top surge">
-            <span class="faixa-cp">Mais completo</span>
-            <h3>Pro</h3>
-            <div class="cp-para">Para vender mais e fidelizar clientes</div>
-            <div class="preco"><span class="rs">R$</span><span class="v" data-preco="pro"></span><span class="m">/mês</span></div>
-            <div class="dia" data-dia="pro"></div>
-            <div class="cp-equipe">Dono + 5 funcionários</div>
-            <a class="btn primary block grande" data-link="pro" href="#">Assinar o Pro <svg><use href="#i-seta"/></svg></a>
-            <ul>
-              <li class=""><svg><use href="#i-check"/></svg><span>Ordens de serviço, orçamentos e garantia em PDF</span></li>
-              <li class=""><svg><use href="#i-check"/></svg><span>Acompanhamento do reparo em tempo real para o cliente</span></li>
-              <li class=""><svg><use href="#i-check"/></svg><span>Vendas, recibos e caixa</span></li>
-              <li class=""><svg><use href="#i-check"/></svg><span>Estoque de peças, produtos e seminovos com IMEI</span></li>
-              <li class=""><svg><use href="#i-check"/></svg><span>Entrada de estoque pelo XML da nota fiscal, com lotes</span></li>
-              <li class=""><svg><use href="#i-check"/></svg><span>Financeiro com lucro real</span></li>
-              <li class=""><svg><use href="#i-check"/></svg><span>Sua logo, suas cores e os dados da empresa</span></li>
-              <li class=""><svg><use href="#i-check"/></svg><span>Dados na nuvem e backup para baixar</span></li>
-              <li class=""><svg><use href="#i-check"/></svg><span>Vitrine online com carrinho e retirada na loja</span></li>
-              <li class=""><svg><use href="#i-check"/></svg><span>Follow-up e pós-venda pelo WhatsApp</span></li>
-              <li class=""><svg><use href="#i-check"/></svg><span>Metas da loja e por funcionário</span></li>
-              <li class=""><svg><use href="#i-check"/></svg><span>Escolher os módulos que aparecem</span></li>
-            </ul>
-          </div>
-        </div>
-        <p class="seguro centro"><svg><use href="#i-escudo"/></svg> Plano mensal, sem fidelidade · Cancele quando quiser · Pagamento seguro pela Kiwify</p>
-    </div>
-  </section>
-
   <!-- BENEFÍCIOS -->
   <section id="beneficios" class="curta">
     <div class="wrap">
       <div class="titulo surge">
         <h2>Controle total da assistência. Sem papel e sem adivinhar.</h2>
       </div>
-      <div class="recursos q4">
-        <div class="rec surge"><div class="ic"><svg><use href="#i-radar"/></svg></div><h3>Fim do "meu celular já ficou pronto?"</h3><p>O cliente recebe um link no WhatsApp e vê cada etapa do reparo, com a sua marca.</p></div>
-        <div class="rec surge"><div class="ic"><svg><use href="#i-loja"/></svg></div><h3>Venda pelo link</h3><p>Produtos e seminovos numa vitrine. O cliente reserva e você recebe o aviso na hora.</p></div>
-        <div class="rec surge"><div class="ic"><svg><use href="#i-grafico"/></svg></div><h3>Lucro de verdade</h3><p>Faturamento, custos e lucro do dia, descontando peças, taxas de cartão e despesas.</p></div>
-        <div class="rec surge"><div class="ic"><svg><use href="#i-os"/></svg></div><h3>OS em segundos</h3><p>Telas diretas, feitas para assistência. A equipe aprende no primeiro dia.</p></div>
-      </div>
+      <div class="resumo"><div class="res surge"><div class="ic"><svg><use href="#i-os"/></svg></div><div><b>OS em segundos</b><span>Cliente, aparelho e defeito em poucos toques.</span></div></div><div class="res surge"><div class="ic"><svg><use href="#i-radar"/></svg></div><div><b>Cliente acompanha pelo link</b><span>Chega de “já ficou pronto?” no telefone.</span></div></div><div class="res surge"><div class="ic"><svg><use href="#i-grafico"/></svg></div><div><b>Lucro real do dia</b><span>Já descontando peças, taxas e despesas.</span></div></div><div class="res surge"><div class="ic"><svg><use href="#i-alvo"/></svg></div><div><b>Metas da equipe</b><span>Cada funcionário vê quanto vendeu.</span></div></div><div class="res surge"><div class="ic"><svg><use href="#i-caixa"/></svg></div><div><b>Estoque e peças</b><span>Entrada pelo XML da nota de compra.</span></div></div><div class="res surge"><div class="ic"><svg><use href="#i-whats"/></svg></div><div><b>Cotação no WhatsApp</b><span>Peça o preço ao fornecedor num toque.</span></div></div><div class="res surge"><div class="ic"><svg><use href="#i-loja"/></svg></div><div><b>Vitrine online</b><span>O cliente reserva e você é avisado.</span></div></div><div class="res surge"><div class="ic"><svg><use href="#i-pincel"/></svg></div><div><b>Com a sua marca</b><span>Sua logo e suas cores no sistema.</span></div></div></div>
     </div>
   </section>
 
@@ -623,6 +567,63 @@ src="https://www.facebook.com/tr?id=1395792166092365&ev=PageView&noscript=1"
           </ul>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- OFERTA 1: comparativo dos planos -->
+  <section id="oferta" class="curta">
+    <div class="wrap">
+      <div class="titulo surge">
+        <h2>Escolha seu plano</h2>
+      </div>
+      <div class="comp-planos">
+          <div class="cp surge">
+            <h3>Essencial</h3>
+            <div class="cp-para">Para organizar a operação</div>
+            <div class="preco"><span class="rs">R$</span><span class="v" data-preco="essencial"></span><span class="m">/mês</span></div>
+            <div class="dia" data-dia="essencial"></div>
+            <div class="cp-equipe">Dono + 2 funcionários</div>
+            <a class="btn block grande" data-link="essencial" href="#">Assinar o Essencial <svg><use href="#i-seta"/></svg></a>
+            <ul>
+              <li class=""><svg><use href="#i-check"/></svg><span>Ordens de serviço, orçamentos e garantia em PDF</span></li>
+              <li class=""><svg><use href="#i-check"/></svg><span>Acompanhamento do reparo em tempo real para o cliente</span></li>
+              <li class=""><svg><use href="#i-check"/></svg><span>Vendas, recibos e caixa</span></li>
+              <li class=""><svg><use href="#i-check"/></svg><span>Estoque de peças, produtos e seminovos com IMEI</span></li>
+              <li class=""><svg><use href="#i-check"/></svg><span>Entrada de estoque pelo XML da nota fiscal, com lotes</span></li>
+              <li class=""><svg><use href="#i-check"/></svg><span>Financeiro com lucro real</span></li>
+              <li class=""><svg><use href="#i-check"/></svg><span>Sua logo, suas cores e os dados da empresa</span></li>
+              <li class=""><svg><use href="#i-check"/></svg><span>Dados na nuvem e backup para baixar</span></li>
+              <li class="nao"><svg><use href="#i-x"/></svg><span>Vitrine online com carrinho e retirada na loja</span><em class="sr">não incluso</em></li>
+              <li class="nao"><svg><use href="#i-x"/></svg><span>Follow-up e pós-venda pelo WhatsApp</span><em class="sr">não incluso</em></li>
+              <li class="nao"><svg><use href="#i-x"/></svg><span>Metas da loja e por funcionário</span><em class="sr">não incluso</em></li>
+              <li class="nao"><svg><use href="#i-x"/></svg><span>Escolher os módulos que aparecem</span><em class="sr">não incluso</em></li>
+            </ul>
+          </div>
+          <div class="cp top surge">
+            <span class="faixa-cp">Mais completo</span>
+            <h3>Pro</h3>
+            <div class="cp-para">Para vender mais e fidelizar clientes</div>
+            <div class="preco"><span class="rs">R$</span><span class="v" data-preco="pro"></span><span class="m">/mês</span></div>
+            <div class="dia" data-dia="pro"></div>
+            <div class="cp-equipe">Dono + 5 funcionários</div>
+            <a class="btn primary block grande" data-link="pro" href="#">Assinar o Pro <svg><use href="#i-seta"/></svg></a>
+            <ul>
+              <li class=""><svg><use href="#i-check"/></svg><span>Ordens de serviço, orçamentos e garantia em PDF</span></li>
+              <li class=""><svg><use href="#i-check"/></svg><span>Acompanhamento do reparo em tempo real para o cliente</span></li>
+              <li class=""><svg><use href="#i-check"/></svg><span>Vendas, recibos e caixa</span></li>
+              <li class=""><svg><use href="#i-check"/></svg><span>Estoque de peças, produtos e seminovos com IMEI</span></li>
+              <li class=""><svg><use href="#i-check"/></svg><span>Entrada de estoque pelo XML da nota fiscal, com lotes</span></li>
+              <li class=""><svg><use href="#i-check"/></svg><span>Financeiro com lucro real</span></li>
+              <li class=""><svg><use href="#i-check"/></svg><span>Sua logo, suas cores e os dados da empresa</span></li>
+              <li class=""><svg><use href="#i-check"/></svg><span>Dados na nuvem e backup para baixar</span></li>
+              <li class=""><svg><use href="#i-check"/></svg><span>Vitrine online com carrinho e retirada na loja</span></li>
+              <li class=""><svg><use href="#i-check"/></svg><span>Follow-up e pós-venda pelo WhatsApp</span></li>
+              <li class=""><svg><use href="#i-check"/></svg><span>Metas da loja e por funcionário</span></li>
+              <li class=""><svg><use href="#i-check"/></svg><span>Escolher os módulos que aparecem</span></li>
+            </ul>
+          </div>
+        </div>
+        <p class="seguro centro"><svg><use href="#i-escudo"/></svg> Plano mensal, sem fidelidade · Cancele quando quiser · Pagamento seguro pela Kiwify</p>
     </div>
   </section>
 
@@ -723,7 +724,7 @@ src="https://www.facebook.com/tr?id=1395792166092365&ev=PageView&noscript=1"
     </div>
   </section>
 </main>
-<div class="barra-compra" id="barra-compra" aria-hidden="true"><div class="t">A partir de <b>R$ <span data-preco="essencial"></span>/mês</b></div><a class="btn primary" href="#oferta">Ver planos</a></div>
+<div class="barra-compra" id="barra-compra" aria-hidden="true"><div class="t"><b>7 dias grátis</b><br>sem cartão de crédito</div><a class="btn primary" data-link="teste" href="#teste">Testar grátis</a></div>
 
 <footer>
   <div class="wrap">
@@ -802,7 +803,7 @@ src="https://www.facebook.com/tr?id=1395792166092365&ev=PageView&noscript=1"
     if ('IntersectionObserver' in window) new IntersectionObserver(es => es.forEach(e => e.isIntersecting ? tocar() : dv.pause()), { threshold: .35 }).observe(dv);
   }
   // barra fixa: aparece depois do topo e some enquanto os planos estão na tela
-  const barra = document.getElementById('barra-compra'), topo = document.querySelector('.hero'), planos = document.querySelectorAll('#oferta, #assinar');
+  const barra = document.getElementById('barra-compra'), topo = document.querySelector('.hero'), planos = document.querySelectorAll('#oferta, #teste, #assinar');
   if (barra && 'IntersectionObserver' in window) {
     const vis = new Map(); const atualiza = () => barra.classList.toggle('on', ![...vis.values()].some(Boolean));
     const ob = new IntersectionObserver(es => { es.forEach(e => vis.set(e.target, e.isIntersecting)); atualiza(); }, { threshold: 0 });
