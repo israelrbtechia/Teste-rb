@@ -338,7 +338,8 @@
   .hero .dores { list-style: none; padding: 0; margin: 0 0 20px; display: grid; grid-template-columns: 1fr; gap: 10px; }
   @media (min-width: 901px) { .hero .dores { grid-template-columns: 1fr 1fr; gap: 12px 24px; } }
   .dores li { display: flex; gap: 10px; font-size: 16.5px; font-weight: 600; line-height: 1.35; }
-  .dores svg { width: 20px; height: 20px; color: #f87171; flex: none; margin-top: 2px; }
+  .dores .ok { flex: none; font-size: 17px; line-height: 1.35; }
+  .hero .lead { margin-bottom: 18px; } .dores.resolve li { font-weight: 600; color: #f2f2f2; }
   .ancora { margin: 0 0 18px; font-size: 15px; color: var(--muted, #a3a3a3); }
   .ancora b { color: var(--gold, #d4af37); font-size: 16px; }
   .resumo { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
@@ -451,8 +452,9 @@ src="https://www.facebook.com/tr?id=1395792166092365&ev=PageView&noscript=1"
       <div>
         <span class="selo">Para donos de assistência técnica de celulares</span>
         <h1>Sua assistência está <span class="grad-text">perdendo dinheiro</span> e você nem percebe.</h1>
-        <p class="lead">OS perdida no caderno, peça usada e não cobrada, cliente ligando o dia inteiro. O Reparo Simples fecha esses buracos direto do celular.</p>
-        <p class="ancora"><b>7 dias grátis</b> · sem cartão de crédito · sem fidelidade</p>
+        <p class="lead">Tudo o que a sua assistência precisa, sem pagar caro por módulo que você nem usa:</p>
+        <ul class="dores resolve"><li><span class="ok" aria-hidden="true">✅</span> Cliente acompanha o conserto pelo link, sem ligar para a loja</li><li><span class="ok" aria-hidden="true">✅</span> Peça lançada na OS sai do estoque e entra no custo</li><li><span class="ok" aria-hidden="true">✅</span> Lucro real do dia, já descontando peças e taxas</li><li><span class="ok" aria-hidden="true">✅</span> Checklist de entrada e garantia em PDF para o cliente</li><li><span class="ok" aria-hidden="true">✅</span> Funciona no celular, sem instalar e até sem internet</li><li><span class="ok" aria-hidden="true">✅</span> Sem fidelidade e sem taxa de adesão</li></ul>
+        <p class="ancora"><b>7 dias grátis</b> · sem cartão de crédito</p>
         <div class="ctas-hero">
           <a class="btn primary" data-link="teste" href="#teste">Testar grátis por 7 dias <svg><use href="#i-seta"/></svg></a>
           <a class="btn" href="#demo">Ver funcionando</a>

@@ -342,7 +342,8 @@
   .hero .dores { list-style: none; padding: 0; margin: 0 0 20px; display: grid; grid-template-columns: 1fr; gap: 10px; }
   @media (min-width: 901px) { .hero .dores { grid-template-columns: 1fr 1fr; gap: 12px 24px; } }
   .dores li { display: flex; gap: 10px; font-size: 16.5px; font-weight: 600; line-height: 1.35; }
-  .dores svg { width: 20px; height: 20px; color: #f87171; flex: none; margin-top: 2px; }
+  .dores .ok { flex: none; font-size: 17px; line-height: 1.35; }
+  .hero .lead { margin-bottom: 18px; } .dores.resolve li { font-weight: 600; color: #f2f2f2; }
   .ancora { margin: 0 0 18px; font-size: 15px; color: var(--muted, #a3a3a3); }
   .ancora b { color: var(--gold, #d4af37); font-size: 16px; }
   .resumo { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
@@ -455,8 +456,9 @@ src="https://www.facebook.com/tr?id=1395792166092365&ev=PageView&noscript=1"
       <div>
         <span class="selo">Para dueños de talleres de reparación de celulares</span>
         <h1>Tu taller está <span class="grad-text">perdiendo dinero</span> y ni te das cuenta.</h1>
-        <p class="lead">Órdenes perdidas en el cuaderno, repuestos usados y no cobrados, clientes llamando todo el día. ReparaYa cierra esos agujeros desde el celular.</p>
-        <p class="ancora"><b>7 días gratis</b> · sin tarjeta de crédito · sin permanencia</p>
+        <p class="lead">Todo lo que tu taller necesita, sin pagar caro por módulos que ni usas:</p>
+        <ul class="dores resolve"><li><span class="ok" aria-hidden="true">✅</span> El cliente sigue la reparación por enlace, sin llamar al taller</li><li><span class="ok" aria-hidden="true">✅</span> El repuesto usado en la orden sale del stock y entra al costo</li><li><span class="ok" aria-hidden="true">✅</span> Ganancia real del día, descontando repuestos y comisiones</li><li><span class="ok" aria-hidden="true">✅</span> Checklist de entrada y garantía en PDF para el cliente</li><li><span class="ok" aria-hidden="true">✅</span> Funciona en el celular, sin instalar y hasta sin internet</li><li><span class="ok" aria-hidden="true">✅</span> Sin permanencia y sin costo de instalación</li></ul>
+        <p class="ancora"><b>7 días gratis</b> · sin tarjeta de crédito</p>
         <div class="ctas-hero">
           <a class="btn primary" data-link="teste" href="#teste">Probar gratis 7 días <svg><use href="#i-seta"/></svg></a>
           <a class="btn" href="#demo">Míralo funcionando</a>
