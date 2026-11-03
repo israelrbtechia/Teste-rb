@@ -371,6 +371,50 @@
   .demo-passos h3 { margin: 2px 0 2px; font-size: 18px; } .demo-passos p { margin: 0; color: var(--muted, #a3a3a3); font-size: 15px; }
   @media (max-width: 900px) { .demo-grid { grid-template-columns: 1fr; grid-template-areas: "topo" "fone" "lado"; row-gap: 22px; } .demo-topo { text-align: center; } #demo .btn { width: 100%; } }
   @media (max-width: 900px) { .barra-compra { display: flex; } body { padding-bottom: 76px; } .hero h1 { font-size: clamp(34px, 9.4vw, 44px); } }
+
+  /* celular primeiro: atalhos, dores resolvidas, tudo o que o app entrega, depoimentos */
+  .atalhos { display: flex; gap: 8px; overflow-x: auto; padding: 4px 16px 14px; margin: 0 auto; max-width: 1180px; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+  .atalhos::-webkit-scrollbar { display: none; }
+  .atalhos a { flex: none; padding: 10px 16px; border-radius: 999px; border: 1px solid rgba(212,175,55,.4); background: rgba(212,175,55,.08); color: var(--gold-2, #f0d77a); font-weight: 700; font-size: 14px; white-space: nowrap; min-height: 44px; display: inline-flex; align-items: center; }
+  .dor-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .dor { display: flex; gap: 14px; align-items: flex-start; background: linear-gradient(180deg, var(--card-2), var(--card)); border: 1px solid var(--line); border-radius: 16px; padding: 16px; }
+  .dor .ic { flex: none; width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; background: var(--gold-soft); color: var(--gold); }
+  .dor .ic svg { width: 20px; height: 20px; }
+  .dor small { display: block; font-size: 11px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 2px; }
+  .dor .antes { color: #cfcfcf; font-size: 15px; line-height: 1.35; margin: 0 0 10px; }
+  .dor .depois small { color: var(--gold); }
+  .dor .depois { font-weight: 700; font-size: 15.5px; line-height: 1.35; margin: 0; color: #fff; }
+  .ent { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; align-items: start; }
+  .ent details { background: linear-gradient(180deg, var(--card-2), var(--card)); border: 1px solid var(--line); border-radius: 16px; }
+  .ent details[open] { border-color: rgba(212,175,55,.45); }
+  .ent summary { list-style: none; display: flex; align-items: center; gap: 12px; padding: 14px 16px; cursor: pointer; min-height: 60px; }
+  .ent summary::-webkit-details-marker { display: none; }
+  .ent summary .ic { flex: none; width: 38px; height: 38px; border-radius: 11px; display: grid; place-items: center; background: var(--gold-soft); color: var(--gold); }
+  .ent summary .ic svg { width: 19px; height: 19px; }
+  .ent summary b { flex: 1; font-size: 16px; } .ent summary em { font-style: normal; font-size: 12px; color: var(--muted); white-space: nowrap; }
+  .ent summary::after { content: '+'; font-size: 22px; font-weight: 700; color: var(--gold); width: 20px; text-align: center; }
+  .ent details[open] summary::after { content: '–'; }
+  .ent ul { list-style: none; margin: 0; padding: 0 16px 14px; display: grid; gap: 9px; }
+  .ent li { display: flex; gap: 10px; font-size: 15px; line-height: 1.35; color: #e6e6e6; }
+  .ent li svg { width: 18px; height: 18px; color: var(--green, #4ade80); flex: none; margin-top: 1px; }
+  .ent li .pro { flex: none; margin-left: auto; align-self: center; font-size: 10.5px; font-weight: 800; color: #111; background: var(--gold); padding: 2px 7px; border-radius: 999px; }
+  .dep-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .dep { position: relative; background: linear-gradient(180deg, var(--card-2), var(--card)); border: 1px solid var(--line); border-radius: 18px; padding: 20px; display: flex; flex-direction: column; gap: 12px; }
+  .dep .estrelas { color: var(--gold); letter-spacing: 2px; font-size: 16px; }
+  .dep p { margin: 0; font-size: 15.5px; line-height: 1.5; color: #e9e9e9; }
+  .dep .quem { display: flex; align-items: center; gap: 10px; margin-top: auto; }
+  .dep .quem img, .dep .quem .av { width: 42px; height: 42px; border-radius: 50%; object-fit: cover; background: var(--gold-soft); color: var(--gold); display: grid; place-items: center; font-weight: 800; flex: none; }
+  .dep .quem b { display: block; font-size: 14.5px; } .dep .quem span { font-size: 13px; color: var(--muted); }
+  .dep .exemplo { position: absolute; top: 12px; right: 12px; font-size: 10.5px; font-weight: 800; letter-spacing: .08em; color: #111; background: #f59e0b; padding: 2px 8px; border-radius: 999px; }
+  @media (max-width: 900px) { .dep-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 760px) {
+    section, section.curta { padding: 40px 0; }
+    .titulo { margin-bottom: 24px; } .titulo h2 { font-size: clamp(25px, 7vw, 32px); line-height: 1.15; } .titulo p { font-size: 16px; }
+    .dor-grid, .ent { grid-template-columns: 1fr; gap: 10px; }
+    .dor { padding: 14px; gap: 12px; } .dor .antes { margin-bottom: 8px; }
+    .ent summary { padding: 12px 14px; }
+    .btn.grande { width: 100%; }
+  }
 </style>
 <!-- Meta Pixel Code -->
 <script>
@@ -434,7 +478,7 @@ src="https://www.facebook.com/tr?id=1395792166092365&ev=PageView&noscript=1"
   <div class="wrap">
     <a class="marca" href="#topo"><svg><use href="#logo"/></svg> <span>Reparo <span class="gold">Simples</span></span></a>
     <nav>
-      <a href="#beneficios">Benefícios</a>
+      <a href="#entrega">Benefícios</a>
       <a href="#demo">Veja funcionando</a>
       <a href="#duvidas">Dúvidas</a>
     </nav>
@@ -472,23 +516,14 @@ src="https://www.facebook.com/tr?id=1395792166092365&ev=PageView&noscript=1"
       </div>
     </div>
   </section>
-  <!-- CONTA: quanto a bagunça custa -->
-  <section id="conta" class="curta">
-    <div class="wrap">
-      <div class="titulo surge"><span class="tag">Faça a conta</span><h2>Quanto a bagunça está <span class="grad-text">te custando</span>?</h2><p>Uma única peça esquecida por semana já custa mais de 8 vezes o valor do plano Essencial.</p></div>
-      <div class="recursos"><div class="rec surge"><div class="ic"><svg><use href="#i-caixa"/></svg></div><h3>Peça que não foi cobrada</h3><p>Uma tela de R$ 80 esquecida por semana são R$ 320 por mês saindo da sua loja.</p></div><div class="rec surge"><div class="ic"><svg><use href="#i-whats"/></svg></div><h3>Cliente que cansa de ligar</h3><p>Quem liga e fica sem resposta procura outra assistência na próxima vez.</p></div><div class="rec surge"><div class="ic"><svg><use href="#i-os"/></svg></div><h3>OS sem registro</h3><p>Sem checklist de entrada, a discussão sobre o risco na tela termina com você pagando.</p></div></div>
-      <div style="text-align:center;margin-top:28px"><a class="btn primary grande" data-link="teste" href="#teste">Quero parar de perder dinheiro <svg><use href="#i-seta"/></svg></a></div>
-    </div>
-  </section>
+  <nav class="atalhos" aria-label="Atalhos"><a href="#dores">O que resolve</a><a href="#demo">Ver funcionando</a><a href="#entrega">Tudo o que tem</a><a href="#oferta">Preços</a></nav>
 
-
-  <!-- BENEFÍCIOS -->
-  <section id="beneficios" class="curta">
+  <!-- DORES: o que o app resolve -->
+  <section id="dores" class="curta">
     <div class="wrap">
-      <div class="titulo surge">
-        <h2>Controle total da assistência. Sem papel e sem adivinhar.</h2>
-      </div>
-      <div class="resumo"><div class="res surge"><div class="ic"><svg><use href="#i-os"/></svg></div><div><b>OS em segundos</b><span>Cliente, aparelho e defeito em poucos toques.</span></div></div><div class="res surge"><div class="ic"><svg><use href="#i-radar"/></svg></div><div><b>Cliente acompanha pelo link</b><span>Chega de “já ficou pronto?” no telefone.</span></div></div><div class="res surge"><div class="ic"><svg><use href="#i-grafico"/></svg></div><div><b>Lucro real do dia</b><span>Já descontando peças, taxas e despesas.</span></div></div><div class="res surge"><div class="ic"><svg><use href="#i-alvo"/></svg></div><div><b>Metas da equipe</b><span>Cada funcionário vê quanto vendeu.</span></div></div><div class="res surge"><div class="ic"><svg><use href="#i-caixa"/></svg></div><div><b>Estoque e peças</b><span>Entrada pelo XML da nota de compra.</span></div></div><div class="res surge"><div class="ic"><svg><use href="#i-whats"/></svg></div><div><b>Cotação no WhatsApp</b><span>Peça o preço ao fornecedor num toque.</span></div></div><div class="res surge"><div class="ic"><svg><use href="#i-loja"/></svg></div><div><b>Vitrine online</b><span>O cliente reserva e você é avisado.</span></div></div><div class="res surge"><div class="ic"><svg><use href="#i-pincel"/></svg></div><div><b>Com a sua marca</b><span>Sua logo e suas cores no sistema.</span></div></div></div>
+      <div class="titulo surge"><span class="tag">O que ele resolve</span><h2>As dores do dia a dia da assistência, <span class="grad-text">resolvidas</span></h2><p>Uma única peça esquecida por semana já custa mais de 8 vezes o valor do plano Essencial.</p></div>
+      <div class="dor-grid"><div class="dor surge"><div class="ic"><svg><use href="#i-whats"/></svg></div><div><p class="antes"><small>Hoje</small>Cliente ligando toda hora: “já ficou pronto?”</p><p class="depois"><small>Com o Reparo Simples</small>Ele acompanha o conserto sozinho por um link, com a sua marca.</p></div></div><div class="dor surge"><div class="ic"><svg><use href="#i-os"/></svg></div><div><p class="antes"><small>Hoje</small>OS no caderno, que some ou ninguém entende</p><p class="depois"><small>Com o Reparo Simples</small>OS digital em segundos, com checklist, senha e desenho de desbloqueio.</p></div></div><div class="dor surge"><div class="ic"><svg><use href="#i-escudo"/></svg></div><div><p class="antes"><small>Hoje</small>Cliente jurando que o risco “não estava ali”</p><p class="depois"><small>Com o Reparo Simples</small>Fotos do aparelho na entrada e assinatura do cliente na OS.</p></div></div><div class="dor surge"><div class="ic"><svg><use href="#i-caixa"/></svg></div><div><p class="antes"><small>Hoje</small>Peça usada no conserto e não cobrada</p><p class="depois"><small>Com o Reparo Simples</small>A peça lançada na OS sai do estoque e entra no custo.</p></div></div><div class="dor surge"><div class="ic"><svg><use href="#i-grafico"/></svg></div><div><p class="antes"><small>Hoje</small>Fatura bem, mas não sabe quanto lucrou</p><p class="depois"><small>Com o Reparo Simples</small>Lucro real do dia, já descontando peças, taxas do cartão e despesas.</p></div></div><div class="dor surge"><div class="ic"><svg><use href="#i-carrinho"/></svg></div><div><p class="antes"><small>Hoje</small>Tempo perdido cotando peça com fornecedor</p><p class="depois"><small>Com o Reparo Simples</small>Cotação ou pedido pronto no WhatsApp do fornecedor, com um toque.</p></div></div><div class="dor surge"><div class="ic"><svg><use href="#i-equipe"/></svg></div><div><p class="antes"><small>Hoje</small>Equipe sem meta e você sem controle</p><p class="depois"><small>Com o Reparo Simples</small>Cada funcionário com login, permissões e meta própria.</p></div></div><div class="dor surge"><div class="ic"><svg><use href="#i-nuvem"/></svg></div><div><p class="antes"><small>Hoje</small>Sistema preso no computador da loja</p><p class="depois"><small>Com o Reparo Simples</small>Na nuvem: celular, tablet ou PC, e funciona até sem internet.</p></div></div></div>
+      <div style="text-align:center;margin-top:24px"><a class="btn primary grande" data-link="teste" href="#teste">Quero parar de perder dinheiro <svg><use href="#i-seta"/></svg></a></div>
     </div>
   </section>
 
@@ -502,6 +537,14 @@ src="https://www.facebook.com/tr?id=1395792166092365&ev=PageView&noscript=1"
         <ol class="demo-passos"><li><b>1</b><div><h3>Abra a OS em segundos</h3><p>Cliente, aparelho, defeito e valor em poucos toques.</p></div></li><li><b>2</b><div><h3>O cliente acompanha pelo link</h3><p>Ele vê o conserto ficar pronto, sem ligar para a loja.</p></div></li><li><b>3</b><div><h3>Veja o lucro real do dia</h3><p>Faturamento e lucro já descontando peças e taxas.</p></div></li></ol>
         <a class="btn primary" data-link="teste" href="#teste">Testar grátis por 7 dias <svg><use href="#i-seta"/></svg></a>
       </div>
+    </div>
+  </section>
+
+  <!-- ENTREGA: tudo o que o app faz -->
+  <section id="entrega" class="curta">
+    <div class="wrap">
+      <div class="titulo surge"><span class="tag">Tudo o que o app entrega</span><h2>Um sistema completo para <span class="grad-text">assistência técnica</span></h2><p>Toque em cada área para ver o que vem junto.</p></div>
+      <div class="ent"><details class="surge" open><summary><span class="ic"><svg><use href="#i-os"/></svg></span><b>Ordem de serviço e bancada</b><em>8</em></summary><ul><li><svg><use href="#i-check"/></svg><span>OS em segundos: cliente, aparelho, IMEI, defeito e valor</span></li><li><svg><use href="#i-check"/></svg><span>Checklist de entrada (OK / com defeito)</span></li><li><svg><use href="#i-check"/></svg><span>Fotos do estado do aparelho na entrada</span></li><li><svg><use href="#i-check"/></svg><span>Senha e desenho de desbloqueio do Android</span></li><li><svg><use href="#i-check"/></svg><span>Bancada por etapas, com cards que você cria</span></li><li><svg><use href="#i-check"/></svg><span>Assinatura do cliente na tela</span></li><li><svg><use href="#i-check"/></svg><span>Impressão em A4, cupom térmico 58/80 mm e etiqueta do aparelho</span></li><li><svg><use href="#i-check"/></svg><span>Garantia em PDF com o prazo de cada serviço</span></li></ul></details><details class="surge"><summary><span class="ic"><svg><use href="#i-radar"/></svg></span><b>Cliente informado</b><em>4</em></summary><ul><li><svg><use href="#i-check"/></svg><span>Link para o cliente acompanhar o conserto em tempo real</span></li><li><svg><use href="#i-check"/></svg><span>Mensagens prontas no WhatsApp: entrada, andamento e “pronto”</span></li><li><svg><use href="#i-check"/></svg><span>Orçamento enviado pelo WhatsApp; aprovado, vira OS</span></li><li><svg><use href="#i-check"/></svg><span>Pós-venda e follow-up pelo WhatsApp</span><em class="pro">Pro</em></li></ul></details><details class="surge"><summary><span class="ic"><svg><use href="#i-caixa"/></svg></span><b>Peças, estoque e fornecedores</b><em>5</em></summary><ul><li><svg><use href="#i-check"/></svg><span>Estoque de peças, produtos e seminovos com IMEI</span></li><li><svg><use href="#i-check"/></svg><span>Peça usada na OS sai do estoque sozinha</span></li><li><svg><use href="#i-check"/></svg><span>Entrada de estoque pelo XML da nota de compra</span></li><li><svg><use href="#i-check"/></svg><span>Até 3 fornecedores: cotar preço ou pedir peça pelo WhatsApp</span></li><li><svg><use href="#i-check"/></svg><span>Lista do que está acabando para repor</span></li></ul></details><details class="surge"><summary><span class="ic"><svg><use href="#i-carrinho"/></svg></span><b>Vendas</b><em>4</em></summary><ul><li><svg><use href="#i-check"/></svg><span>Venda de acessórios e aparelhos com recibo</span></li><li><svg><use href="#i-check"/></svg><span>Aparelho do cliente na troca</span></li><li><svg><use href="#i-check"/></svg><span>Quem vendeu conta na meta do vendedor</span><em class="pro">Pro</em></li><li><svg><use href="#i-check"/></svg><span>Vitrine online com carrinho e retirada na loja</span><em class="pro">Pro</em></li></ul></details><details class="surge"><summary><span class="ic"><svg><use href="#i-grafico"/></svg></span><b>Dinheiro no controle</b><em>4</em></summary><ul><li><svg><use href="#i-check"/></svg><span>Caixa do dia</span></li><li><svg><use href="#i-check"/></svg><span>Lucro real: desconta peças, taxas do cartão e despesas</span></li><li><svg><use href="#i-check"/></svg><span>Relatórios e exportação para planilha</span></li><li><svg><use href="#i-check"/></svg><span>Metas da loja</span><em class="pro">Pro</em></li></ul></details><details class="surge"><summary><span class="ic"><svg><use href="#i-equipe"/></svg></span><b>Equipe</b><em>4</em></summary><ul><li><svg><use href="#i-check"/></svg><span>Login próprio para cada funcionário</span></li><li><svg><use href="#i-check"/></svg><span>Cada um vê só o que a função permite</span></li><li><svg><use href="#i-check"/></svg><span>Metas por funcionário (OS e vendas)</span><em class="pro">Pro</em></li><li><svg><use href="#i-check"/></svg><span>Registro de quem fez cada ação</span></li></ul></details><details class="surge"><summary><span class="ic"><svg><use href="#i-pincel"/></svg></span><b>Com a cara da sua loja</b><em>3</em></summary><ul><li><svg><use href="#i-check"/></svg><span>Sua logo e suas cores no sistema, nos PDFs e no link do cliente</span></li><li><svg><use href="#i-check"/></svg><span>Endereço próprio para a sua loja</span></li><li><svg><use href="#i-check"/></svg><span>Tela de entrada com a sua marca</span></li></ul></details><details class="surge"><summary><span class="ic"><svg><use href="#i-nuvem"/></svg></span><b>Seguro e em qualquer lugar</b><em>4</em></summary><ul><li><svg><use href="#i-check"/></svg><span>Celular, tablet ou computador, sem instalar nada</span></li><li><svg><use href="#i-check"/></svg><span>Vira app na tela inicial do celular</span></li><li><svg><use href="#i-check"/></svg><span>Funciona sem internet e sincroniza depois</span></li><li><svg><use href="#i-check"/></svg><span>Dados na nuvem e backup completo para baixar</span></li></ul></details></div>
     </div>
   </section>
 
@@ -542,41 +585,11 @@ src="https://www.facebook.com/tr?id=1395792166092365&ev=PageView&noscript=1"
     </div>
   </section>
 
-  <!-- COMPARAÇÃO -->
-  <section class="curta">
+  <!-- DEPOIMENTOS: só aparece com depoimentos reais -->
+  <section id="depoimentos" class="curta" hidden>
     <div class="wrap">
-      <div class="titulo surge">
-        <h2>Por que trocar de sistema</h2>
-      </div>
-      <div class="comparar">
-        <div class="cmp surge">
-          <div class="cmp-ic"><svg><use href="#i-pc"/></svg></div>
-          <h3>Sistema instalado no computador</h3>
-          <ul>
-            <li class="nao"><svg><use href="#i-x"/></svg><span>Computador estragou, os dados vão junto</span></li>
-            <li class="nao"><svg><use href="#i-x"/></svg><span>Só funciona dentro da loja</span></li>
-            <li class="nao"><svg><use href="#i-x"/></svg><span>Backup depende de alguém lembrar</span></li>
-          </ul>
-        </div>
-        <div class="cmp surge">
-          <div class="cmp-ic"><svg><use href="#i-camadas"/></svg></div>
-          <h3>Sistemas de gestão genéricos</h3>
-          <ul>
-            <li class="nao"><svg><use href="#i-x"/></svg><span>Feitos para qualquer comércio</span></li>
-            <li class="nao"><svg><use href="#i-x"/></svg><span>Mensalidade alta por módulos que você não usa</span></li>
-            <li class="nao"><svg><use href="#i-x"/></svg><span>Sem acompanhamento do reparo para o cliente</span></li>
-          </ul>
-        </div>
-        <div class="cmp rs surge">
-          <div class="cmp-ic"><svg><use href="#logo"/></svg></div>
-          <h3>Reparo <span class="gold">Simples</span></h3>
-          <ul>
-            <li><svg><use href="#i-check"/></svg><span>Na nuvem: troca de aparelho e continua de onde parou</span></li>
-            <li><svg><use href="#i-check"/></svg><span>Feito só para assistência de celulares</span></li>
-            <li><svg><use href="#i-check"/></svg><span>Até 8x mais barato que as soluções tradicionais</span></li>
-          </ul>
-        </div>
-      </div>
+      <div class="titulo surge"><span class="tag">Quem usa</span><h2>O que dizem os <span class="grad-text">lojistas</span></h2></div>
+      <div class="dep-grid" id="dep-grid"></div>
     </div>
   </section>
 
@@ -805,6 +818,20 @@ src="https://www.facebook.com/tr?id=1395792166092365&ev=PageView&noscript=1"
   // entrada suave das seções ao rolar
   const io = 'IntersectionObserver' in window ? new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } }), { threshold: 0, rootMargin: '0px 0px 20% 0px' }) : null;
   document.querySelectorAll('.surge').forEach(el => io ? io.observe(el) : el.classList.add('on'));
+
+  // DEPOIMENTOS REAIS: { nome, loja, texto, foto (opcional, link da imagem), estrelas (1 a 5, opcional) }.
+  // Com a lista vazia a seção não aparece. Para ver o modelo: abra a página com ?depoimentos=exemplo
+  const DEPOIMENTOS = [];
+  (() => {
+    const sec = document.getElementById('depoimentos'), grid = document.getElementById('dep-grid'); if (!sec || !grid) return;
+    const exemplo = /[?&]depoimentos=exemplo/.test(location.search);
+    const lista = DEPOIMENTOS.length ? DEPOIMENTOS : exemplo ? [{"nome": "Nome do lojista", "loja": "Nome da loja · Cidade/UF", "texto": "Aqui vai o depoimento real do cliente: o que mudou na loja depois do Reparo Simples."}, {"nome": "Nome do lojista", "loja": "Nome da loja · Cidade/UF", "texto": "Depoimento real curto, de 2 ou 3 linhas, falando de um resultado concreto."}, {"nome": "Nome do lojista", "loja": "Nome da loja · Cidade/UF", "texto": "Depoimento real: por exemplo, como o link de acompanhamento diminuiu as ligações."}] : [];
+    if (!lista.length) return;
+    const e = s => String(s || '').replace(/[&<>"]/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[ch]));
+    grid.innerHTML = lista.map(d => `<div class="dep">${DEPOIMENTOS.length ? '' : '<span class="exemplo">EXEMPLO</span>'}<div class="estrelas">${'★'.repeat(Math.min(5, Math.max(1, d.estrelas || 5)))}</div><p>“${e(d.texto)}”</p>
+      <div class="quem">${d.foto ? `<img src="${e(d.foto)}" alt="" loading="lazy">` : `<span class="av">${e((d.nome || '?')[0])}</span>`}<div><b>${e(d.nome)}</b><span>${e(d.loja)}</span></div></div></div>`).join('');
+    sec.hidden = false;
+  })();
 
   // vídeo demonstrativo: começa a baixar e tocar quando chega perto da tela; toque pausa/continua
   const dv = document.getElementById('demo-video'), dbox = dv && dv.parentElement, dplay = document.getElementById('demo-play');
