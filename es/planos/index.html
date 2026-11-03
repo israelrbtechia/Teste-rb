@@ -374,6 +374,64 @@
   .demo-passos h3 { margin: 2px 0 2px; font-size: 18px; } .demo-passos p { margin: 0; color: var(--muted, #a3a3a3); font-size: 15px; }
   @media (max-width: 900px) { .demo-grid { grid-template-columns: 1fr; grid-template-areas: "topo" "fone" "lado"; row-gap: 22px; } .demo-topo { text-align: center; } #demo .btn { width: 100%; } }
   @media (max-width: 900px) { .barra-compra { display: flex; } body { padding-bottom: 76px; } .hero h1 { font-size: clamp(34px, 9.4vw, 44px); } }
+
+  /* referência: celular real no topo, faixa rolando, problema, sua parte x sistema, use onde estiver */
+  .fone-real { position: relative; width: min(320px, 82vw); margin: 0 auto; border: 10px solid #1b1b1b; border-radius: 46px; overflow: hidden; background: #000;
+    box-shadow: 0 0 0 1px rgba(212,175,55,.35), 0 30px 80px rgba(0,0,0,.7), 0 0 80px rgba(212,175,55,.14); }
+  .fone-real img { display: block; width: 100%; height: auto; }
+  @media (max-width: 900px) { .hero .fone-real { margin-top: 30px; max-height: 470px; } .hero .fone-real::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 90px; background: linear-gradient(transparent, #000); } }
+  .faixa-rolando { overflow: hidden; border-block: 1px solid rgba(212,175,55,.25); background: #0b0b0b; padding: 14px 0;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); }
+  .faixa-rolando .trilho { display: flex; width: max-content; animation: faixa 32s linear infinite; }
+  .faixa-rolando span { display: inline-flex; align-items: center; gap: 12px; padding: 0 22px; font-weight: 700; font-size: 14px; letter-spacing: .08em; text-transform: uppercase; color: #e9e9e9; white-space: nowrap; }
+  .faixa-rolando span::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 10px var(--gold); }
+  @keyframes faixa { to { transform: translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce) { .faixa-rolando .trilho { animation: none; } }
+  .prob-txt { max-width: 720px; margin: -18px auto 34px; text-align: center; color: var(--muted); font-size: 17.5px; }
+  .prob-txt p { margin: 0 0 12px; } .prob-txt b { color: #fff; }
+  .prob-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .pc { border: 1px solid var(--line); border-radius: 20px; overflow: hidden; background: var(--card); display: flex; flex-direction: column; }
+  .pc-vis { min-height: 190px; padding: 26px 16px; display: grid; place-items: center; background: radial-gradient(ellipse at 50% 120%, rgba(212,175,55,.16), transparent 70%), #0c0c0c; border-bottom: 1px solid var(--line); position: relative; overflow: hidden; }
+  .pc-corpo { padding: 20px 22px 22px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+  .pc-corpo h3 { margin: 0; font-size: 19px; } .pc-corpo p { margin: 0; color: var(--muted); font-size: 15px; }
+  .pc-sol { margin-top: auto !important; padding-top: 12px; border-top: 1px dashed var(--line); color: #eee !important; font-size: 14.5px !important; display: flex; gap: 8px; }
+  .pc-sol svg { width: 18px; height: 18px; color: var(--green); flex: none; margin-top: 2px; } .pc-sol small { display: block; color: var(--gold); font-weight: 700; font-size: 11.5px; letter-spacing: .08em; text-transform: uppercase; }
+  .v-papel { width: 150px; padding: 14px 14px 18px; background: #efe9da; border-radius: 4px; transform: rotate(-5deg); box-shadow: 0 14px 30px rgba(0,0,0,.6); color: #4b463c; font: 600 12.5px/1.9 "Segoe Print", "Comic Sans MS", cursive;
+    background-image: repeating-linear-gradient(transparent 0 22px, #c9d7e8 22px 23px); }
+  .v-papel i { display: block; font-style: normal; } .v-papel i:nth-child(2) { filter: blur(1.4px); } .v-papel i:nth-child(3) { text-decoration: line-through 2px #b91c1c; }
+  .v-papel::after { content: ''; position: absolute; width: 70px; height: 50px; border-radius: 50%; background: rgba(120,90,40,.25); right: 6px; bottom: 6px; filter: blur(6px); }
+  .v-zap { width: 220px; display: grid; gap: 8px; }
+  .v-zap div { background: #1f2c33; color: #e9edef; border-radius: 4px 12px 12px 12px; padding: 8px 12px; font-size: 13.5px; width: fit-content; max-width: 90%; box-shadow: 0 6px 16px rgba(0,0,0,.4); }
+  .v-zap small { color: #8696a0; font-size: 10.5px; margin-left: 8px; }
+  .v-zap-n { position: absolute; top: 18px; right: 22px; width: 30px; height: 30px; border-radius: 50%; background: #25d366; display: grid; place-items: center; color: #fff; }
+  .v-zap-n svg { width: 16px; height: 16px; } .v-zap-n b { position: absolute; top: -6px; right: -6px; background: #ef4444; color: #fff; font-size: 11px; width: 19px; height: 19px; border-radius: 50%; display: grid; place-items: center; }
+  .v-lucro { width: 220px; background: #151515; border: 1px solid #2a2a2a; border-radius: 14px; padding: 14px 16px; box-shadow: 0 14px 30px rgba(0,0,0,.6); }
+  .v-lucro span { color: var(--muted); font-size: 12px; } .v-lucro b { display: block; font-size: 22px; margin-bottom: 10px; }
+  .v-lucro em { display: flex; justify-content: space-between; align-items: center; font-style: normal; border-top: 1px solid #2a2a2a; padding-top: 10px; color: #ddd; font-size: 13px; }
+  .v-lucro em strong { font-size: 26px; color: var(--gold); line-height: 1; }
+  .vir { max-width: 860px; margin: 0 auto; display: grid; gap: 10px; }
+  .vir-cab, .vir-l { display: grid; grid-template-columns: 1fr 34px 1.25fr; align-items: center; gap: 10px; }
+  .vir-cab span { font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); padding: 0 18px; } .vir-cab span:last-child { color: var(--gold); }
+  .vir-l > div { border-radius: 14px; padding: 15px 18px; font-size: 15.5px; }
+  .vir-l > div:first-child { background: var(--card); border: 1px solid var(--line); color: #ddd; }
+  .vir-l > div:last-child { background: linear-gradient(180deg, rgba(212,175,55,.12), rgba(212,175,55,.04)); border: 1px solid rgba(212,175,55,.35); font-weight: 600; }
+  .vir-l > svg { width: 22px; height: 22px; color: var(--gold); justify-self: center; }
+  .vir-fim { text-align: center; margin: 26px auto 0; font-size: 19px; font-weight: 700; max-width: 640px; }
+  @media (max-width: 700px) { .vir-cab { display: none; } .vir-l { grid-template-columns: 1fr; gap: 0; } .vir-l > svg { transform: rotate(90deg); margin: -4px 0; position: relative; z-index: 1; background: #000; border-radius: 50%; }
+    .vir-l > div { padding: 12px 16px; } .vir-l > div:first-child::before { content: attr(data-r); display: block; font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 2px; }
+    .vir-l > div:last-child::before { content: attr(data-r); display: block; font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); margin-bottom: 2px; } .vir { gap: 16px; } }
+  .dev-vis { position: relative; max-width: 900px; margin: 0 auto 40px; padding-bottom: 40px; }
+  .dev-pc { border: 1px solid #2b2b2b; border-radius: 14px; overflow: hidden; background: #111; box-shadow: 0 30px 80px rgba(0,0,0,.7), 0 0 70px rgba(212,175,55,.08); width: 86%; margin-left: auto; }
+  .dev-pc .barra-nav { display: flex; align-items: center; gap: 7px; padding: 10px 14px; background: #1a1a1a; border-bottom: 1px solid #2b2b2b; }
+  .dev-pc .barra-nav i { width: 10px; height: 10px; border-radius: 50%; background: #444; } .dev-pc .barra-nav i:nth-child(1) { background: #ef4444; } .dev-pc .barra-nav i:nth-child(2) { background: #eab308; } .dev-pc .barra-nav i:nth-child(3) { background: #22c55e; }
+  .dev-pc .barra-nav span { margin-left: 12px; flex: 1; max-width: 300px; background: #0d0d0d; border: 1px solid #2b2b2b; border-radius: 8px; padding: 4px 12px; font-size: 12.5px; color: var(--muted); }
+  .dev-pc img { display: block; width: 100%; height: auto; }
+  .dev-cel { position: absolute; left: 0; bottom: 0; width: 30%; max-width: 230px; border: 7px solid #1b1b1b; border-radius: 30px; overflow: hidden; box-shadow: 0 0 0 1px rgba(212,175,55,.35), 0 20px 60px rgba(0,0,0,.8); }
+  .dev-cel img { display: block; width: 100%; height: auto; }
+  .dev-itens { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .dev-itens .res { flex-direction: row; }
+  @media (max-width: 700px) { .dev-pc { width: 92%; } .dev-cel { width: 36%; border-width: 5px; border-radius: 20px; } .dev-itens { grid-template-columns: 1fr; } .dev-itens .res { flex-direction: row !important; } }
+  @media (max-width: 900px) { .prob-cards { grid-template-columns: 1fr; } .prob-txt { font-size: 16.5px; margin-top: -24px; } .pc-vis { min-height: 170px; } }
 </style>
 <!-- Meta Pixel Code -->
 <script>
@@ -455,26 +513,27 @@ src="https://www.facebook.com/tr?id=1395792166092365&ev=PageView&noscript=1"
       <div>
         <span class="selo">Para dueños de talleres de reparación de celulares</span>
         <h1>Tu taller está <span class="grad-text">perdiendo dinero</span> y ni te das cuenta.</h1>
-        <p class="lead">ReparaYa pone tu taller bajo control, desde el celular. Mira si alguno de estos te pasa:</p>
-        <ul class="dores"><li><svg><use href="#i-x"/></svg> Órdenes olvidadas y equipos parados en el mesón</li><li><svg><use href="#i-x"/></svg> Repuesto usado en la reparación y no cobrado al cliente</li><li><svg><use href="#i-x"/></svg> Clientes llamando a cada rato: “¿ya está listo?”</li><li><svg><use href="#i-x"/></svg> Fin de mes sin saber cuánto ganaste de verdad</li></ul>
+        <p class="lead">Sistema para talleres de reparación de celulares: órdenes, cliente informado, stock y ganancia del día. Todo en el celular.</p>
         <p class="ancora"><b>7 días gratis</b> · sin tarjeta de crédito · sin permanencia</p>
         <div class="ctas-hero">
           <a class="btn primary" data-link="teste" href="#teste">Probar gratis 7 días <svg><use href="#i-seta"/></svg></a>
           <a class="btn" href="#demo">Míralo funcionando</a>
         </div>
       </div>
-      <div class="fone" aria-hidden="true">
-        <div class="tela">
-          <div class="topo"><svg><use href="#logo"/></svg><div>ReparaYa<small>Tu Tienda</small></div></div>
-          <div class="kpi"><span class="muted">Facturación de hoy</span><b>$184.000</b><div class="barra"><i></i></div><span class="muted" style="font-size:10px">68% de la meta del día</span></div>
-          <div class="os"><div><b>#1042 · iPhone 13 · Pantalla</b><span class="s">María · ingreso 09:12</span></div><span class="pill p-ok">Listo</span></div>
-          <div class="os"><div><b>#1043 · Galaxy A54 · Batería</b><span class="s">Juan · ingreso 10:40</span></div><span class="pill p-gold">En reparación</span></div>
-          <div class="os"><div><b>#1044 · Moto G84 · Conector</b><span class="s">Ana · ingreso 11:05</span></div><span class="pill p-blue">En revisión</span></div>
-          <div class="aviso"><b>Carlos hizo un pedido</b><div class="muted" style="font-size:11px">2 artículos · $25.980 · Retiro hoy a las 17:00</div></div>
-        </div>
-      </div>
+      <div class="fone-real"><img src="/es/planos/m/painel-cel.jpg" alt="Pantalla real del sistema: panel con facturación y ganancia del día" width="390" height="700" fetchpriority="low"></div>
     </div>
   </section>
+  <div class="faixa-rolando" aria-hidden="true"><div class="trilho"><span>Menos llamadas de clientes</span><span>Ganancia real del día</span><span>Órdenes en segundos</span><span>Checklist de entrada</span><span>Garantía en PDF</span><span>Funciona sin internet</span><span>Stock que se descuenta solo</span><span>Menos llamadas de clientes</span><span>Ganancia real del día</span><span>Órdenes en segundos</span><span>Checklist de entrada</span><span>Garantía en PDF</span><span>Funciona sin internet</span><span>Stock que se descuenta solo</span></div></div>
+
+  <!-- PROBLEMA -->
+  <section id="problema" class="curta">
+    <div class="wrap">
+      <div class="titulo surge"><span class="tag">El problema de verdad</span><h2>Sabes reparar. Lo que pesa es <span class="grad-text">todo lo demás</span>.</h2></div>
+      <div class="prob-txt surge"><p>No es falta de técnica. Es el equipo que nadie recuerda cuándo llegó, el repuesto que salió del cajón y no se cobró, el cliente jurando que el celular llegó sin ese rayón <b>y tú sin nada anotado</b>.</p><p>Es cerrar el mes con el mesón lleno y, aun así, <b>no saber cuánto quedó</b>.</p></div>
+      <div class="prob-cards"><div class="pc surge"><div class="pc-vis" aria-hidden="true"><div class="v-papel"><i>Orden 0??</i><i>Cliente: ???</i><i>Tel: +56 9…</i><i>Falla: pantalla</i></div></div><div class="pc-corpo"><h3>La orden en papel se pierde</h3><p>El cuaderno se moja, se rompe y se pierde. Con él se va lo que acordaste con el cliente.</p><p class="pc-sol"><svg><use href="#i-check"/></svg><span><small>Con ReparaYa</small>Orden digital con checklist de entrada y garantía en PDF.</span></p></div></div><div class="pc surge"><div class="pc-vis" aria-hidden="true"><div class="v-zap-n"><svg><use href="#i-whats"/></svg><b>3</b></div><div class="v-zap"><div>¿Ya está listo?<small>09:12</small></div><div>¿Alguna novedad de mi celular?<small>11:40</small></div><div>¿Lo puedes ver hoy?<small>15:03</small></div></div></div><div class="pc-corpo"><h3>El teléfono no para</h3><p>Cada “¿ya está listo?” es una pausa en la reparación que estás haciendo.</p><p class="pc-sol"><svg><use href="#i-check"/></svg><span><small>Con ReparaYa</small>El cliente sigue la reparación solo, por el enlace.</span></p></div></div><div class="pc surge"><div class="pc-vis" aria-hidden="true"><div class="v-lucro"><span>Entró en el mes</span><b>$1.840.000</b><em>¿Cuánto quedó? <strong>?</strong></em></div></div><div class="pc-corpo"><h3>Facturas, pero no ves la ganancia</h3><p>Sin descontar repuestos, comisiones y gastos, el número de la caja engaña.</p><p class="pc-sol"><svg><use href="#i-check"/></svg><span><small>Con ReparaYa</small>Ganancia real del día, con todo descontado.</span></p></div></div></div>
+    </div>
+  </section>
+
 
   <!-- BENEFICIOS -->
   <section id="beneficios" class="curta">
@@ -496,6 +555,27 @@ src="https://www.facebook.com/tr?id=1395792166092365&ev=PageView&noscript=1"
         <ol class="demo-passos"><li><b>1</b><div><h3>Abre la orden en segundos</h3><p>Cliente, equipo, falla y valor en pocos toques.</p></div></li><li><b>2</b><div><h3>Tu cliente sigue la reparación por enlace</h3><p>Ve cuando queda lista, sin llamar al taller.</p></div></li><li><b>3</b><div><h3>Mira la ganancia real del día</h3><p>Facturación y ganancia descontando repuestos y comisiones.</p></div></li></ol>
         <a class="btn primary" data-link="teste" href="#teste">Probar gratis 7 días <svg><use href="#i-seta"/></svg></a>
       </div>
+    </div>
+  </section>
+
+  <!-- SUA PARTE x SISTEMA -->
+  <section id="virada" class="curta">
+    <div class="wrap">
+      <div class="titulo surge"><span class="tag">Sin trabajo extra</span><h2>“¿Otro sistema más que atender?”<br><span class="grad-text">No. Es menos cosas en tu cabeza.</span></h2><p>Sigues haciendo lo que ya haces. El sistema se encarga del resto:</p></div>
+      <div class="vir"><div class="vir-cab"><span>Tú</span><span></span><span>ReparaYa</span></div><div class="vir-l surge"><div data-r="Tú">Abres la orden en el mostrador</div><svg><use href="#i-seta"/></svg><div data-r="ReparaYa">Guarda cliente, equipo, checklist e historial</div></div><div class="vir-l surge"><div data-r="Tú">Agregas el repuesto a la reparación</div><svg><use href="#i-seta"/></svg><div data-r="ReparaYa">Lo descuenta del stock y lo suma al costo de la orden</div></div><div class="vir-l surge"><div data-r="Tú">Marcas como listo</div><svg><use href="#i-seta"/></svg><div data-r="ReparaYa">El cliente lo ve en el enlace y recibe la garantía en PDF</div></div><div class="vir-l surge"><div data-r="Tú">Cierras la orden</div><svg><use href="#i-seta"/></svg><div data-r="ReparaYa">Facturación y ganancia del día al instante</div></div></div>
+      <p class="vir-fim surge">No tienes que aprender un sistema. Solo dejas de guardar todo en la cabeza.</p>
+    </div>
+  </section>
+
+  <!-- USE ONDE ESTIVER -->
+  <section id="dispositivos" class="curta">
+    <div class="wrap">
+      <div class="titulo surge"><span class="tag">Úsalo donde estés</span><h2>Mostrador, mesón o en casa. <span class="grad-text">Los mismos datos.</span></h2><p>Funciona en el navegador del computador, del celular y de la tablet, y se puede instalar como app. Abres la orden en el mostrador, la actualizas en el mesón y la revisas desde casa.</p></div>
+      <div class="dev-vis surge">
+        <div class="dev-pc"><div class="barra-nav"><i></i><i></i><i></i><span>tutaller.reparosimples.com</span></div><img src="/es/planos/m/app-os.jpg" alt="Pantalla real del sistema en el computador: lista de órdenes de servicio" width="1100" height="688" loading="lazy"></div>
+        <div class="dev-cel"><img src="/es/planos/m/painel-cel.jpg" alt="Pantalla real del sistema en el celular" width="390" height="700" loading="lazy"></div>
+      </div>
+      <div class="dev-itens"><div class="res surge"><div class="ic"><svg><use href="#i-nuvem"/></svg></div><div><b>Todo en la nube</b><span>¿Cambiaste o perdiste el celular? Entras desde otro y sigues donde quedaste.</span></div></div><div class="res surge"><div class="ic"><svg><use href="#i-pc"/></svg></div><div><b>Sin instalar nada</b><span>Abre en el navegador. Sin tienda de apps y sin actualizar a mano.</span></div></div><div class="res surge"><div class="ic"><svg><use href="#i-escudo"/></svg></div><div><b>Funciona sin internet</b><span>Si se cae la conexión, sigue funcionando y sincroniza al volver.</span></div></div></div>
     </div>
   </section>
 
@@ -533,44 +613,6 @@ src="https://www.facebook.com/tr?id=1395792166092365&ev=PageView&noscript=1"
         <img src="/es/planos/m/pedidos.jpg" alt="Pantalla de la tienda con los pedidos de la vitrina por preparar" loading="lazy">
         <figcaption>Panel de la tienda: pedidos por preparar, con hora de retiro y WhatsApp del cliente.</figcaption>
       </figure>
-    </div>
-  </section>
-
-  <!-- COMPARACIÓN -->
-  <section class="curta">
-    <div class="wrap">
-      <div class="titulo surge">
-        <h2>Por qué cambiar de sistema</h2>
-      </div>
-      <div class="comparar">
-        <div class="cmp surge">
-          <div class="cmp-ic"><svg><use href="#i-pc"/></svg></div>
-          <h3>Sistema instalado en la computadora</h3>
-          <ul>
-            <li class="nao"><svg><use href="#i-x"/></svg><span>Si la computadora se daña, los datos se pierden</span></li>
-            <li class="nao"><svg><use href="#i-x"/></svg><span>Solo funciona dentro de la tienda</span></li>
-            <li class="nao"><svg><use href="#i-x"/></svg><span>El respaldo depende de que alguien se acuerde</span></li>
-          </ul>
-        </div>
-        <div class="cmp surge">
-          <div class="cmp-ic"><svg><use href="#i-camadas"/></svg></div>
-          <h3>Sistemas de gestión genéricos</h3>
-          <ul>
-            <li class="nao"><svg><use href="#i-x"/></svg><span>Hechos para cualquier comercio</span></li>
-            <li class="nao"><svg><use href="#i-x"/></svg><span>Mensualidad alta por módulos que no usas</span></li>
-            <li class="nao"><svg><use href="#i-x"/></svg><span>Sin seguimiento de la reparación para el cliente</span></li>
-          </ul>
-        </div>
-        <div class="cmp rs surge">
-          <div class="cmp-ic"><svg><use href="#logo"/></svg></div>
-          <h3>Repara<span class="gold">Ya</span></h3>
-          <ul>
-            <li><svg><use href="#i-check"/></svg><span>En la nube: cambias de dispositivo y sigues donde te quedaste</span></li>
-            <li><svg><use href="#i-check"/></svg><span>Hecho solo para talleres de celulares</span></li>
-            <li><svg><use href="#i-check"/></svg><span>Por una fracción del costo de las soluciones tradicionales</span></li>
-          </ul>
-        </div>
-      </div>
     </div>
   </section>
 

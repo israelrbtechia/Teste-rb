@@ -370,6 +370,64 @@
   .demo-passos h3 { margin: 2px 0 2px; font-size: 18px; } .demo-passos p { margin: 0; color: var(--muted, #a3a3a3); font-size: 15px; }
   @media (max-width: 900px) { .demo-grid { grid-template-columns: 1fr; grid-template-areas: "topo" "fone" "lado"; row-gap: 22px; } .demo-topo { text-align: center; } #demo .btn { width: 100%; } }
   @media (max-width: 900px) { .barra-compra { display: flex; } body { padding-bottom: 76px; } .hero h1 { font-size: clamp(34px, 9.4vw, 44px); } }
+
+  /* referência: celular real no topo, faixa rolando, problema, sua parte x sistema, use onde estiver */
+  .fone-real { position: relative; width: min(320px, 82vw); margin: 0 auto; border: 10px solid #1b1b1b; border-radius: 46px; overflow: hidden; background: #000;
+    box-shadow: 0 0 0 1px rgba(212,175,55,.35), 0 30px 80px rgba(0,0,0,.7), 0 0 80px rgba(212,175,55,.14); }
+  .fone-real img { display: block; width: 100%; height: auto; }
+  @media (max-width: 900px) { .hero .fone-real { margin-top: 30px; max-height: 470px; } .hero .fone-real::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 90px; background: linear-gradient(transparent, #000); } }
+  .faixa-rolando { overflow: hidden; border-block: 1px solid rgba(212,175,55,.25); background: #0b0b0b; padding: 14px 0;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); }
+  .faixa-rolando .trilho { display: flex; width: max-content; animation: faixa 32s linear infinite; }
+  .faixa-rolando span { display: inline-flex; align-items: center; gap: 12px; padding: 0 22px; font-weight: 700; font-size: 14px; letter-spacing: .08em; text-transform: uppercase; color: #e9e9e9; white-space: nowrap; }
+  .faixa-rolando span::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 10px var(--gold); }
+  @keyframes faixa { to { transform: translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce) { .faixa-rolando .trilho { animation: none; } }
+  .prob-txt { max-width: 720px; margin: -18px auto 34px; text-align: center; color: var(--muted); font-size: 17.5px; }
+  .prob-txt p { margin: 0 0 12px; } .prob-txt b { color: #fff; }
+  .prob-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .pc { border: 1px solid var(--line); border-radius: 20px; overflow: hidden; background: var(--card); display: flex; flex-direction: column; }
+  .pc-vis { min-height: 190px; padding: 26px 16px; display: grid; place-items: center; background: radial-gradient(ellipse at 50% 120%, rgba(212,175,55,.16), transparent 70%), #0c0c0c; border-bottom: 1px solid var(--line); position: relative; overflow: hidden; }
+  .pc-corpo { padding: 20px 22px 22px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+  .pc-corpo h3 { margin: 0; font-size: 19px; } .pc-corpo p { margin: 0; color: var(--muted); font-size: 15px; }
+  .pc-sol { margin-top: auto !important; padding-top: 12px; border-top: 1px dashed var(--line); color: #eee !important; font-size: 14.5px !important; display: flex; gap: 8px; }
+  .pc-sol svg { width: 18px; height: 18px; color: var(--green); flex: none; margin-top: 2px; } .pc-sol small { display: block; color: var(--gold); font-weight: 700; font-size: 11.5px; letter-spacing: .08em; text-transform: uppercase; }
+  .v-papel { width: 150px; padding: 14px 14px 18px; background: #efe9da; border-radius: 4px; transform: rotate(-5deg); box-shadow: 0 14px 30px rgba(0,0,0,.6); color: #4b463c; font: 600 12.5px/1.9 "Segoe Print", "Comic Sans MS", cursive;
+    background-image: repeating-linear-gradient(transparent 0 22px, #c9d7e8 22px 23px); }
+  .v-papel i { display: block; font-style: normal; } .v-papel i:nth-child(2) { filter: blur(1.4px); } .v-papel i:nth-child(3) { text-decoration: line-through 2px #b91c1c; }
+  .v-papel::after { content: ''; position: absolute; width: 70px; height: 50px; border-radius: 50%; background: rgba(120,90,40,.25); right: 6px; bottom: 6px; filter: blur(6px); }
+  .v-zap { width: 220px; display: grid; gap: 8px; }
+  .v-zap div { background: #1f2c33; color: #e9edef; border-radius: 4px 12px 12px 12px; padding: 8px 12px; font-size: 13.5px; width: fit-content; max-width: 90%; box-shadow: 0 6px 16px rgba(0,0,0,.4); }
+  .v-zap small { color: #8696a0; font-size: 10.5px; margin-left: 8px; }
+  .v-zap-n { position: absolute; top: 18px; right: 22px; width: 30px; height: 30px; border-radius: 50%; background: #25d366; display: grid; place-items: center; color: #fff; }
+  .v-zap-n svg { width: 16px; height: 16px; } .v-zap-n b { position: absolute; top: -6px; right: -6px; background: #ef4444; color: #fff; font-size: 11px; width: 19px; height: 19px; border-radius: 50%; display: grid; place-items: center; }
+  .v-lucro { width: 220px; background: #151515; border: 1px solid #2a2a2a; border-radius: 14px; padding: 14px 16px; box-shadow: 0 14px 30px rgba(0,0,0,.6); }
+  .v-lucro span { color: var(--muted); font-size: 12px; } .v-lucro b { display: block; font-size: 22px; margin-bottom: 10px; }
+  .v-lucro em { display: flex; justify-content: space-between; align-items: center; font-style: normal; border-top: 1px solid #2a2a2a; padding-top: 10px; color: #ddd; font-size: 13px; }
+  .v-lucro em strong { font-size: 26px; color: var(--gold); line-height: 1; }
+  .vir { max-width: 860px; margin: 0 auto; display: grid; gap: 10px; }
+  .vir-cab, .vir-l { display: grid; grid-template-columns: 1fr 34px 1.25fr; align-items: center; gap: 10px; }
+  .vir-cab span { font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); padding: 0 18px; } .vir-cab span:last-child { color: var(--gold); }
+  .vir-l > div { border-radius: 14px; padding: 15px 18px; font-size: 15.5px; }
+  .vir-l > div:first-child { background: var(--card); border: 1px solid var(--line); color: #ddd; }
+  .vir-l > div:last-child { background: linear-gradient(180deg, rgba(212,175,55,.12), rgba(212,175,55,.04)); border: 1px solid rgba(212,175,55,.35); font-weight: 600; }
+  .vir-l > svg { width: 22px; height: 22px; color: var(--gold); justify-self: center; }
+  .vir-fim { text-align: center; margin: 26px auto 0; font-size: 19px; font-weight: 700; max-width: 640px; }
+  @media (max-width: 700px) { .vir-cab { display: none; } .vir-l { grid-template-columns: 1fr; gap: 0; } .vir-l > svg { transform: rotate(90deg); margin: -4px 0; position: relative; z-index: 1; background: #000; border-radius: 50%; }
+    .vir-l > div { padding: 12px 16px; } .vir-l > div:first-child::before { content: attr(data-r); display: block; font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 2px; }
+    .vir-l > div:last-child::before { content: attr(data-r); display: block; font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); margin-bottom: 2px; } .vir { gap: 16px; } }
+  .dev-vis { position: relative; max-width: 900px; margin: 0 auto 40px; padding-bottom: 40px; }
+  .dev-pc { border: 1px solid #2b2b2b; border-radius: 14px; overflow: hidden; background: #111; box-shadow: 0 30px 80px rgba(0,0,0,.7), 0 0 70px rgba(212,175,55,.08); width: 86%; margin-left: auto; }
+  .dev-pc .barra-nav { display: flex; align-items: center; gap: 7px; padding: 10px 14px; background: #1a1a1a; border-bottom: 1px solid #2b2b2b; }
+  .dev-pc .barra-nav i { width: 10px; height: 10px; border-radius: 50%; background: #444; } .dev-pc .barra-nav i:nth-child(1) { background: #ef4444; } .dev-pc .barra-nav i:nth-child(2) { background: #eab308; } .dev-pc .barra-nav i:nth-child(3) { background: #22c55e; }
+  .dev-pc .barra-nav span { margin-left: 12px; flex: 1; max-width: 300px; background: #0d0d0d; border: 1px solid #2b2b2b; border-radius: 8px; padding: 4px 12px; font-size: 12.5px; color: var(--muted); }
+  .dev-pc img { display: block; width: 100%; height: auto; }
+  .dev-cel { position: absolute; left: 0; bottom: 0; width: 30%; max-width: 230px; border: 7px solid #1b1b1b; border-radius: 30px; overflow: hidden; box-shadow: 0 0 0 1px rgba(212,175,55,.35), 0 20px 60px rgba(0,0,0,.8); }
+  .dev-cel img { display: block; width: 100%; height: auto; }
+  .dev-itens { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .dev-itens .res { flex-direction: row; }
+  @media (max-width: 700px) { .dev-pc { width: 92%; } .dev-cel { width: 36%; border-width: 5px; border-radius: 20px; } .dev-itens { grid-template-columns: 1fr; } .dev-itens .res { flex-direction: row !important; } }
+  @media (max-width: 900px) { .prob-cards { grid-template-columns: 1fr; } .prob-txt { font-size: 16.5px; margin-top: -24px; } .pc-vis { min-height: 170px; } }
 </style>
 <!-- Meta Pixel Code -->
 <script>
@@ -451,26 +509,27 @@ src="https://www.facebook.com/tr?id=1395792166092365&ev=PageView&noscript=1"
       <div>
         <span class="selo">Para donos de assistência técnica de celulares</span>
         <h1>Sua assistência está <span class="grad-text">perdendo dinheiro</span> e você nem percebe.</h1>
-        <p class="lead">O Reparo Simples coloca a sua assistência no controle, direto do celular. Veja se algum destes acontece na sua loja:</p>
-        <ul class="dores"><li><svg><use href="#i-x"/></svg> OS esquecida e aparelho parado na bancada</li><li><svg><use href="#i-x"/></svg> Peça usada no conserto e não cobrada do cliente</li><li><svg><use href="#i-x"/></svg> Cliente ligando toda hora: “já ficou pronto?”</li><li><svg><use href="#i-x"/></svg> Fim do mês sem saber quanto lucrou de verdade</li></ul>
+        <p class="lead">Sistema para assistência técnica de celulares: OS, cliente avisado, estoque e lucro do dia. Tudo no celular.</p>
         <p class="ancora"><b>7 dias grátis</b> · sem cartão de crédito · sem fidelidade</p>
         <div class="ctas-hero">
           <a class="btn primary" data-link="teste" href="#teste">Testar grátis por 7 dias <svg><use href="#i-seta"/></svg></a>
           <a class="btn" href="#demo">Ver funcionando</a>
         </div>
       </div>
-      <div class="fone" aria-hidden="true">
-        <div class="tela">
-          <div class="topo"><svg><use href="#logo"/></svg><div>Reparo Simples<small>Sua Loja</small></div></div>
-          <div class="kpi"><span class="muted">Faturamento hoje</span><b>R$ 1.840,00</b><div class="barra"><i></i></div><span class="muted" style="font-size:10px">68% da meta do dia</span></div>
-          <div class="os"><div><b>#1042 · iPhone 13 · Tela</b><span class="s">Maria · entrada 09:12</span></div><span class="pill p-ok">Pronto</span></div>
-          <div class="os"><div><b>#1043 · Galaxy A54 · Bateria</b><span class="s">João · entrada 10:40</span></div><span class="pill p-gold">Em serviço</span></div>
-          <div class="os"><div><b>#1044 · Moto G84 · Conector</b><span class="s">Ana · entrada 11:05</span></div><span class="pill p-blue">Em análise</span></div>
-          <div class="aviso"><b>Carlos fez um pedido</b><div class="muted" style="font-size:11px">2 itens · R$ 129,80 · Retirada hoje às 17:00</div></div>
-        </div>
-      </div>
+      <div class="fone-real"><img src="/planos/m/painel-cel.jpg" alt="Tela real do sistema: painel com faturamento e lucro do dia" width="390" height="700" fetchpriority="low"></div>
     </div>
   </section>
+  <div class="faixa-rolando" aria-hidden="true"><div class="trilho"><span>Menos ligações de cliente</span><span>Lucro real do dia</span><span>OS em segundos</span><span>Checklist de entrada</span><span>Garantia em PDF</span><span>Funciona sem internet</span><span>Estoque que baixa sozinho</span><span>Menos ligações de cliente</span><span>Lucro real do dia</span><span>OS em segundos</span><span>Checklist de entrada</span><span>Garantia em PDF</span><span>Funciona sem internet</span><span>Estoque que baixa sozinho</span></div></div>
+
+  <!-- PROBLEMA -->
+  <section id="problema" class="curta">
+    <div class="wrap">
+      <div class="titulo surge"><span class="tag">O problema de verdade</span><h2>Você sabe consertar. O que pesa é <span class="grad-text">todo o resto</span>.</h2></div>
+      <div class="prob-txt surge"><p>Não é falta de técnica. É o aparelho que ninguém lembra quando entrou, a peça que saiu da gaveta e não foi cobrada, o cliente jurando que o celular chegou sem aquele risco <b>e você sem nada anotado</b>.</p><p>É fechar o mês com a bancada cheia e, mesmo assim, <b>não saber quanto sobrou</b>.</p></div>
+      <div class="prob-cards"><div class="pc surge"><div class="pc-vis" aria-hidden="true"><div class="v-papel"><i>OS 0??</i><i>Cliente: ???</i><i>Tel: (48) 9…</i><i>Defeito: tela</i></div></div><div class="pc-corpo"><h3>A OS no papel some</h3><p>Caderno molha, rasga e se perde. Junto vai o que foi combinado com o cliente.</p><p class="pc-sol"><svg><use href="#i-check"/></svg><span><small>Com o Reparo Simples</small>OS digital com checklist de entrada e garantia em PDF.</span></p></div></div><div class="pc surge"><div class="pc-vis" aria-hidden="true"><div class="v-zap-n"><svg><use href="#i-whats"/></svg><b>3</b></div><div class="v-zap"><div>Já ficou pronto?<small>09:12</small></div><div>Alguma novidade do meu celular?<small>11:40</small></div><div>Consegue ver ainda hoje?<small>15:03</small></div></div></div><div class="pc-corpo"><h3>O telefone não para</h3><p>Cada “já ficou pronto?” é uma pausa no conserto que você está fazendo.</p><p class="pc-sol"><svg><use href="#i-check"/></svg><span><small>Com o Reparo Simples</small>O cliente acompanha o reparo sozinho, pelo link.</span></p></div></div><div class="pc surge"><div class="pc-vis" aria-hidden="true"><div class="v-lucro"><span>Entrou no mês</span><b>R$ 9.840,00</b><em>Quanto sobrou? <strong>?</strong></em></div></div><div class="pc-corpo"><h3>Fatura, mas não vê o lucro</h3><p>Sem descontar peça, taxa do cartão e despesas, o número do caixa engana.</p><p class="pc-sol"><svg><use href="#i-check"/></svg><span><small>Com o Reparo Simples</small>Lucro real do dia, com tudo já descontado.</span></p></div></div></div>
+    </div>
+  </section>
+
 
   <!-- BENEFÍCIOS -->
   <section id="beneficios" class="curta">
@@ -492,6 +551,27 @@ src="https://www.facebook.com/tr?id=1395792166092365&ev=PageView&noscript=1"
         <ol class="demo-passos"><li><b>1</b><div><h3>Abra a OS em segundos</h3><p>Cliente, aparelho, defeito e valor em poucos toques.</p></div></li><li><b>2</b><div><h3>O cliente acompanha pelo link</h3><p>Ele vê o conserto ficar pronto, sem ligar para a loja.</p></div></li><li><b>3</b><div><h3>Veja o lucro real do dia</h3><p>Faturamento e lucro já descontando peças e taxas.</p></div></li></ol>
         <a class="btn primary" data-link="teste" href="#teste">Testar grátis por 7 dias <svg><use href="#i-seta"/></svg></a>
       </div>
+    </div>
+  </section>
+
+  <!-- SUA PARTE x SISTEMA -->
+  <section id="virada" class="curta">
+    <div class="wrap">
+      <div class="titulo surge"><span class="tag">Sem trabalho a mais</span><h2>“Mais um sistema pra eu cuidar?”<br><span class="grad-text">Não. É menos coisa na sua cabeça.</span></h2><p>Você continua fazendo o que já faz. O sistema cuida do resto:</p></div>
+      <div class="vir"><div class="vir-cab"><span>Você</span><span></span><span>O Reparo Simples</span></div><div class="vir-l surge"><div data-r="Você">Abre a OS no balcão</div><svg><use href="#i-seta"/></svg><div data-r="O Reparo Simples">Guarda cliente, aparelho, checklist e histórico</div></div><div class="vir-l surge"><div data-r="Você">Lança a peça no conserto</div><svg><use href="#i-seta"/></svg><div data-r="O Reparo Simples">Tira do estoque e soma no custo da OS</div></div><div class="vir-l surge"><div data-r="Você">Marca como pronto</div><svg><use href="#i-seta"/></svg><div data-r="O Reparo Simples">O cliente vê no link e recebe a garantia em PDF</div></div><div class="vir-l surge"><div data-r="Você">Fecha a OS</div><svg><use href="#i-seta"/></svg><div data-r="O Reparo Simples">Faturamento e lucro do dia atualizados na hora</div></div></div>
+      <p class="vir-fim surge">Você não precisa aprender um sistema. Só para de guardar tudo de cabeça.</p>
+    </div>
+  </section>
+
+  <!-- USE ONDE ESTIVER -->
+  <section id="dispositivos" class="curta">
+    <div class="wrap">
+      <div class="titulo surge"><span class="tag">Use onde estiver</span><h2>Balcão, bancada ou em casa. <span class="grad-text">Os mesmos dados.</span></h2><p>Funciona no navegador do computador, do celular e do tablet, e pode virar app na tela inicial. Abriu a OS no balcão, atualiza na bancada pelo celular e confere de casa.</p></div>
+      <div class="dev-vis surge">
+        <div class="dev-pc"><div class="barra-nav"><i></i><i></i><i></i><span>sualoja.reparosimples.com</span></div><img src="/planos/m/app-os.jpg" alt="Tela real do sistema no computador: lista de ordens de serviço" width="1100" height="688" loading="lazy"></div>
+        <div class="dev-cel"><img src="/planos/m/painel-cel.jpg" alt="Tela real do sistema no celular" width="390" height="700" loading="lazy"></div>
+      </div>
+      <div class="dev-itens"><div class="res surge"><div class="ic"><svg><use href="#i-nuvem"/></svg></div><div><b>Tudo na nuvem</b><span>Trocou ou perdeu o celular? Entra em outro e continua de onde parou.</span></div></div><div class="res surge"><div class="ic"><svg><use href="#i-pc"/></svg></div><div><b>Sem instalar nada</b><span>Abre no navegador. Sem loja de apps e sem atualização manual.</span></div></div><div class="res surge"><div class="ic"><svg><use href="#i-escudo"/></svg></div><div><b>Funciona sem internet</b><span>Se a conexão cair, segue funcionando e sincroniza quando voltar.</span></div></div></div>
     </div>
   </section>
 
@@ -529,44 +609,6 @@ src="https://www.facebook.com/tr?id=1395792166092365&ev=PageView&noscript=1"
         <img src="/planos/m/pedidos.jpg" alt="Tela da loja com os pedidos da vitrine para separar" loading="lazy">
         <figcaption>Painel da loja: pedidos para separar, com horário e WhatsApp do cliente.</figcaption>
       </figure>
-    </div>
-  </section>
-
-  <!-- COMPARAÇÃO -->
-  <section class="curta">
-    <div class="wrap">
-      <div class="titulo surge">
-        <h2>Por que trocar de sistema</h2>
-      </div>
-      <div class="comparar">
-        <div class="cmp surge">
-          <div class="cmp-ic"><svg><use href="#i-pc"/></svg></div>
-          <h3>Sistema instalado no computador</h3>
-          <ul>
-            <li class="nao"><svg><use href="#i-x"/></svg><span>Computador estragou, os dados vão junto</span></li>
-            <li class="nao"><svg><use href="#i-x"/></svg><span>Só funciona dentro da loja</span></li>
-            <li class="nao"><svg><use href="#i-x"/></svg><span>Backup depende de alguém lembrar</span></li>
-          </ul>
-        </div>
-        <div class="cmp surge">
-          <div class="cmp-ic"><svg><use href="#i-camadas"/></svg></div>
-          <h3>Sistemas de gestão genéricos</h3>
-          <ul>
-            <li class="nao"><svg><use href="#i-x"/></svg><span>Feitos para qualquer comércio</span></li>
-            <li class="nao"><svg><use href="#i-x"/></svg><span>Mensalidade alta por módulos que você não usa</span></li>
-            <li class="nao"><svg><use href="#i-x"/></svg><span>Sem acompanhamento do reparo para o cliente</span></li>
-          </ul>
-        </div>
-        <div class="cmp rs surge">
-          <div class="cmp-ic"><svg><use href="#logo"/></svg></div>
-          <h3>Reparo <span class="gold">Simples</span></h3>
-          <ul>
-            <li><svg><use href="#i-check"/></svg><span>Na nuvem: troca de aparelho e continua de onde parou</span></li>
-            <li><svg><use href="#i-check"/></svg><span>Feito só para assistência de celulares</span></li>
-            <li><svg><use href="#i-check"/></svg><span>Até 8x mais barato que as soluções tradicionais</span></li>
-          </ul>
-        </div>
-      </div>
     </div>
   </section>
 
