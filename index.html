@@ -66,15 +66,15 @@
   .telas figure { margin: 0; text-align: center; } .telas .cel { width: 100%; border-width: 6px; border-radius: 26px; }
   .telas figcaption { margin-top: 10px; font-weight: 700; font-size: 14.5px; } .telas figcaption span { display: block; color: var(--muted); font-weight: 500; font-size: 13px; }
   /* fundador e público */
-  .fund { display: grid; grid-template-columns: 110px 1fr; gap: 24px; max-width: 860px; margin: 0 auto; background: linear-gradient(180deg, var(--card-2), var(--card)); border: 1px solid rgba(212,175,55,.35); border-radius: 22px; padding: 28px; }
-  .fund .foto { width: 110px; height: 110px; border-radius: 50%; display: grid; place-items: center; background: var(--gold-soft); border: 2px solid var(--gold); color: var(--gold); font-size: 44px; font-weight: 900; }
+  .fund { display: grid; grid-template-columns: 150px 1fr; gap: 24px; max-width: 860px; margin: 0 auto; background: linear-gradient(180deg, var(--card-2), var(--card)); border: 1px solid rgba(212,175,55,.35); border-radius: 22px; padding: 28px; }
+  .fund .foto { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 3px solid var(--gold); box-shadow: 0 0 30px rgba(212,175,55,.25); }
   .fund p { margin: 0 0 12px; font-size: 16.5px; color: #e4e4e4; } .fund .ass { color: var(--gold); font-weight: 700; font-size: 14.5px; }
   .pub { display: grid; grid-template-columns: 1.2fr 1fr; gap: 14px; max-width: 920px; margin: 0 auto; }
   .pub > div { border-radius: 18px; padding: 22px; background: var(--card); border: 1px solid var(--line); } .pub .sim { border-color: rgba(34,197,94,.45); }
   .pub h3 { margin: 0 0 12px; font-size: 18px; } .pub .sim h3 { color: #4ade80; } .pub .nao h3 { color: #f87171; }
   .pub ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; } .pub li { display: flex; gap: 10px; font-size: 15.5px; }
   .pub .sim .i { color: #4ade80; } .pub .nao .i { color: #f87171; }
-  .dep { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; } .dep > div { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 20px; }
+  .dep { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; max-width: 980px; margin: 0 auto; } .dep > div:only-child { max-width: 620px; justify-self: center; font-size: 17px; } .dep > div { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 20px; }
   .dep .est { color: var(--gold); letter-spacing: 2px; } .dep p { margin: 10px 0 14px; } .dep b { display: block; } .dep span { color: var(--muted); font-size: 13.5px; }
   /* contador */
   .timer { background: var(--vermelho); color: #fff; text-align: center; padding: 14px 16px; font-weight: 800; font-size: 17px; }
@@ -236,7 +236,7 @@ fbq('track', 'PageView');
   <section id="fundador">
     <div class="wrap">
       <div class="tit surge"><span class="tag">Feito por quem vive a bancada</span><h2>Eu criei o Reparo Simples para a <span class="ouro">minha própria assistência</span></h2></div>
-      <div class="fund surge"><div class="foto" aria-hidden="true">I</div><div>
+      <div class="fund surge"><img class="foto" src="/planos/m/israel.jpg" width="150" height="150" loading="lazy" alt="Israel, dono da RB Tech Celulares e fundador do Reparo Simples"><div>
         <p>Sou o Israel, dono da <b>RB Tech Celulares</b>. Por anos eu vivi o mesmo que você: OS no caderno, cliente ligando o dia inteiro, peça usada e esquecida, e o fim do mês sem saber quanto sobrou.</p>
         <p>Testei sistema caro, cheio de módulo que eu nunca usava, e nenhum resolvia o básico da bancada. Então construí o meu, do jeito que uma assistência de verdade trabalha.</p>
         <p>Hoje a RB Tech roda inteira no Reparo Simples: OS, estoque, vendas, metas da equipe e o cliente acompanhando o conserto pelo link. <b>O mesmo sistema que você vai testar.</b></p>
@@ -328,10 +328,15 @@ fbq('track', 'PageView');
     siteReserva: 'https://reparorb.vercel.app/?idioma=pt&cadastro=1', // usado se o endereço novo não responder
     checkout: { pro: 'https://pay.kiwify.com.br/shZh8Ji', essencial: 'https://pay.kiwify.com.br/f3hCYii' },
     precos: { pro: '77,90', essencial: '37,90' },
-    campanhaFim: null,   // data REAL de fim da campanha, ex.: '2026-12-31T23:59:59-03:00'. null = contador escondido
+    campanhaFim: null,
+    // condição REAL por visitante: conta X horas a partir da 1ª visita neste aparelho (não reinicia ao recarregar).
+    // ex.: { horas: 3, texto: 'Bônus de configuração da loja termina em' }. null = desligado
+    ofertaVisitante: null,   // data REAL de fim da campanha, ex.: '2026-12-31T23:59:59-03:00'. null = contador escondido
   };
   // DEPOIMENTOS REAIS: { nome, loja, texto }. Lista vazia = seção escondida.
-  const DEPOIMENTOS = [];
+  const DEPOIMENTOS = [
+    { nome: 'Carlos Andrade', loja: 'Cliente do Reparo Simples', texto: 'Depois que comecei a usar o Reparo Simples, nunca mais tive cliente me incomodando para saber do aparelho: ele acompanha tudo pelo link. E acabou o golpe de cliente dizendo que o aparelho não estava arranhado ou quebrado quando entrou na loja.' },
+  ];
   /* ========================== */
 
   // teste grátis: começa no endereço de reserva e passa para o novo assim que ele responder
@@ -349,7 +354,13 @@ fbq('track', 'PageView');
   }));
   // contador: mesmo prazo para todos, não reinicia ao atualizar e some quando vence
   (() => {
-    const fim = CONFIG.campanhaFim ? Date.parse(CONFIG.campanhaFim) : NaN, caixas = document.querySelectorAll('[data-timer]');
+    const caixas = document.querySelectorAll('[data-timer]'), ov = CONFIG.ofertaVisitante;
+    let fim = CONFIG.campanhaFim ? Date.parse(CONFIG.campanhaFim) : NaN;
+    if (isNaN(fim) && ov && ov.horas > 0) {
+      let ini = NaN; try { ini = Number(localStorage.getItem('rs_oferta_ini')); if (!ini) { ini = Date.now(); localStorage.setItem('rs_oferta_ini', ini); } } catch (e) { ini = Date.now(); }
+      fim = ini + ov.horas * 36e5;
+      if (ov.texto) caixas.forEach(c => c.querySelector('span').textContent = ov.texto);
+    }
     if (isNaN(fim) || !caixas.length) return;
     const dd = n => String(n).padStart(2, '0');
     const tic = () => {
