@@ -549,26 +549,6 @@
     .fn-lista { gap: 40px; } .fn { grid-template-columns: 1fr; gap: 18px; } .fn:nth-child(even) .fn-vis { order: 0; }
     .fn-vis { min-height: 0; padding: 20px; } .fn-ainda .g { grid-template-columns: 1fr; } .fn p { font-size: 15.5px; }
   }
-
-  /* antes x depois + calculadora */
-  .ad { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 22px; }
-  .ad > div { border-radius: 18px; padding: 18px 20px; border: 1px solid var(--line); background: var(--card); }
-  .ad .an { opacity: .85; } .ad .de { border: 2px solid var(--gold); box-shadow: 0 0 40px rgba(212,175,55,.12); }
-  .ad h3 { margin: 0 0 10px; font-size: 16px; letter-spacing: .08em; text-transform: uppercase; } .ad .an h3 { color: #f87171; } .ad .de h3 { color: var(--gold); }
-  .ad ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; } .ad li { display: flex; gap: 10px; font-size: 15px; line-height: 1.4; }
-  .ad .an li::before { content: '✕'; color: #f87171; font-weight: 800; flex: none; } .ad .de li::before { content: '✓'; color: #4ade80; font-weight: 800; flex: none; }
-  .calc { display: grid; grid-template-columns: 1.1fr 1fr; gap: 18px; align-items: stretch; }
-  .calc-in, .calc-out { border-radius: 20px; padding: 22px; border: 1px solid var(--line); background: var(--card); }
-  .calc-in label { display: block; margin-bottom: 16px; } .calc-in label:last-child { margin-bottom: 0; }
-  .calc-in .lt { display: flex; justify-content: space-between; gap: 10px; font-size: 14.5px; color: #ddd; margin-bottom: 8px; } .calc-in .lt b { color: var(--gold); white-space: nowrap; }
-  .calc-in input[type=range] { width: 100%; accent-color: #d4af37; height: 28px; }
-  .calc-out { border: 2px solid var(--gold); background: radial-gradient(ellipse at 50% 0%, rgba(212,175,55,.14), transparent 70%), var(--card); display: flex; flex-direction: column; gap: 12px; }
-  .calc-out .ln { display: flex; justify-content: space-between; gap: 10px; font-size: 15px; color: #ddd; border-bottom: 1px dashed var(--line); padding-bottom: 10px; } .calc-out .ln b { color: #f87171; white-space: nowrap; }
-  .calc-out .tot small { display: block; font-size: 13px; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; font-weight: 700; }
-  .calc-out .tot b { display: block; font-size: clamp(34px, 6vw, 46px); line-height: 1.1; color: #f87171; margin-top: 4px; }
-  .calc-out .tot span { font-size: 15px; color: #ddd; } .calc-out .tot span b { display: inline; font-size: 15px; color: var(--gold); }
-  .calc-out .obs { font-size: 12px; color: var(--muted); margin: 0; } .calc-out .btn { width: 100%; margin-top: auto; }
-  @media (max-width: 860px) { .ad, .calc { grid-template-columns: 1fr; } .calc-in, .calc-out { padding: 18px; } .ad > div { padding: 16px; } }
 </style>
 <!-- Meta Pixel Code -->
 <script>
@@ -663,24 +643,6 @@ src="https://www.facebook.com/tr?id=1395792166092365&ev=PageView&noscript=1"
   </section>
 
   <div class="faixa-rolando" aria-hidden="true"><div class="trilho"><span>Menos ligações de cliente</span><span>Lucro real do dia</span><span>OS em segundos</span><span>Checklist de entrada</span><span>Garantia em PDF</span><span>Funciona sem internet</span><span>Estoque que baixa sozinho</span><span>Menos ligações de cliente</span><span>Lucro real do dia</span><span>OS em segundos</span><span>Checklist de entrada</span><span>Garantia em PDF</span><span>Funciona sem internet</span><span>Estoque que baixa sozinho</span></div></div>
-
-  <!-- ANTES x DEPOIS + CALCULADORA -->
-  <section id="impacto" class="curta">
-    <div class="wrap">
-      <div class="titulo surge"><span class="tag">Antes × Depois</span><h2>Quanto a bagunça está <span class="grad-text">custando por mês</span> na sua assistência?</h2><p>Mexa nos números da sua loja. A conta é feita na hora, com os seus dados.</p></div>
-      <div class="ad surge"><div class="an"><h3>Antes</h3><ul><li>Peça usada no conserto e esquecida na cobrança</li><li>Horas por dia respondendo "já ficou pronto?"</li><li>Fim do mês sem saber quanto sobrou</li></ul></div><div class="de"><h3>Com o Reparo Simples</h3><ul><li>A peça lançada na OS entra no custo e no valor</li><li>O cliente acompanha sozinho pelo link</li><li>Lucro real do dia, na tela, a qualquer hora</li></ul></div></div>
-      <div class="calc surge" id="calc">
-        <div class="calc-in"><label><span class="lt">OS por mês<b data-v="os"></b></span><input type="range" data-c="os" min="20" max="300" step="5" value="80" data-u=""></label><label><span class="lt">Valor médio de uma OS<b data-v="ticket"></b></span><input type="range" data-c="ticket" min="50" max="800" step="10" value="180" data-u="R$"></label><label><span class="lt">Peças esquecidas por semana<b data-v="pecas"></b></span><input type="range" data-c="pecas" min="0" max="10" step="1" value="1" data-u=""></label><label><span class="lt">Valor médio da peça<b data-v="valorPeca"></b></span><input type="range" data-c="valorPeca" min="20" max="600" step="10" value="80" data-u="R$"></label><label><span class="lt">Horas por dia no WhatsApp respondendo cliente<b data-v="horas"></b></span><input type="range" data-c="horas" min="0" max="6" step="0.5" value="1" data-u="h"></label></div>
-        <div class="calc-out">
-          <div class="ln"><span>Peças que saem sem ser cobradas</span><b id="calc-p"></b></div>
-          <div class="ln"><span>Seu tempo parado no WhatsApp</span><b id="calc-t"></b></div>
-          <div class="tot"><small>Pode estar saindo da sua loja todo mês</small><b id="calc-tot"></b><span id="calc-x"></span></div>
-          <p class="obs">Estimativa com os números que você informou. O tempo no WhatsApp é calculado pelo quanto a sua loja fatura por hora de trabalho.</p>
-          <a class="btn primary grande" data-link="teste" href="#teste">Quero parar de perder dinheiro <svg><use href="#i-seta"/></svg></a>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- PROBLEMA -->
   <section id="problema" class="curta">
@@ -1010,28 +972,6 @@ src="https://www.facebook.com/tr?id=1395792166092365&ev=PageView&noscript=1"
     grid.innerHTML = lista.map(d => `<div class="dep">${DEPOIMENTOS.length ? '' : '<span class="exemplo">EXEMPLO</span>'}<div class="estrelas">${'★'.repeat(Math.min(5, Math.max(1, d.estrelas || 5)))}</div><p>“${e(d.texto)}”</p>
       <div class="quem">${d.foto ? `<img src="${e(d.foto)}" alt="" loading="lazy">` : `<span class="av">${e((d.nome || '?')[0])}</span>`}<div><b>${e(d.nome)}</b><span>${e(d.loja)}</span></div></div></div>`).join('');
     sec.hidden = false;
-  })();
-
-  // calculadora "quanto a bagunça custa por mês" (com os números que o dono informa)
-  (() => {
-    const box = document.getElementById('calc'); if (!box) return;
-    const CFG = {"moeda": "BRL", "loc": "pt-BR", "plano": 37.9, "plano_txt": "O plano Essencial custa R$ 37,90/mês: <b>{x}x menos</b> que isso."};
-    const fmt = v => new Intl.NumberFormat(CFG.loc, { style: 'currency', currency: CFG.moeda, maximumFractionDigits: 0 }).format(Math.round(v));
-    const val = k => parseFloat(box.querySelector('[data-c="' + k + '"]').value) || 0;
-    const conta = () => {
-      box.querySelectorAll('[data-c]').forEach(i => { const u = i.dataset.u, v = parseFloat(i.value);
-        box.querySelector('[data-v="' + i.dataset.c + '"]').textContent = u === 'R$' || u === '$' ? fmt(v) : u === 'h' ? (String(v).replace('.', ',') + ' h') : v; });
-      const pecas = val('pecas') * val('valorPeca') * 4.3;                         // semanas no mês
-      const fatHora = (val('os') * val('ticket')) / (26 * 8);                      // faturamento por hora de trabalho (26 dias, 8 h)
-      const tempo = val('horas') * 26 * fatHora;
-      const tot = pecas + tempo;
-      box.querySelector('#calc-p').textContent = fmt(pecas);
-      box.querySelector('#calc-t').textContent = fmt(tempo);
-      box.querySelector('#calc-tot').textContent = fmt(tot);
-      const x = Math.floor(tot / CFG.plano);
-      box.querySelector('#calc-x').innerHTML = x >= 2 ? CFG.plano_txt.replace('{x}', x) : '';
-    };
-    box.querySelectorAll('[data-c]').forEach(i => i.addEventListener('input', conta)); conta();
   })();
 
   // vídeo demonstrativo: começa a baixar e tocar quando chega perto da tela; toque pausa/continua
