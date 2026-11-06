@@ -49,6 +49,7 @@
   .oferta-topo b { color: var(--gold); font-size: 18px; }
   .hero .par { justify-content: flex-start; margin-top: 0; }
   .cel { width: min(320px, 78vw); margin: 0 auto; border: 10px solid #1b1b1b; border-radius: 44px; overflow: hidden; background: #000; box-shadow: 0 0 0 1px rgba(212,175,55,.35), 0 30px 80px rgba(0,0,0,.7), 0 0 70px rgba(212,175,55,.14); position: relative; }
+  .cel.vid { width: min(360px, 88vw); border: 1px solid rgba(212,175,55,.45); border-radius: 26px; padding: 0; }
   .cel img, .cel video { display: block; width: 100%; height: auto; }
   /* recursos */
   .rec { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
@@ -56,7 +57,7 @@
   .rec .ic { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; background: var(--gold-soft); color: var(--gold); margin-bottom: 12px; }
   .rec h3 { font-size: 17px; margin: 0 0 6px; } .rec p { margin: 0; color: var(--muted); font-size: 14.5px; }
   /* demonstrações */
-  .demo { display: grid; grid-template-columns: auto 1fr; gap: 44px; align-items: center; }
+  .demo { display: flex; justify-content: center; }
   .demo .play { position: absolute; inset: 0; margin: auto; width: 76px; height: 76px; border-radius: 50%; border: 0; background: linear-gradient(180deg, var(--verde), var(--verde-2)); display: grid; place-items: center; cursor: pointer; box-shadow: 0 10px 30px rgba(0,0,0,.5); }
   .demo .play svg { width: 34px; height: 34px; fill: #fff; margin-left: 4px; } .cel.tocando .play { display: none; }
   .passos { list-style: none; padding: 0; margin: 0; display: grid; gap: 16px; } .passos li { display: flex; gap: 14px; }
@@ -220,16 +221,10 @@ fbq('track', 'PageView');
   <!-- DEMONSTRAÇÕES -->
   <section id="demo">
     <div class="wrap">
-      <div class="tit surge"><span class="tag">Veja funcionando</span><h2>Veja em <span class="ouro">30 segundos</span></h2></div>
+      <div class="tit surge"><span class="tag">Veja funcionando</span><h2>Do orçamento à garantia, <span class="ouro">na prática</span></h2></div>
       <div class="demo">
-        <div class="cel" id="demo-cel" style="width:min(300px,76vw)"><video id="demo-video" muted playsinline loop preload="none" poster="/planos/m/demo-poster.jpg" aria-label="Vídeo do sistema: abrindo uma OS, o cliente acompanhando e o lucro do dia"><source src="/planos/m/demo.mp4" type="video/mp4"></video>
+        <div class="cel vid" id="demo-cel"><video id="demo-video" muted playsinline loop preload="none" poster="/planos/m/motion-poster.jpg" width="540" height="960" aria-label="Vídeo do sistema: orçamento enviado pelo WhatsApp, aprovação, OS, acompanhamento pelo link, aviso de pronto, pagamento, assinatura do cliente e garantia em PDF"><source src="/planos/m/motion.mp4" type="video/mp4"><source src="/planos/m/motion.webm" type="video/webm"></video>
           <button type="button" class="play" id="demo-play" aria-label="Assistir ao vídeo"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button></div>
-      </div>
-      <div class="telas">
-        <figure class="surge"><div class="cel"><img src="/planos/m/acomp-1-analise.jpg" alt="Link do cliente: aparelho em análise" loading="lazy" width="390" height="780"></div><figcaption>Recebido</figcaption></figure>
-        <figure class="surge"><div class="cel"><img src="/planos/m/acomp-2-reparo.jpg" alt="Link do cliente: em reparo" loading="lazy" width="390" height="780"></div><figcaption>Em reparo</figcaption></figure>
-        <figure class="surge"><div class="cel"><img src="/planos/m/acomp-3-pronto.jpg" alt="Link do cliente: pronto, com garantia" loading="lazy" width="390" height="780"></div><figcaption>Pronto</figcaption></figure>
-        <figure class="surge"><div class="cel"><img src="/planos/m/vitrine-celular.jpg" alt="Vitrine online da loja no celular" loading="lazy" width="390" height="780"></div><figcaption>Vitrine online</figcaption></figure>
       </div>
     </div>
   </section>
