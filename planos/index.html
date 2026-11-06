@@ -415,6 +415,43 @@
     .ent summary { padding: 12px 14px; }
     .btn.grande { width: 100%; }
   }
+
+  /* infoproduto: fundador, para quem é, o que você recebe, selo de garantia, duas opções */
+  .fund { display: grid; grid-template-columns: 110px 1fr; gap: 24px; align-items: start; max-width: 860px; margin: 0 auto; background: linear-gradient(180deg, var(--card-2), var(--card)); border: 1px solid rgba(212,175,55,.35); border-radius: 22px; padding: 28px; }
+  .fund .foto { width: 110px; height: 110px; border-radius: 50%; display: grid; place-items: center; background: var(--gold-soft); border: 2px solid var(--gold); color: var(--gold); font-size: 44px; font-weight: 800; overflow: hidden; }
+  .fund .foto img { width: 100%; height: 100%; object-fit: cover; }
+  .fund p { margin: 0 0 12px; font-size: 16.5px; line-height: 1.6; color: #e6e6e6; } .fund p b { color: #fff; }
+  .fund .ass { font-size: 14px; color: var(--gold); font-weight: 700; margin: 4px 0 0; }
+  .pq { display: grid; grid-template-columns: 1.2fr 1fr; gap: 14px; max-width: 920px; margin: 0 auto; }
+  .pq > div { border-radius: 18px; padding: 22px; border: 1px solid var(--line); background: var(--card); }
+  .pq .sim { border-color: rgba(74,222,128,.4); } .pq .nao { opacity: .9; }
+  .pq h3 { margin: 0 0 12px; font-size: 18px; } .pq .sim h3 { color: var(--green, #4ade80); } .pq .nao h3 { color: #f87171; }
+  .pq ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+  .pq li { display: flex; gap: 10px; font-size: 15.5px; line-height: 1.4; }
+  .pq li::before { flex: none; font-weight: 800; } .pq .sim li::before { content: '✓'; color: var(--green, #4ade80); } .pq .nao li::before { content: '✕'; color: #f87171; }
+  .stack { max-width: 720px; margin: 0 auto; border: 2px solid var(--gold); border-radius: 22px; padding: 26px; background: radial-gradient(ellipse at 50% 0%, rgba(212,175,55,.12), transparent 70%), var(--card); box-shadow: 0 0 60px rgba(212,175,55,.12); }
+  .stack ul { list-style: none; margin: 0 0 18px; padding: 0; display: grid; gap: 12px; }
+  .stack li { display: flex; gap: 12px; font-size: 16px; line-height: 1.4; font-weight: 600; }
+  .stack li svg { width: 20px; height: 20px; color: var(--green, #4ade80); flex: none; margin-top: 1px; }
+  .stack .dia { text-align: center; font-size: 18px; margin: 6px 0 6px; } .stack .dia b { color: var(--gold); font-size: 22px; }
+  .stack .extra { text-align: center; font-size: 13.5px; color: var(--muted); margin: 0 0 18px; }
+  .stack .btn { width: 100%; }
+  .gar { display: flex; gap: 22px; align-items: center; max-width: 760px; margin: 28px auto 0; padding: 22px; border-radius: 20px; border: 1px dashed rgba(212,175,55,.55); background: var(--card); }
+  .gar .selo-g { flex: none; width: 112px; height: 112px; border-radius: 50%; display: grid; place-items: center; text-align: center; background: var(--grad); color: #111; box-shadow: 0 0 0 6px rgba(212,175,55,.18), 0 10px 30px rgba(0,0,0,.5); }
+  .gar .selo-g b { display: block; font-size: 26px; line-height: 1; } .gar .selo-g span { font-size: 10.5px; font-weight: 800; letter-spacing: .06em; }
+  .gar h3 { margin: 0 0 6px; font-size: 20px; } .gar p { margin: 0; color: #d6d6d6; font-size: 15px; line-height: 1.5; }
+  .duas { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; max-width: 860px; margin: 0 auto 24px; }
+  .duas > div { border-radius: 18px; padding: 22px; border: 1px solid var(--line); background: var(--card); }
+  .duas .a { opacity: .75; } .duas .b { border: 2px solid var(--gold); box-shadow: 0 0 40px rgba(212,175,55,.12); }
+  .duas small { display: block; font-size: 12px; font-weight: 800; letter-spacing: .12em; color: var(--muted); margin-bottom: 6px; } .duas .b small { color: var(--gold); }
+  .duas h3 { margin: 0 0 6px; font-size: 19px; } .duas p { margin: 0; color: #cfcfcf; font-size: 15px; }
+  @media (max-width: 760px) {
+    .fund { grid-template-columns: 1fr; text-align: left; padding: 20px; gap: 14px; } .fund .foto { width: 84px; height: 84px; font-size: 34px; }
+    .fund p { font-size: 15.5px; }
+    .pq, .duas { grid-template-columns: 1fr; } .pq > div, .duas > div { padding: 18px; }
+    .stack { padding: 20px; } .stack li { font-size: 15px; }
+    .gar { flex-direction: column; text-align: center; padding: 20px; } .gar .selo-g { width: 100px; height: 100px; }
+  }
 </style>
 <!-- Meta Pixel Code -->
 <script>
@@ -585,11 +622,39 @@ src="https://www.facebook.com/tr?id=1395792166092365&ev=PageView&noscript=1"
     </div>
   </section>
 
+  <!-- FUNDADOR: história real de quem criou o sistema -->
+  <section id="fundador" class="curta">
+    <div class="wrap">
+      <div class="titulo surge"><span class="tag">Feito por quem vive a bancada</span><h2>Eu criei o Reparo Simples para a <span class="grad-text">minha própria assistência</span></h2></div>
+      <div class="fund surge"><div class="foto" aria-hidden="true">I</div><div><p>Sou o Israel, dono da <b>RB Tech Celulares</b>. Por anos eu vivi o mesmo que você: OS no caderno, cliente ligando o dia inteiro, peça usada e esquecida, e o fim do mês sem saber quanto sobrou.</p><p>Testei sistema caro, cheio de módulo que eu nunca usava, e nenhum resolvia o básico da bancada. Então construí o meu, do jeito que uma assistência de verdade trabalha.</p><p>Hoje a RB Tech roda inteira no Reparo Simples: OS, estoque, vendas, metas da equipe e o cliente acompanhando o conserto pelo link. <b>O mesmo sistema que você vai testar.</b></p><p class="ass">Israel · fundador do Reparo Simples e dono da RB Tech Celulares</p></div></div>
+    </div>
+  </section>
+
+  <!-- PARA QUEM É -->
+  <section id="para-quem" class="curta">
+    <div class="wrap">
+      <div class="titulo surge"><span class="tag">Seja sincero com você</span><h2>O Reparo Simples é <span class="grad-text">para você</span> se…</h2></div>
+      <div class="pq"><div class="sim surge"><h3>É para você</h3><ul><li>Você tem assistência técnica de celular, sozinho ou com equipe</li><li>Ainda usa caderno, planilha ou o WhatsApp para controlar OS</li><li>Perde tempo respondendo "já ficou pronto?"</li><li>Quer saber o lucro real do mês, não só o faturamento</li><li>Quer passar uma imagem mais profissional para o cliente</li></ul></div>
+        <div class="nao surge"><h3>Não é para você</h3><ul><li>Procura um sistema genérico para qualquer tipo de comércio</li><li>Não quer mudar nada na rotina da loja</li><li>Quer emitir nota fiscal hoje (chega em breve, num plano próprio)</li></ul></div></div>
+    </div>
+  </section>
+
   <!-- DEPOIMENTOS: só aparece com depoimentos reais -->
   <section id="depoimentos" class="curta" hidden>
     <div class="wrap">
       <div class="titulo surge"><span class="tag">Quem usa</span><h2>O que dizem os <span class="grad-text">lojistas</span></h2></div>
       <div class="dep-grid" id="dep-grid"></div>
+    </div>
+  </section>
+
+  <!-- O QUE VOCÊ RECEBE + GARANTIA -->
+  <section id="recebe" class="curta">
+    <div class="wrap">
+      <div class="titulo surge"><span class="tag">Tudo isso hoje</span><h2>O que você recebe <span class="grad-text">ao começar agora</span></h2></div>
+      <div class="stack surge"><ul><li><svg><use href="#i-check"/></svg><span>Sistema completo de OS, bancada, orçamento, estoque, vendas e financeiro</span></li><li><svg><use href="#i-check"/></svg><span>Link para o cliente acompanhar o conserto em tempo real</span></li><li><svg><use href="#i-check"/></svg><span>Checklist, fotos do aparelho e garantia em PDF com a sua marca</span></li><li><svg><use href="#i-check"/></svg><span>Cotação de peças com fornecedores pelo WhatsApp</span></li><li><svg><use href="#i-check"/></svg><span>Funciona no celular, tablet e computador, até sem internet</span></li><li><svg><use href="#i-check"/></svg><span>Todas as atualizações e funções novas sem pagar a mais</span></li></ul>
+        <p class="dia">A partir de <b>menos de R$ 1,30 por dia</b> no plano Essencial</p><p class="extra">7 dias grátis para testar, sem cartão de crédito · garantia de 7 dias depois de assinar · sem fidelidade</p>
+        <a class="btn primary grande" data-link="teste" href="#teste">Quero testar grátis agora <svg><use href="#i-seta"/></svg></a></div>
+      <div class="gar surge"><div class="selo-g"><div><b>7 DIAS</b><span>DE GARANTIA</span></div></div><div><h3>Risco zero para você</h3><p>Teste por 7 dias sem pagar nada e sem cartão. Se assinar e não gostar, você tem mais 7 dias de garantia: pede o reembolso e recebe 100% do valor de volta, pela própria Kiwify. Sem multa e sem burocracia.</p></div></div>
     </div>
   </section>
 
@@ -669,6 +734,15 @@ src="https://www.facebook.com/tr?id=1395792166092365&ev=PageView&noscript=1"
         <details class="surge"><summary>Emite nota fiscal?</summary><p>A emissão de notas fiscais não está no Essencial nem no Pro: ela chega em breve num plano próprio. Os dois já dão entrada no estoque pelo XML da nota de compra.</p></details>
         <details class="surge"><summary>Posso testar antes de pagar?</summary><p>Pode. Crie sua conta e use <a class="gold" data-link="teste" href="#">7 dias grátis</a>.</p></details>
       </div>
+    </div>
+  </section>
+
+  <!-- FECHAMENTO: duas opções -->
+  <section id="duas-opcoes" class="curta">
+    <div class="wrap">
+      <div class="titulo surge"><h2>Agora você tem <span class="grad-text">duas opções</span></h2></div>
+      <div class="duas"><div class="a surge"><small>1</small><h3>Continuar como está</h3><p>OS no caderno, cliente ligando, peça esquecida e o fim do mês sem saber o lucro.</p></div><div class="b surge"><small>2</small><h3>Testar o Reparo Simples hoje</h3><p>7 dias grátis para ver a sua assistência organizada, sem cartão e sem compromisso.</p></div></div>
+      <div style="text-align:center"><a class="btn primary grande" data-link="teste" href="#teste">Escolho organizar minha assistência <svg><use href="#i-seta"/></svg></a></div>
     </div>
   </section>
 
