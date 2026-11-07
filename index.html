@@ -112,8 +112,9 @@
   .barra { position: fixed; left: 0; right: 0; bottom: 0; z-index: 40; display: flex; align-items: center; justify-content: center; gap: 14px; padding: 10px 16px calc(10px + env(safe-area-inset-bottom, 0px));
     background: rgba(8,8,8,.94); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-top: 1px solid rgba(212,175,55,.35); }
   .barra .t { font-size: 15px; } .barra .t b { color: var(--gold); } .barra .btn { min-height: 50px; padding: 10px 22px; font-size: 16px; }
-  .js .surge { opacity: 0; transform: translateY(14px); transition: opacity .5s, transform .5s; } .js .surge.on { opacity: 1; transform: none; }
-  @media (prefers-reduced-motion: reduce) { .surge { opacity: 1; transform: none; transition: none; } html { scroll-behavior: auto; } }
+  /* entrada suave: só um leve deslocamento; o conteúdo nunca fica invisível (prints, prévias, rolagem rápida) */
+  .js .surge { transform: translateY(10px); transition: transform .5s ease; } .js .surge.on { transform: none; }
+  @media (prefers-reduced-motion: reduce) { .surge { transform: none; transition: none; } html { scroll-behavior: auto; } }
   @media (max-width: 900px) {
     section { padding: 44px 0; } .hero { padding-top: 20px; } .hero .lead { font-size: 16.5px; } .tres li { font-size: 15.5px; } .selo { font-size: 12.5px; } .hero .par { gap: 10px; } .hero .wrap { grid-template-columns: 1fr; gap: 28px; }
     .rec { grid-template-columns: 1fr 1fr; gap: 10px; } .rec div { padding: 16px; }
@@ -216,7 +217,7 @@ fbq('track', 'PageView');
   <!-- RECURSOS -->
   <section id="recursos">
     <div class="wrap">
-      <div class="tit surge"><span class="tag">O que o sistema faz</span><h2>Tudo <span class="ouro">num lugar só</span></h2></div>
+      <div class="tit"><span class="tag">O que o sistema faz</span><h2>Tudo <span class="ouro">num lugar só</span></h2></div>
       <div class="rec"><div class="surge"><div class="ic"><svg class="i " aria-hidden="true"><use href="#i-os"/></svg></div><h3>OS em segundos</h3></div><div class="surge"><div class="ic"><svg class="i " aria-hidden="true"><use href="#i-radar"/></svg></div><h3>Cliente acompanha pelo link</h3></div><div class="surge"><div class="ic"><svg class="i " aria-hidden="true"><use href="#i-grafico"/></svg></div><h3>Lucro real do dia</h3></div><div class="surge"><div class="ic"><svg class="i " aria-hidden="true"><use href="#i-caixa"/></svg></div><h3>Estoque que baixa sozinho</h3></div><div class="surge"><div class="ic"><svg class="i " aria-hidden="true"><use href="#i-whats"/></svg></div><h3>Cotação no WhatsApp</h3></div><div class="surge"><div class="ic"><svg class="i " aria-hidden="true"><use href="#i-equipe"/></svg></div><h3>Metas da equipe</h3></div><div class="surge"><div class="ic"><svg class="i " aria-hidden="true"><use href="#i-loja"/></svg></div><h3>Vitrine online</h3></div><div class="surge"><div class="ic"><svg class="i " aria-hidden="true"><use href="#i-nuvem"/></svg></div><h3>Funciona sem internet</h3></div></div>
     </div>
   </section>
@@ -224,7 +225,7 @@ fbq('track', 'PageView');
   <!-- DEMONSTRAÇÕES -->
   <section id="demo">
     <div class="wrap">
-      <div class="tit surge"><span class="tag">Veja funcionando</span><h2>Do orçamento à garantia, <span class="ouro">na prática</span></h2></div>
+      <div class="tit"><span class="tag">Veja funcionando</span><h2>Do orçamento à garantia, <span class="ouro">na prática</span></h2></div>
       <div class="demo">
         <div class="cel vid" id="demo-cel"><video id="demo-video" muted playsinline loop preload="none" poster="/planos/m/motion-poster.jpg" width="540" height="960" aria-label="Vídeo do sistema: orçamento enviado pelo WhatsApp, aprovação, OS, acompanhamento pelo link, aviso de pronto, pagamento, assinatura do cliente e garantia em PDF"><source src="/planos/m/motion.mp4" type="video/mp4"><source src="/planos/m/motion.webm" type="video/webm"></video>
           <button type="button" class="play" id="demo-play" aria-label="Assistir ao vídeo"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button></div>
@@ -235,7 +236,7 @@ fbq('track', 'PageView');
   <!-- FUNDADOR -->
   <section id="fundador">
     <div class="wrap">
-      <div class="fund surge"><img class="foto" src="/planos/m/israel.jpg" width="150" height="150" loading="lazy" alt="Israel, dono da RB Tech Celulares e fundador do Reparo Simples"><div>
+      <div class="fund"><img class="foto" src="/planos/m/israel.jpg" width="150" height="150" loading="lazy" alt="Israel, dono da RB Tech Celulares e fundador do Reparo Simples"><div>
         <span class="tag">Quem criou</span>
         <p><b>5 anos como técnico de celular.</b> Já paguei até <b>R$ 600 por mês</b> em sistemas que resolviam uma coisa e deixavam outras de fora.</p>
         <p>Então criei o Reparo Simples. Hoje ele roda a minha loja inteira. <b>É o mesmo que você vai testar.</b></p>
@@ -252,7 +253,7 @@ fbq('track', 'PageView');
   <div class="timer" data-timer hidden role="timer" aria-live="off"><span>Condição especial termina em</span> <b data-t>--</b></div>
   <section id="planos">
     <div class="wrap">
-      <div class="tit surge"><span class="tag">Planos</span><h2>Escolha o seu plano e <span class="ouro">comece hoje</span></h2><p>7 dias grátis, sem cartão.</p></div>
+      <div class="tit"><span class="tag">Planos</span><h2>Escolha o seu plano e <span class="ouro">comece hoje</span></h2><p>7 dias grátis, sem cartão.</p></div>
       <div class="planos">
         <div class="plano">
         <h3>Essencial</h3><p class="para">Para organizar a operação</p>
@@ -268,14 +269,14 @@ fbq('track', 'PageView');
         <ul class="curta"><li><svg class="i " aria-hidden="true"><use href="#i-check"/></svg><span>Tudo do Essencial</span></li><li><svg class="i " aria-hidden="true"><use href="#i-check"/></svg><span>Vitrine online com carrinho</span></li><li><svg class="i " aria-hidden="true"><use href="#i-check"/></svg><span>Metas por funcionário</span></li><li><svg class="i " aria-hidden="true"><use href="#i-check"/></svg><span>Pós-venda pelo WhatsApp</span></li></ul><details class="tudo"><summary>Ver tudo o que inclui</summary><ul><li class=""><svg class="i " aria-hidden="true"><use href="#i-check"/></svg><span>Ordens de serviço, orçamentos e garantia em PDF</span></li><li class=""><svg class="i " aria-hidden="true"><use href="#i-check"/></svg><span>Acompanhamento do reparo em tempo real para o cliente</span></li><li class=""><svg class="i " aria-hidden="true"><use href="#i-check"/></svg><span>Vendas, recibos e caixa</span></li><li class=""><svg class="i " aria-hidden="true"><use href="#i-check"/></svg><span>Estoque de peças, produtos e seminovos com IMEI</span></li><li class=""><svg class="i " aria-hidden="true"><use href="#i-check"/></svg><span>Entrada de estoque pelo XML da nota fiscal, com lotes</span></li><li class=""><svg class="i " aria-hidden="true"><use href="#i-check"/></svg><span>Financeiro com lucro real</span></li><li class=""><svg class="i " aria-hidden="true"><use href="#i-check"/></svg><span>Sua logo, suas cores e os dados da empresa</span></li><li class=""><svg class="i " aria-hidden="true"><use href="#i-check"/></svg><span>Dados na nuvem e backup para baixar</span></li><li class=""><svg class="i " aria-hidden="true"><use href="#i-check"/></svg><span>Vitrine online com carrinho e retirada na loja</span></li><li class=""><svg class="i " aria-hidden="true"><use href="#i-check"/></svg><span>Follow-up e pós-venda pelo WhatsApp</span></li><li class=""><svg class="i " aria-hidden="true"><use href="#i-check"/></svg><span>Metas da loja e por funcionário</span></li><li class=""><svg class="i " aria-hidden="true"><use href="#i-check"/></svg><span>Escolher os módulos que aparecem</span></li></ul></details></div>
       </div>
       <p class="seguro"><svg class="i " aria-hidden="true"><use href="#i-escudo"/></svg> Sem fidelidade · Cancele quando quiser · Pagamento seguro</p>
-      <div class="gar surge"><div class="selo-g"><div><b>7 DIAS</b><span>DE GARANTIA</span></div></div><div><h3>Não gostou? Devolvemos 100%</h3><p>Até 7 dias depois da compra, sem perguntas.</p></div></div>
+      <div class="gar"><div class="selo-g"><div><b>7 DIAS</b><span>DE GARANTIA</span></div></div><div><h3>Não gostou? Devolvemos 100%</h3><p>Até 7 dias depois da compra, sem perguntas.</p></div></div>
     </div>
   </section>
 
   <!-- DÚVIDAS -->
   <section id="duvidas">
     <div class="wrap">
-      <div class="tit surge"><span class="tag">Dúvidas</span><h2>Dúvidas rápidas</h2></div>
+      <div class="tit"><span class="tag">Dúvidas</span><h2>Dúvidas rápidas</h2></div>
       <div class="faq"><details><summary>Preciso de cartão para testar?</summary><p>Não. São 7 dias grátis, sem cartão.</p></details><details><summary>E se eu assinar e não gostar?</summary><p>Até 7 dias depois da compra você pede o reembolso e recebe 100% de volta.</p></details><details><summary>Preciso instalar alguma coisa?</summary><p>Não. Funciona no navegador do celular, tablet ou computador.</p></details><details><summary>Tem fidelidade?</summary><p>Não. É mensal e você cancela quando quiser.</p></details><details><summary>Emite nota fiscal?</summary><p>Ainda não. Chega em breve, num plano próprio.</p></details></div>
     </div>
   </section>
@@ -367,6 +368,8 @@ fbq('track', 'PageView');
   document.getElementById('ano').textContent = new Date().getFullYear();
   const io = 'IntersectionObserver' in window ? new IntersectionObserver(es => es.forEach(x => { if (x.isIntersecting) { x.target.classList.add('on'); io.unobserve(x.target); } }), { rootMargin: '0px 0px 15% 0px' }) : null;
   document.querySelectorAll('.surge').forEach(el => io ? io.observe(el) : el.classList.add('on'));
+  // garantia: 1,5 s depois de carregar, tudo fica na posição final (mesmo sem rolar)
+  addEventListener('load', () => setTimeout(() => document.querySelectorAll('.surge').forEach(el => el.classList.add('on')), 1500));
 </script>
 </body>
 </html>
