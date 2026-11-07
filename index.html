@@ -21,7 +21,7 @@
     --gold: #d4af37; --gold-2: #f7e08a; --gold-3: #a87d14; --gold-soft: rgba(212,175,55,.1); --grad: linear-gradient(135deg, var(--gold-2), var(--gold) 50%, var(--gold-3));
     --verde: #22c55e; --verde-2: #16a34a; --vermelho: #dc2626; }
   * { box-sizing: border-box; } html { scroll-behavior: smooth; }
-  body { margin: 0; background: var(--bg); color: var(--text); font-family: Inter, system-ui, -apple-system, sans-serif; line-height: 1.55; -webkit-font-smoothing: antialiased; padding-bottom: 84px; }
+  body { margin: 0; background: var(--bg); color: var(--text); font-family: Inter, system-ui, -apple-system, sans-serif; line-height: 1.55; -webkit-font-smoothing: antialiased; padding-bottom: calc(84px + env(safe-area-inset-bottom, 0px)); }
   a { color: inherit; text-decoration: none; } img, svg { display: block; } .i { width: 20px; height: 20px; flex: none; }
   .wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
   .ouro { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
@@ -112,6 +112,10 @@
   .barra { position: fixed; left: 0; right: 0; bottom: 0; z-index: 40; display: flex; align-items: center; justify-content: center; gap: 14px; padding: 10px 16px calc(10px + env(safe-area-inset-bottom, 0px));
     background: rgba(8,8,8,.94); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-top: 1px solid rgba(212,175,55,.35); }
   .barra .t { font-size: 15px; } .barra .t b { color: var(--gold); } .barra .btn { min-height: 50px; padding: 10px 22px; font-size: 16px; }
+  .barra .m-linha { display: none; }
+  /* some enquanto os botões do topo ou da oferta final estão na tela (o JS liga .on); sem JS fica sempre visível */
+  .js .barra { transform: translateY(110%); opacity: 0; pointer-events: none; transition: transform .3s ease, opacity .3s ease; }
+  .js .barra.on { transform: none; opacity: 1; pointer-events: auto; }
   /* entrada suave: só um leve deslocamento; o conteúdo nunca fica invisível (prints, prévias, rolagem rápida) */
   .js .surge { transform: translateY(10px); transition: transform .5s ease; } .js .surge.on { transform: none; }
   @media (prefers-reduced-motion: reduce) { .surge { transform: none; transition: none; } html { scroll-behavior: auto; } }
@@ -135,7 +139,10 @@
     .telas figure { flex: 0 0 56%; scroll-snap-align: center; } .dep > div { flex: 0 0 86%; scroll-snap-align: center; } .dep > div:only-child { flex-basis: 100%; }
     .fund { grid-template-columns: 76px 1fr; align-items: start; padding: 18px; } .fund .foto { width: 76px; height: 76px; } .fund p { font-size: 15.5px; margin-bottom: 8px; }
     .gar { flex-direction: row; text-align: left; gap: 14px; padding: 16px; } .gar .selo-g { width: 76px; height: 76px; } .gar .selo-g b { font-size: 18px; } .gar .selo-g span { font-size: 8px; } .par .btn, .hero .par .btn { width: 100%; min-width: 0; }
-    .barra .t { display: none; } .barra .btn { flex: 1; padding: 10px; } header .btn { display: none; }
+    .barra { flex-direction: column; gap: 6px; padding: 8px 14px calc(10px + env(safe-area-inset-bottom, 0px)); }
+    .barra .t, .barra .comprar-d { display: none; } .barra .m-linha { display: block; font-size: 12.5px; color: var(--muted); line-height: 1.2; }
+    .barra .btn { width: 100%; padding: 10px; } header .btn { display: none; }
+    body { padding-bottom: calc(96px + env(safe-area-inset-bottom, 0px)); }
     .timer { font-size: 15px; } .timer b { display: block; margin: 4px 0 0; }
   }
 </style>
@@ -294,9 +301,10 @@ fbq('track', 'PageView');
 </main>
 <footer><div class="wrap">© <span id="ano">2026</span> Reparo Simples · Sistema para assistência técnica de celulares</div></footer>
 
-<div class="barra" role="region" aria-label="Testar ou comprar o Reparo Simples">
-  <span class="t"><b>7 dias grátis</b> · a partir de R$ 37,90/mês</span>
-  <a class="btn verde" data-link="teste" href="https://reparorb.vercel.app/?idioma=pt&cadastro=1" target="_blank" rel="noopener">Testar agora <svg class="i " aria-hidden="true"><use href="#i-seta"/></svg></a><a class="btn verde-o" href="#planos">Comprar agora</a>
+<div class="barra" id="barra" role="region" aria-label="Testar ou comprar o Reparo Simples">
+  <span class="t"><b>7 dias grátis</b> · a partir de R$ <span data-preco="essencial">37,90</span>/mês</span>
+  <span class="m-linha">Sem cartão · a partir de R$ <span data-preco="essencial">37,90</span>/mês</span>
+  <a class="btn verde" data-link="teste" href="https://reparorb.vercel.app/?idioma=pt&cadastro=1" target="_blank" rel="noopener">Testar 7 dias grátis <svg class="i " aria-hidden="true"><use href="#i-seta"/></svg></a><a class="btn verde-o comprar-d" href="#planos">Comprar agora</a>
 </div>
 
 <script>
@@ -366,6 +374,17 @@ fbq('track', 'PageView');
     if ('IntersectionObserver' in window) new IntersectionObserver(es => es.forEach(x => x.isIntersecting ? tocar() : v.pause()), { threshold: .35 }).observe(v);
   })();
   document.getElementById('ano').textContent = new Date().getFullYear();
+  // preços vindos do CONFIG (planos e barra)
+  document.querySelectorAll('[data-preco]').forEach(el => { if (CONFIG.precos[el.dataset.preco]) el.textContent = CONFIG.precos[el.dataset.preco]; });
+  // barra fixa: escondida enquanto os botões do topo ou da oferta final estão visíveis
+  (() => {
+    const barra = document.getElementById('barra'), alvos = document.querySelectorAll('.hero .par, .final .par');
+    if (!barra) return;
+    if (!('IntersectionObserver' in window) || !alvos.length) return barra.classList.add('on');
+    const vis = new Map();
+    const ob = new IntersectionObserver(es => { es.forEach(x => vis.set(x.target, x.isIntersecting)); barra.classList.toggle('on', ![...vis.values()].some(Boolean)); });
+    alvos.forEach(a => ob.observe(a));
+  })();
   const io = 'IntersectionObserver' in window ? new IntersectionObserver(es => es.forEach(x => { if (x.isIntersecting) { x.target.classList.add('on'); io.unobserve(x.target); } }), { rootMargin: '0px 0px 15% 0px' }) : null;
   document.querySelectorAll('.surge').forEach(el => io ? io.observe(el) : el.classList.add('on'));
   // garantia: 1,5 s depois de carregar, tudo fica na posição final (mesmo sem rolar)
