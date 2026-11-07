@@ -15,14 +15,14 @@
 <link rel="canonical" href="https://reparosimples.com/">
 <link rel="icon" href="/assets/rs-192.png"><link rel="apple-touch-icon" href="/assets/rs-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
 <style>
   :root { --bg: #000; --bg-2: #0a0a0a; --card: #111; --card-2: #171717; --line: #262626; --text: #f5f5f5; --muted: #a3a3a3;
     --gold: #d4af37; --gold-2: #f7e08a; --gold-3: #a87d14; --gold-soft: rgba(212,175,55,.1); --grad: linear-gradient(135deg, var(--gold-2), var(--gold) 50%, var(--gold-3));
     --verde: #22c55e; --verde-2: #16a34a; --vermelho: #dc2626; }
   * { box-sizing: border-box; } html { scroll-behavior: smooth; }
   body { margin: 0; background: var(--bg); color: var(--text); font-family: Inter, system-ui, -apple-system, sans-serif; line-height: 1.55; -webkit-font-smoothing: antialiased; padding-bottom: calc(84px + env(safe-area-inset-bottom, 0px)); }
-  a { color: inherit; text-decoration: none; } img, svg { display: block; } .i { width: 20px; height: 20px; flex: none; }
+  a { color: inherit; text-decoration: none; } img, svg, picture { display: block; } .i { width: 20px; height: 20px; flex: none; }
   .wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
   .ouro { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
   section { padding: 64px 0; } h1, h2, h3 { letter-spacing: -.02em; }
@@ -36,7 +36,7 @@
   .btn.verde-o { background: transparent; color: #4ade80; border: 2px solid var(--verde); }
   .btn.grande { min-height: 62px; font-size: 18px; width: 100%; }
   .par { display: flex; gap: 12px; justify-content: center; align-items: center; flex-wrap: wrap; margin-top: 30px; } .par .btn { min-width: 240px; }
-  .lnk-planos { color: var(--muted); font-weight: 600; font-size: 15px; text-decoration: underline; text-underline-offset: 3px; padding: 8px 6px; }
+  .lnk-planos { color: var(--muted); font-weight: 700; font-size: 15px; text-decoration: underline; text-underline-offset: 3px; padding: 8px 6px; }
   .lnk-planos:hover { color: var(--text); }
   .quem-fez { margin: 12px 0 0; color: var(--muted); font-size: 13.5px; }
   .lnk-zap { display: inline-flex; align-items: center; gap: 8px; margin-top: 10px; color: #4ade80; font-weight: 700; font-size: 15px; padding: 8px 4px; }
@@ -50,7 +50,7 @@
   .hero { padding: 32px 0 40px; background: radial-gradient(70% 60% at 50% 0%, rgba(212,175,55,.16), transparent 70%); }
   .hero .wrap { display: grid; grid-template-columns: 1.15fr .85fr; gap: 40px; align-items: center; }
   .selo { display: inline-flex; padding: 7px 14px; border-radius: 999px; background: var(--gold-soft); border: 1px solid rgba(212,175,55,.4); color: var(--gold-2); font-size: 13.5px; font-weight: 700; }
-  .hero h1 { font-size: clamp(34px, 5vw, 56px); line-height: 1.04; margin: 14px 0 12px; font-weight: 900; }
+  .hero h1 { font-size: clamp(34px, 5vw, 56px); line-height: 1.04; margin: 14px 0 12px; font-weight: 800; }
   .hero .lead { font-size: 18px; color: #d6d6d6; margin: 0 0 16px; max-width: 580px; }
   .tres { list-style: none; padding: 0; margin: 0 0 16px; display: grid; gap: 8px; } .tres li { display: flex; gap: 10px; font-size: 16.5px; font-weight: 700; } .tres .i { color: var(--verde); margin-top: 2px; }
   .oferta-topo { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; margin: 0 0 18px; font-size: 16px; }
@@ -74,7 +74,7 @@
   .passos h3 { margin: 2px 0 2px; font-size: 18px; } .passos p { margin: 0; color: var(--muted); }
   .telas { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 44px; }
   .telas figure { margin: 0; text-align: center; } .telas .cel { width: 100%; border-width: 6px; border-radius: 26px; }
-  .telas figcaption { margin-top: 10px; font-weight: 700; font-size: 14.5px; } .telas figcaption span { display: block; color: var(--muted); font-weight: 500; font-size: 13px; }
+  .telas figcaption { margin-top: 10px; font-weight: 700; font-size: 14.5px; } .telas figcaption span { display: block; color: var(--muted); font-weight: 400; font-size: 13px; }
   /* fundador e público */
   .fund { display: grid; grid-template-columns: 150px 1fr; gap: 24px; max-width: 860px; margin: 0 auto; background: linear-gradient(180deg, var(--card-2), var(--card)); border: 1px solid rgba(212,175,55,.35); border-radius: 22px; padding: 28px; }
   .fund .foto { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 3px solid var(--gold); box-shadow: 0 0 30px rgba(212,175,55,.25); }
@@ -96,7 +96,7 @@
   .plano.top { border: 2px solid var(--gold); box-shadow: 0 0 60px rgba(212,175,55,.15); }
   .fita { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--grad); color: #111; font-weight: 800; font-size: 13px; padding: 5px 14px; border-radius: 999px; white-space: nowrap; }
   .plano h3 { margin: 0; font-size: 24px; } .plano .para { margin: 2px 0 12px; color: var(--muted); }
-  .preco { display: flex; align-items: baseline; gap: 4px; } .preco .rs { font-weight: 700; font-size: 20px; } .preco .v { font-size: 54px; font-weight: 900; letter-spacing: -.03em; line-height: 1; } .preco .m { color: var(--muted); }
+  .preco { display: flex; align-items: baseline; gap: 4px; } .preco .rs { font-weight: 700; font-size: 20px; } .preco .v { font-size: 54px; font-weight: 800; letter-spacing: -.03em; line-height: 1; } .preco .m { color: var(--muted); }
   .plano .dia { color: var(--gold-2); font-weight: 700; margin: 6px 0 2px; } .plano .eq { color: var(--muted); margin: 0 0 16px; font-size: 14.5px; }
   .plano ul { list-style: none; margin: 18px 0 0; padding: 0; display: grid; gap: 9px; } .plano li { display: flex; gap: 10px; font-size: 14.5px; }
   .plano li .i { color: #4ade80; width: 18px; height: 18px; margin-top: 2px; } .plano li.nao { color: #6b6b6b; } .plano li.nao .i { color: #6b6b6b; }
@@ -230,7 +230,7 @@ fbq('track', 'PageView');
         <a class="lnk-zap" data-zap hidden href="#" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-whats"/></svg> Tirar dúvida no WhatsApp</a>
         <p class="quem-fez">Criado por um técnico de celular · usado na RB Tech Celulares</p>
       </div>
-      <div class="cel"><img src="/planos/m/painel-cel.jpg" alt="Tela real do Reparo Simples: faturamento e lucro do dia" width="390" height="700" fetchpriority="high"></div>
+      <div class="cel"><picture><source srcset="/planos/m/painel-cel.webp" type="image/webp"><img src="/planos/m/painel-cel.jpg" alt="Tela real do Reparo Simples: faturamento e lucro do dia" width="390" height="700" fetchpriority="high"></picture></div>
     </div>
   </section>
 
@@ -261,7 +261,7 @@ fbq('track', 'PageView');
   <!-- FUNDADOR -->
   <section id="fundador">
     <div class="wrap">
-      <div class="fund"><img class="foto" src="/planos/m/israel.jpg" width="150" height="150" loading="lazy" alt="Israel, dono da RB Tech Celulares e fundador do Reparo Simples"><div>
+      <div class="fund"><picture><source srcset="/planos/m/israel.webp" type="image/webp"><img class="foto" src="/planos/m/israel.jpg" width="150" height="150" loading="lazy" alt="Israel, dono da RB Tech Celulares e fundador do Reparo Simples"></picture><div>
         <span class="tag">Quem criou</span>
         <p><b>5 anos como técnico de celular.</b> Já paguei até <b>R$ 600 por mês</b> em sistemas que resolviam uma coisa e deixavam outras de fora.</p>
         <p>Então criei o Reparo Simples. Hoje ele roda a minha loja inteira. <b>É o mesmo que você vai testar.</b></p>
