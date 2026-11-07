@@ -85,6 +85,7 @@
   .pub ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; } .pub li { display: flex; gap: 10px; font-size: 15.5px; } .pub li .i { margin-top: 3px; }
   .pub .sim .i { color: #4ade80; } .pub .nao .i { color: #f87171; }
   .dep { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; max-width: 980px; margin: 0 auto; } .dep > div:only-child { max-width: 620px; justify-self: center; font-size: 17px; } .dep > div { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 20px; }
+  .dep .quem { display: flex; align-items: center; gap: 10px; } .dep .quem img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold); flex: none; }
   .dep .est { color: var(--gold); letter-spacing: 2px; } .dep p { margin: 10px 0 14px; } .dep b { display: block; } .dep span { color: var(--muted); font-size: 13.5px; }
   /* contador */
   .timer { background: var(--vermelho); color: #fff; text-align: center; padding: 14px 16px; font-weight: 800; font-size: 17px; }
@@ -345,11 +346,11 @@ fbq('track', 'PageView');
     // ex.: { horas: 3, texto: 'Bônus de configuração da loja termina em' }. null = desligado
     ofertaVisitante: null,   // data REAL de fim da campanha, ex.: '2026-12-31T23:59:59-03:00'. null = contador escondido
   };
-  // DEPOIMENTOS REAIS: { nome, loja, texto }. Lista vazia = seção escondida.
+  // DEPOIMENTOS REAIS: { nome, loja, texto, cidade?, foto? } — cidade e foto (caminho da imagem) são opcionais. Lista vazia = seção escondida.
   const DEPOIMENTOS = [
-    { nome: 'Carlos Andrade', loja: 'Cliente do Reparo Simples', texto: 'Depois que comecei a usar o Reparo Simples, nunca mais tive cliente me incomodando para saber do aparelho: ele acompanha tudo pelo link. E acabou o golpe de cliente dizendo que o aparelho não estava arranhado ou quebrado quando entrou na loja.' },
-    { nome: 'Jhonatan Giacomelli', loja: 'Cliente do Reparo Simples', texto: 'Já passei por diversos sistemas, com vários módulos que nunca usei, e o prático do dia a dia ficava faltando. Principalmente a integração com o WhatsApp, que deixa tudo muito mais rápido!' },
-    { nome: 'Lucas Picolli', loja: 'Cliente do Reparo Simples', texto: 'Cara, é surreal: o cliente acessa uma vitrine configurada por mim, faz o pedido e chega no meu e-mail! Fora que dá para organizar as metas do time, tudo no app.' },
+    { nome: 'Carlos Andrade', loja: 'Cliente do Reparo Simples', cidade: '', foto: '', texto: 'Depois que comecei a usar o Reparo Simples, nunca mais tive cliente me incomodando para saber do aparelho: ele acompanha tudo pelo link. E acabou o golpe de cliente dizendo que o aparelho não estava arranhado ou quebrado quando entrou na loja.' },
+    { nome: 'Jhonatan Giacomelli', loja: 'Cliente do Reparo Simples', cidade: '', foto: '', texto: 'Já passei por diversos sistemas, com vários módulos que nunca usei, e o prático do dia a dia ficava faltando. Principalmente a integração com o WhatsApp, que deixa tudo muito mais rápido!' },
+    { nome: 'Lucas Picolli', loja: 'Cliente do Reparo Simples', cidade: '', foto: '', texto: 'Cara, é surreal: o cliente acessa uma vitrine configurada por mim, faz o pedido e chega no meu e-mail! Fora que dá para organizar as metas do time, tudo no app.' },
   ];
   /* ========================== */
 
@@ -411,7 +412,8 @@ fbq('track', 'PageView');
   (() => {
     if (!DEPOIMENTOS.length) return;
     const e = x => String(x || '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
-    document.getElementById('dep').innerHTML = DEPOIMENTOS.map(d => `<div><div class="est">★★★★★</div><p>“${e(d.texto)}”</p><b>${e(d.nome)}</b><span>${e(d.loja)}</span></div>`).join('');
+    document.getElementById('dep').innerHTML = DEPOIMENTOS.map(d => `<div><div class="est">★★★★★</div><p>“${e(d.texto)}”</p>
+      <div class="quem">${d.foto ? `<img src="${e(d.foto)}" alt="" width="40" height="40" loading="lazy">` : ''}<div><b>${e(d.nome)}</b><span>${e([d.loja, d.cidade].filter(Boolean).join(' · '))}</span></div></div></div>`).join('');
     document.getElementById('depoimentos').hidden = false;
   })();
   // vídeo: toca quando aparece na tela; toque pausa/continua
