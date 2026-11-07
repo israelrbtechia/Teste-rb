@@ -307,7 +307,7 @@ fbq('track', 'PageView');
   <section id="duvidas">
     <div class="wrap">
       <div class="tit"><span class="tag">Dúvidas</span><h2>Dúvidas rápidas</h2></div>
-      <div class="faq"><details><summary>Preciso de cartão para testar?</summary><p>Não. São 7 dias grátis, sem cartão.</p></details><details><summary>E se eu assinar e não gostar?</summary><p>Até 7 dias depois da compra você pede o reembolso e recebe 100% de volta.</p></details><details><summary>Preciso instalar alguma coisa?</summary><p>Não. Funciona no navegador do celular, tablet ou computador.</p></details><details><summary>Tem fidelidade?</summary><p>Não. É mensal e você cancela quando quiser.</p></details><details><summary>Emite nota fiscal?</summary><p>Ainda não. Chega em breve, num plano próprio.</p></details></div>
+      <div class="faq" id="faq"><details><summary>Preciso de cartão para testar?</summary><p>Não. São 7 dias grátis, sem cartão.</p></details><details><summary>E se eu assinar e não gostar?</summary><p>Até 7 dias depois da compra você pede o reembolso e recebe 100% de volta.</p></details><details><summary>Preciso instalar alguma coisa?</summary><p>Não. Funciona no navegador do celular, tablet ou computador.</p></details><details><summary>Tem fidelidade?</summary><p>Não. É mensal e você cancela quando quiser.</p></details><details><summary>Emite nota fiscal?</summary><p>Ainda não. Chega em breve, num plano próprio.</p></details></div>
       <div class="zap-faq"><a class="lnk-zap" data-zap hidden href="#" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-whats"/></svg> Tirar dúvida no WhatsApp</a></div>
     </div>
   </section>
@@ -341,6 +341,14 @@ fbq('track', 'PageView');
     precos: { pro: '77,90', essencial: '37,90' },
     whatsapp: '',      // número com DDI, só dígitos (ex.: 5548999990000). Vazio = links de WhatsApp escondidos
     whatsappMsg: 'Oi, vi o Reparo Simples e quero saber se serve para minha loja',
+    // perguntas extras do FAQ: só aparecem as que tiverem resposta
+    FAQ_EXTRA: [
+      { pergunta: 'Consigo trazer meus clientes e estoque de outro sistema?', resposta: '' },
+      { pergunta: 'Funciona no iPhone e no Android?', resposta: '' },
+      { pergunta: 'Como é o suporte e em quanto tempo respondem?', resposta: '' },
+      { pergunta: 'Quantos aparelhos podem usar ao mesmo tempo?', resposta: '' },
+      { pergunta: 'O que acontece quando acabam os 7 dias de teste?', resposta: '' },
+    ],
     campanhaFim: null,
     // condição REAL por visitante: conta X horas a partir da 1ª visita neste aparelho (não reinicia ao recarregar).
     // ex.: { horas: 3, texto: 'Bônus de configuração da loja termina em' }. null = desligado
@@ -407,6 +415,12 @@ fbq('track', 'PageView');
       caixas.forEach(c => { c.hidden = false; c.querySelector('[data-t]').textContent = (d ? d + (d > 1 ? ' dias ' : ' dia ') : '') + dd(h) + 'h ' + dd(m) + 'min ' + dd(s) + 's'; });
     };
     const t = setInterval(tic, 1000); tic();
+  })();
+  // FAQ extra (CONFIG.FAQ_EXTRA): só as perguntas com resposta
+  (() => {
+    const box = document.getElementById('faq'); if (!box) return;
+    const e = x => String(x || '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+    (CONFIG.FAQ_EXTRA || []).filter(f => f && String(f.resposta || '').trim()).forEach(f => box.insertAdjacentHTML('beforeend', `<details><summary>${e(f.pergunta)}</summary><p>${e(f.resposta)}</p></details>`));
   })();
   // depoimentos reais
   (() => {
