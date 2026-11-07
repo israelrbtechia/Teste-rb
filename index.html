@@ -62,7 +62,7 @@
   .cel img, .cel video { display: block; width: 100%; height: auto; }
   /* recursos */
   .rec { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
-  .rec div { background: linear-gradient(180deg, var(--card-2), var(--card)); border: 1px solid var(--line); border-radius: 18px; padding: 20px; }
+  .rec > div { position: relative; background: linear-gradient(180deg, var(--card-2), var(--card)); border: 1px solid var(--line); border-radius: 18px; padding: 20px; }
   .rec .ic { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; background: var(--gold-soft); color: var(--gold); margin-bottom: 12px; }
   .rec h3 { font-size: 17px; margin: 0 0 6px; } .rec p { margin: 0; color: var(--muted); font-size: 14.5px; }
   /* demonstrações */
@@ -128,19 +128,20 @@
   @media (prefers-reduced-motion: reduce) { .surge { transform: none; transition: none; } html { scroll-behavior: auto; } }
   @media (max-width: 900px) {
     section { padding: 44px 0; } .hero { padding-top: 20px; } .hero .lead { font-size: 16.5px; } .tres li { font-size: 15.5px; } .selo { font-size: 12.5px; } .hero .par { gap: 10px; } .hero .wrap { grid-template-columns: 1fr; gap: 28px; }
-    .rec { grid-template-columns: 1fr 1fr; gap: 10px; } .rec div { padding: 16px; }
+    .rec { grid-template-columns: 1fr 1fr; gap: 10px; } .rec > div { padding: 16px; }
     .demo { grid-template-columns: 1fr; gap: 26px; } .telas { grid-template-columns: 1fr 1fr; }
     .pub, .planos, .dep { grid-template-columns: 1fr; } .fund { padding: 20px; gap: 14px; } .fund .foto { width: 80px; height: 80px; font-size: 32px; }
     .gar { flex-direction: column; text-align: center; }
     .planos { gap: 28px; padding-top: 14px; } .plano.top { order: -1; }
   }
-  .rec h3 { margin: 0; font-size: 16px; line-height: 1.25; } .rec div { display: flex; align-items: center; gap: 12px; } .rec .ic { margin: 0; flex: none; }
+  .rec h3 { margin: 0; font-size: 16px; line-height: 1.25; } .rec > div { display: flex; align-items: center; gap: 12px; } .rec .txt p { margin-top: 4px; font-size: 14px; line-height: 1.4; }
+  .rec .pro { position: absolute; top: 10px; right: 10px; font-size: 11px; font-weight: 800; letter-spacing: .06em; color: #111; background: var(--grad); padding: 2px 8px; border-radius: 999px; } .rec .ic { margin: 0; flex: none; }
   .plano ul.curta { margin-top: 16px; } .plano li { font-size: 15.5px; }
   .tudo { margin-top: 14px; } .tudo summary { cursor: pointer; color: var(--gold); font-weight: 700; font-size: 14.5px; } .tudo ul { margin-top: 12px !important; }
   .fund .tag { margin-bottom: 6px; } .fund p { font-size: 17px; }
   @media (max-width: 600px) {
     section { padding: 36px 0; } .tit { margin-bottom: 20px; }
-    .rec { grid-template-columns: 1fr 1fr; gap: 8px; } .rec div { flex-direction: column; align-items: flex-start; gap: 8px; padding: 14px; } .rec h3 { font-size: 15px; } .rec .ic { width: 38px; height: 38px; }
+    .rec { grid-template-columns: 1fr 1fr; gap: 8px; } .rec > div { flex-direction: column; align-items: flex-start; gap: 8px; padding: 14px; } .rec h3 { font-size: 15px; padding-right: 34px; } .rec .txt p { font-size: 13px; } .rec .ic { width: 38px; height: 38px; }
     .telas, .dep { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 12px; margin-left: -20px; margin-right: -20px; padding: 0 20px 8px; scrollbar-width: none; }
     .telas::-webkit-scrollbar, .dep::-webkit-scrollbar { display: none; }
     .telas figure { flex: 0 0 56%; scroll-snap-align: center; } .dep > div { flex: 0 0 86%; scroll-snap-align: center; } .dep > div:only-child { flex-basis: 100%; }
@@ -251,7 +252,7 @@ fbq('track', 'PageView');
   <section id="recursos">
     <div class="wrap">
       <div class="tit"><span class="tag">O que o sistema faz</span><h2>Tudo <span class="ouro">num lugar só</span></h2></div>
-      <div class="rec"><div class="surge"><div class="ic"><svg class="i " aria-hidden="true"><use href="#i-os"/></svg></div><h3>OS em segundos</h3></div><div class="surge"><div class="ic"><svg class="i " aria-hidden="true"><use href="#i-radar"/></svg></div><h3>Cliente acompanha pelo link</h3></div><div class="surge"><div class="ic"><svg class="i " aria-hidden="true"><use href="#i-grafico"/></svg></div><h3>Lucro real do dia</h3></div><div class="surge"><div class="ic"><svg class="i " aria-hidden="true"><use href="#i-caixa"/></svg></div><h3>Estoque que baixa sozinho</h3></div><div class="surge"><div class="ic"><svg class="i " aria-hidden="true"><use href="#i-whats"/></svg></div><h3>Cotação no WhatsApp</h3></div><div class="surge"><div class="ic"><svg class="i " aria-hidden="true"><use href="#i-equipe"/></svg></div><h3>Metas da equipe</h3></div><div class="surge"><div class="ic"><svg class="i " aria-hidden="true"><use href="#i-loja"/></svg></div><h3>Vitrine online</h3></div><div class="surge"><div class="ic"><svg class="i " aria-hidden="true"><use href="#i-nuvem"/></svg></div><h3>Funciona sem internet</h3></div></div>
+      <div class="rec"><div class="surge"><div class="ic"><svg class="i " aria-hidden="true"><use href="#i-os"/></svg></div><div class="txt"><h3>OS em segundos</h3><p>Ordem de serviço, orçamento e garantia em PDF, prontos para enviar.</p></div></div><div class="surge"><div class="ic"><svg class="i " aria-hidden="true"><use href="#i-radar"/></svg></div><div class="txt"><h3>Cliente acompanha pelo link</h3><p>O cliente vê o reparo em tempo real e para de ligar perguntando.</p></div></div><div class="surge"><div class="ic"><svg class="i " aria-hidden="true"><use href="#i-grafico"/></svg></div><div class="txt"><h3>Lucro real do dia</h3><p>Financeiro com o lucro de verdade, não só o faturamento.</p></div></div><div class="surge"><div class="ic"><svg class="i " aria-hidden="true"><use href="#i-caixa"/></svg></div><div class="txt"><h3>Estoque que baixa sozinho</h3><p>Peças, produtos e seminovos com IMEI, com entrada pelo XML da nota.</p></div></div><div class="surge"><div class="ic"><svg class="i " aria-hidden="true"><use href="#i-whats"/></svg></div><div class="txt"><h3>Cotação no WhatsApp</h3><p>Peça o preço da peça ao fornecedor com a mensagem pronta.</p></div></div><div class="surge"><div class="ic"><svg class="i " aria-hidden="true"><use href="#i-equipe"/></svg></div><div class="txt"><h3>Metas da equipe</h3><p>Metas da loja e de cada funcionário, acompanhadas no app.</p></div><span class="pro">Pro</span></div><div class="surge"><div class="ic"><svg class="i " aria-hidden="true"><use href="#i-loja"/></svg></div><div class="txt"><h3>Vitrine online</h3><p>O cliente faz o pedido pela vitrine e ele chega no seu e-mail.</p></div><span class="pro">Pro</span></div><div class="surge"><div class="ic"><svg class="i " aria-hidden="true"><use href="#i-nuvem"/></svg></div><div class="txt"><h3>Funciona sem internet</h3><p>No celular, tablet ou computador, sem instalar nada.</p></div></div></div>
     </div>
   </section>
 
