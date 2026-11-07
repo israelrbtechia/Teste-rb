@@ -39,6 +39,9 @@
   .lnk-planos { color: var(--muted); font-weight: 600; font-size: 15px; text-decoration: underline; text-underline-offset: 3px; padding: 8px 6px; }
   .lnk-planos:hover { color: var(--text); }
   .quem-fez { margin: 12px 0 0; color: var(--muted); font-size: 13.5px; }
+  .lnk-zap { display: inline-flex; align-items: center; gap: 8px; margin-top: 10px; color: #4ade80; font-weight: 700; font-size: 15px; padding: 8px 4px; }
+  .lnk-zap[hidden] { display: none; } .lnk-zap .i { width: 18px; height: 18px; }
+  .zap-faq { text-align: center; margin-top: 14px; } .final .lnk-zap { margin-top: 12px; }
   /* topo */
   header { position: sticky; top: 0; z-index: 30; background: rgba(0,0,0,.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
   header .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 12px; }
@@ -142,7 +145,7 @@
     .telas figure { flex: 0 0 56%; scroll-snap-align: center; } .dep > div { flex: 0 0 86%; scroll-snap-align: center; } .dep > div:only-child { flex-basis: 100%; }
     .fund { grid-template-columns: 76px 1fr; align-items: start; padding: 18px; } .fund .foto { width: 76px; height: 76px; } .fund p { font-size: 15.5px; margin-bottom: 8px; }
     .gar { flex-direction: row; text-align: left; gap: 14px; padding: 16px; } .gar .selo-g { width: 76px; height: 76px; } .gar .selo-g b { font-size: 18px; } .gar .selo-g span { font-size: 8px; } .par .btn, .hero .par .btn { width: 100%; min-width: 0; }
-    .par { gap: 4px; } .par .lnk-planos { width: 100%; text-align: center; } .quem-fez { text-align: center; }
+    .par { gap: 4px; } .par .lnk-planos { width: 100%; text-align: center; } .quem-fez { text-align: center; } .hero .lnk-zap { display: flex; justify-content: center; } .hero .lnk-zap[hidden] { display: none; }
     .barra { flex-direction: column; gap: 6px; padding: 8px 14px calc(10px + env(safe-area-inset-bottom, 0px)); }
     .barra .t, .barra .comprar-d { display: none; } .barra .m-linha { display: block; font-size: 12.5px; color: var(--muted); line-height: 1.2; }
     .barra .btn { width: 100%; padding: 10px; } header .btn { display: none; }
@@ -220,6 +223,7 @@ fbq('track', 'PageView');
         </ul>
         <p class="oferta-topo"><span>Teste 7 dias grátis, sem cartão</span> Planos a partir de <b>R$ 37,90/mês</b></p>
         <div class="par"><a class="btn verde" data-link="teste" href="https://app.reparosimples.com/?idioma=pt&amp;cadastro=1">Testar 7 dias grátis <svg class="i " aria-hidden="true"><use href="#i-seta"/></svg></a><a class="lnk-planos" href="#planos">Ver planos e preços</a></div>
+        <a class="lnk-zap" data-zap hidden href="#" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-whats"/></svg> Tirar dúvida no WhatsApp</a>
         <p class="quem-fez">Criado por um técnico de celular · usado na RB Tech Celulares</p>
       </div>
       <div class="cel"><img src="/planos/m/painel-cel.jpg" alt="Tela real do Reparo Simples: faturamento e lucro do dia" width="390" height="700" fetchpriority="high"></div>
@@ -290,6 +294,7 @@ fbq('track', 'PageView');
     <div class="wrap">
       <div class="tit"><span class="tag">Dúvidas</span><h2>Dúvidas rápidas</h2></div>
       <div class="faq"><details><summary>Preciso de cartão para testar?</summary><p>Não. São 7 dias grátis, sem cartão.</p></details><details><summary>E se eu assinar e não gostar?</summary><p>Até 7 dias depois da compra você pede o reembolso e recebe 100% de volta.</p></details><details><summary>Preciso instalar alguma coisa?</summary><p>Não. Funciona no navegador do celular, tablet ou computador.</p></details><details><summary>Tem fidelidade?</summary><p>Não. É mensal e você cancela quando quiser.</p></details><details><summary>Emite nota fiscal?</summary><p>Ainda não. Chega em breve, num plano próprio.</p></details></div>
+      <div class="zap-faq"><a class="lnk-zap" data-zap hidden href="#" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-whats"/></svg> Tirar dúvida no WhatsApp</a></div>
     </div>
   </section>
 
@@ -301,6 +306,7 @@ fbq('track', 'PageView');
       <h2>Comece agora, <span class="ouro">grátis</span></h2>
       <p>7 dias sem cartão.</p>
       <div class="par"><a class="btn verde" data-link="teste" href="https://app.reparosimples.com/?idioma=pt&amp;cadastro=1">Testar 7 dias grátis <svg class="i " aria-hidden="true"><use href="#i-seta"/></svg></a><a class="lnk-planos" href="#planos">Ver planos e preços</a></div>
+      <a class="lnk-zap" data-zap hidden href="#" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-whats"/></svg> Tirar dúvida no WhatsApp</a>
     </div>
   </section>
 </main>
@@ -319,6 +325,8 @@ fbq('track', 'PageView');
     siteReserva: 'https://reparorb.vercel.app/?idioma=pt&cadastro=1', // usado se o endereço novo não responder
     checkout: { pro: 'https://pay.kiwify.com.br/shZh8Ji', essencial: 'https://pay.kiwify.com.br/f3hCYii' },
     precos: { pro: '77,90', essencial: '37,90' },
+    whatsapp: '',      // número com DDI, só dígitos (ex.: 5548999990000). Vazio = links de WhatsApp escondidos
+    whatsappMsg: 'Oi, vi o Reparo Simples e quero saber se serve para minha loja',
     campanhaFim: null,
     // condição REAL por visitante: conta X horas a partir da 1ª visita neste aparelho (não reinicia ao recarregar).
     // ex.: { horas: 3, texto: 'Bônus de configuração da loja termina em' }. null = desligado
@@ -341,6 +349,15 @@ fbq('track', 'PageView');
       try { const u = new URL(a.href, location.href); PARAMS_RASTREIO.forEach(([k, v]) => { if (!u.searchParams.has(k)) u.searchParams.set(k, v); }); a.href = u.href; } catch (e) {}
     });
   }
+  // WhatsApp para tirar dúvida (só aparece com número no CONFIG); o clique conta como Contact no Pixel
+  (() => {
+    const n = String(CONFIG.whatsapp || '').replace(/\D/g, '');
+    if (!n) return;
+    document.querySelectorAll('[data-zap]').forEach(a => {
+      a.href = 'https://wa.me/' + n + '?text=' + encodeURIComponent(CONFIG.whatsappMsg || ''); a.target = '_blank'; a.hidden = false;
+      a.addEventListener('click', () => { if (typeof fbq === 'function') fbq('track', 'Contact'); });
+    });
+  })();
   // teste grátis: começa no endereço principal; só troca para o de reserva se o principal não responder
   (() => {
     const links = () => document.querySelectorAll('a[data-link="teste"]');
