@@ -35,7 +35,10 @@
   .btn.verde:hover { box-shadow: 0 12px 40px rgba(34,197,94,.5); }
   .btn.verde-o { background: transparent; color: #4ade80; border: 2px solid var(--verde); }
   .btn.grande { min-height: 62px; font-size: 18px; width: 100%; }
-  .par { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 30px; } .par .btn { min-width: 240px; }
+  .par { display: flex; gap: 12px; justify-content: center; align-items: center; flex-wrap: wrap; margin-top: 30px; } .par .btn { min-width: 240px; }
+  .lnk-planos { color: var(--muted); font-weight: 600; font-size: 15px; text-decoration: underline; text-underline-offset: 3px; padding: 8px 6px; }
+  .lnk-planos:hover { color: var(--text); }
+  .quem-fez { margin: 12px 0 0; color: var(--muted); font-size: 13.5px; }
   /* topo */
   header { position: sticky; top: 0; z-index: 30; background: rgba(0,0,0,.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
   header .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 12px; }
@@ -139,6 +142,7 @@
     .telas figure { flex: 0 0 56%; scroll-snap-align: center; } .dep > div { flex: 0 0 86%; scroll-snap-align: center; } .dep > div:only-child { flex-basis: 100%; }
     .fund { grid-template-columns: 76px 1fr; align-items: start; padding: 18px; } .fund .foto { width: 76px; height: 76px; } .fund p { font-size: 15.5px; margin-bottom: 8px; }
     .gar { flex-direction: row; text-align: left; gap: 14px; padding: 16px; } .gar .selo-g { width: 76px; height: 76px; } .gar .selo-g b { font-size: 18px; } .gar .selo-g span { font-size: 8px; } .par .btn, .hero .par .btn { width: 100%; min-width: 0; }
+    .par { gap: 4px; } .par .lnk-planos { width: 100%; text-align: center; } .quem-fez { text-align: center; }
     .barra { flex-direction: column; gap: 6px; padding: 8px 14px calc(10px + env(safe-area-inset-bottom, 0px)); }
     .barra .t, .barra .comprar-d { display: none; } .barra .m-linha { display: block; font-size: 12.5px; color: var(--muted); line-height: 1.2; }
     .barra .btn { width: 100%; padding: 10px; } header .btn { display: none; }
@@ -200,7 +204,7 @@ fbq('track', 'PageView');
   </defs>
 </svg>
 <header><div class="wrap"><a class="marca" href="#topo"><svg aria-hidden="true"><use href="#logo"/></svg><span>Reparo <span class="ouro">Simples</span></span></a>
-  <a class="btn verde" data-link="teste" href="https://reparorb.vercel.app/?idioma=pt&cadastro=1" target="_blank" rel="noopener">Testar agora</a></div></header>
+  <a class="btn verde" data-link="teste" href="https://reparorb.vercel.app/?idioma=pt&cadastro=1" target="_blank" rel="noopener">Testar 7 dias grátis</a></div></header>
 <main id="topo">
 
   <!-- ABERTURA -->
@@ -215,7 +219,8 @@ fbq('track', 'PageView');
           <li><svg class="i " aria-hidden="true"><use href="#i-check"/></svg> Lucro real do dia, na tela</li>
         </ul>
         <p class="oferta-topo"><span>Teste 7 dias grátis, sem cartão</span> Planos a partir de <b>R$ 37,90/mês</b></p>
-        <div class="par"><a class="btn verde" data-link="teste" href="https://reparorb.vercel.app/?idioma=pt&cadastro=1" target="_blank" rel="noopener">Testar agora <svg class="i " aria-hidden="true"><use href="#i-seta"/></svg></a><a class="btn verde-o" href="#planos">Comprar agora</a></div>
+        <div class="par"><a class="btn verde" data-link="teste" href="https://reparorb.vercel.app/?idioma=pt&cadastro=1" target="_blank" rel="noopener">Testar 7 dias grátis <svg class="i " aria-hidden="true"><use href="#i-seta"/></svg></a><a class="lnk-planos" href="#planos">Ver planos e preços</a></div>
+        <p class="quem-fez">Criado por um técnico de celular · usado na RB Tech Celulares</p>
       </div>
       <div class="cel"><img src="/planos/m/painel-cel.jpg" alt="Tela real do Reparo Simples: faturamento e lucro do dia" width="390" height="700" fetchpriority="high"></div>
     </div>
@@ -253,7 +258,7 @@ fbq('track', 'PageView');
 
   <!-- DEPOIMENTOS: aparecem só com depoimentos reais -->
   <section id="depoimentos" hidden>
-    <div class="wrap"><div class="tit"><span class="tag">Quem usa</span><h2>O que dizem os <span class="ouro">lojistas</span></h2></div><div class="dep" id="dep"></div><div class="par"><a class="btn verde" data-link="teste" href="https://reparorb.vercel.app/?idioma=pt&cadastro=1" target="_blank" rel="noopener">Testar agora <svg class="i " aria-hidden="true"><use href="#i-seta"/></svg></a><a class="btn verde-o" href="#planos">Comprar agora</a></div></div>
+    <div class="wrap"><div class="tit"><span class="tag">Quem usa</span><h2>O que dizem os <span class="ouro">lojistas</span></h2></div><div class="dep" id="dep"></div><div class="par"><a class="btn verde" data-link="teste" href="https://reparorb.vercel.app/?idioma=pt&cadastro=1" target="_blank" rel="noopener">Testar 7 dias grátis <svg class="i " aria-hidden="true"><use href="#i-seta"/></svg></a><a class="lnk-planos" href="#planos">Ver planos e preços</a></div></div>
   </section>
 
   <!-- PLANOS -->
@@ -295,7 +300,7 @@ fbq('track', 'PageView');
       <span class="tag">Comece hoje</span>
       <h2>Comece agora, <span class="ouro">grátis</span></h2>
       <p>7 dias sem cartão.</p>
-      <div class="par"><a class="btn verde" data-link="teste" href="https://reparorb.vercel.app/?idioma=pt&cadastro=1" target="_blank" rel="noopener">Testar agora <svg class="i " aria-hidden="true"><use href="#i-seta"/></svg></a><a class="btn verde-o" href="#planos">Comprar agora</a></div>
+      <div class="par"><a class="btn verde" data-link="teste" href="https://reparorb.vercel.app/?idioma=pt&cadastro=1" target="_blank" rel="noopener">Testar 7 dias grátis <svg class="i " aria-hidden="true"><use href="#i-seta"/></svg></a><a class="lnk-planos" href="#planos">Ver planos e preços</a></div>
     </div>
   </section>
 </main>
