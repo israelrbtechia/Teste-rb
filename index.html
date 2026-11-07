@@ -82,7 +82,7 @@
   .pub { display: grid; grid-template-columns: 1.2fr 1fr; gap: 14px; max-width: 920px; margin: 0 auto; }
   .pub > div { border-radius: 18px; padding: 22px; background: var(--card); border: 1px solid var(--line); } .pub .sim { border-color: rgba(34,197,94,.45); }
   .pub h3 { margin: 0 0 12px; font-size: 18px; } .pub .sim h3 { color: #4ade80; } .pub .nao h3 { color: #f87171; }
-  .pub ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; } .pub li { display: flex; gap: 10px; font-size: 15.5px; }
+  .pub ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; } .pub li { display: flex; gap: 10px; font-size: 15.5px; } .pub li .i { margin-top: 3px; }
   .pub .sim .i { color: #4ade80; } .pub .nao .i { color: #f87171; }
   .dep { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; max-width: 980px; margin: 0 auto; } .dep > div:only-child { max-width: 620px; justify-self: center; font-size: 17px; } .dep > div { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 20px; }
   .dep .est { color: var(--gold); letter-spacing: 2px; } .dep p { margin: 10px 0 14px; } .dep b { display: block; } .dep span { color: var(--muted); font-size: 13.5px; }
@@ -264,6 +264,17 @@ fbq('track', 'PageView');
         <p><b>5 anos como técnico de celular.</b> Já paguei até <b>R$ 600 por mês</b> em sistemas que resolviam uma coisa e deixavam outras de fora.</p>
         <p>Então criei o Reparo Simples. Hoje ele roda a minha loja inteira. <b>É o mesmo que você vai testar.</b></p>
         <p class="ass">Israel · dono da RB Tech Celulares</p></div></div>
+    </div>
+  </section>
+
+  <!-- PARA QUEM É -->
+  <section id="publico">
+    <div class="wrap">
+      <div class="tit"><span class="tag">Para quem é</span><h2>Feito para a <span class="ouro">sua assistência</span></h2></div>
+      <div class="pub">
+        <div class="sim"><h3>É para você se...</h3><ul><li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span>Você tem assistência técnica de celular</span></li><li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span>Quer que o cliente acompanhe o reparo pelo link, sem ligar para a loja</span></li><li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span>Quer saber o lucro real, não só o faturamento</span></li><li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span>Trabalha sozinho ou com equipe de até 6 pessoas (dono + 5 no Pro)</span></li><li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span>Quer testar antes, sem cartão</span></li></ul></div>
+        <div class="nao"><h3>Ainda não é para você se...</h3><ul><li><svg class="i" aria-hidden="true"><use href="#i-x"/></svg><span>Precisa emitir nota fiscal hoje (ainda não emite; chega em breve)</span></li><li><svg class="i" aria-hidden="true"><use href="#i-x"/></svg><span>Tem mais de 6 pessoas na equipe usando o sistema</span></li><li><svg class="i" aria-hidden="true"><use href="#i-x"/></svg><span>Procura um sistema para outro tipo de comércio</span></li></ul></div>
+      </div>
     </div>
   </section>
 
