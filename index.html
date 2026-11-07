@@ -115,6 +115,7 @@
   .faq p { margin: 0 0 16px; color: #cfcfcf; }
   .final { text-align: center; background: radial-gradient(60% 70% at 50% 0%, rgba(212,175,55,.15), transparent 70%); }
   .final h2 { font-size: clamp(30px, 5vw, 48px); line-height: 1.1; margin: 0 0 12px; } .final p { color: #d6d6d6; font-size: 18px; margin: 0 auto; max-width: 640px; }
+  footer .emp { margin-top: 8px; display: flex; gap: 6px 14px; justify-content: center; flex-wrap: wrap; font-size: 13px; } footer .emp a { text-decoration: underline; text-underline-offset: 3px; }
   footer { border-top: 1px solid var(--line); padding: 28px 0 24px; text-align: center; color: var(--muted); font-size: 14px; }
   /* barra fixa: sempre visível, celular e computador */
   .barra { position: fixed; left: 0; right: 0; bottom: 0; z-index: 40; display: flex; align-items: center; justify-content: center; gap: 14px; padding: 10px 16px calc(10px + env(safe-area-inset-bottom, 0px));
@@ -324,7 +325,7 @@ fbq('track', 'PageView');
     </div>
   </section>
 </main>
-<footer><div class="wrap">© <span id="ano">2026</span> Reparo Simples · Sistema para assistência técnica de celulares</div></footer>
+<footer><div class="wrap">© <span id="ano">2026</span> Reparo Simples · Sistema para assistência técnica de celulares<div class="emp" id="emp" hidden></div></div></footer>
 
 <div class="barra" id="barra" role="region" aria-label="Testar ou comprar o Reparo Simples">
   <span class="t"><b>7 dias grátis</b> · a partir de R$ <span data-preco="essencial">37,90</span>/mês</span>
@@ -341,6 +342,8 @@ fbq('track', 'PageView');
     precos: { pro: '77,90', essencial: '37,90' },
     whatsapp: '',      // número com DDI, só dígitos (ex.: 5548999990000). Vazio = links de WhatsApp escondidos
     whatsappMsg: 'Oi, vi o Reparo Simples e quero saber se serve para minha loja',
+    // rodapé: só aparece o que estiver preenchido (privacidade e termos = links)
+    empresa: { cnpj: '', email: '', privacidade: '', termos: '' },
     // perguntas extras do FAQ: só aparecem as que tiverem resposta
     FAQ_EXTRA: [
       { pergunta: 'Consigo trazer meus clientes e estoque de outro sistema?', resposta: '' },
@@ -415,6 +418,14 @@ fbq('track', 'PageView');
       caixas.forEach(c => { c.hidden = false; c.querySelector('[data-t]').textContent = (d ? d + (d > 1 ? ' dias ' : ' dia ') : '') + dd(h) + 'h ' + dd(m) + 'min ' + dd(s) + 's'; });
     };
     const t = setInterval(tic, 1000); tic();
+  })();
+  // rodapé com os dados da empresa (CONFIG.empresa)
+  (() => {
+    const em = CONFIG.empresa || {}, box = document.getElementById('emp'); if (!box) return;
+    const e = x => String(x || '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+    const itens = [em.cnpj && `CNPJ ${e(em.cnpj)}`, em.email && `<a href="mailto:${e(em.email)}">${e(em.email)}</a>`,
+      em.privacidade && `<a href="${e(em.privacidade)}">Política de privacidade</a>`, em.termos && `<a href="${e(em.termos)}">Termos de uso</a>`].filter(Boolean);
+    if (itens.length) { box.innerHTML = itens.map(x => `<span>${x}</span>`).join(''); box.hidden = false; }
   })();
   // FAQ extra (CONFIG.FAQ_EXTRA): só as perguntas com resposta
   (() => {
