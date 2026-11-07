@@ -340,6 +340,7 @@ fbq('track', 'PageView');
     siteReserva: 'https://reparorb.vercel.app/?idioma=pt&cadastro=1', // usado se o endereço novo não responder
     checkout: { pro: 'https://pay.kiwify.com.br/shZh8Ji', essencial: 'https://pay.kiwify.com.br/f3hCYii' },
     precos: { pro: '77,90', essencial: '37,90' },
+    clarityId: '',     // ID do projeto no Microsoft Clarity (gravação de sessões). Vazio = não carrega
     whatsapp: '',      // número com DDI, só dígitos (ex.: 5548999990000). Vazio = links de WhatsApp escondidos
     whatsappMsg: 'Oi, vi o Reparo Simples e quero saber se serve para minha loja',
     // rodapé: só aparece o que estiver preenchido (privacidade e termos = links)
@@ -373,6 +374,11 @@ fbq('track', 'PageView');
     document.querySelectorAll('a[data-link]').forEach(a => {
       try { const u = new URL(a.href, location.href); PARAMS_RASTREIO.forEach(([k, v]) => { if (!u.searchParams.has(k)) u.searchParams.set(k, v); }); a.href = u.href; } catch (e) {}
     });
+  }
+  // Microsoft Clarity: só carrega com o ID preenchido
+  if (/^[a-z0-9]+$/i.test(String(CONFIG.clarityId || ''))) {
+    (function (c, l, a, r, i, t, y) { c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
+      t = l.createElement(r); t.async = 1; t.src = 'https://www.clarity.ms/tag/' + i; y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y); })(window, document, 'clarity', 'script', CONFIG.clarityId);
   }
   // WhatsApp para tirar dúvida (só aparece com número no CONFIG); o clique conta como Contact no Pixel
   (() => {
