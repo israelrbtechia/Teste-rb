@@ -341,17 +341,22 @@ fbq('track', 'PageView');
     checkout: { pro: 'https://pay.kiwify.com.br/shZh8Ji', essencial: 'https://pay.kiwify.com.br/f3hCYii' },
     precos: { pro: '77,90', essencial: '37,90' },
     clarityId: '',     // ID do projeto no Microsoft Clarity (gravação de sessões). Vazio = não carrega
-    whatsapp: '',      // número com DDI, só dígitos (ex.: 5548999990000). Vazio = links de WhatsApp escondidos
+    whatsapp: '5548996753360',      // número com DDI, só dígitos (ex.: 5548999990000). Vazio = links de WhatsApp escondidos
     whatsappMsg: 'Oi, vi o Reparo Simples e quero saber se serve para minha loja',
     // rodapé: só aparece o que estiver preenchido (privacidade e termos = links)
-    empresa: { cnpj: '', email: '', privacidade: '', termos: '' },
+    empresa: { cnpj: '', email: 'timecomercial@reparosimples.com', privacidade: '', termos: '' },
     // perguntas extras do FAQ: só aparecem as que tiverem resposta
     FAQ_EXTRA: [
-      { pergunta: 'Consigo trazer meus clientes e estoque de outro sistema?', resposta: '' },
-      { pergunta: 'Funciona no iPhone e no Android?', resposta: '' },
-      { pergunta: 'Como é o suporte e em quanto tempo respondem?', resposta: '' },
-      { pergunta: 'Quantos aparelhos podem usar ao mesmo tempo?', resposta: '' },
-      { pergunta: 'O que acontece quando acabam os 7 dias de teste?', resposta: '' },
+      { pergunta: 'Funciona no iPhone e no Android?', resposta: 'Sim. Funciona pelo navegador do celular (Safari no iPhone, Chrome no Android), do tablet e do computador. Não precisa baixar nada da loja de aplicativos.' },
+      { pergunta: 'Como instalo no celular, como um aplicativo?', resposta: 'No iPhone: abra app.reparosimples.com no Safari, toque no botão Compartilhar (o quadrado com a seta para cima) e depois em "Adicionar à Tela de Início". No Android: abra app.reparosimples.com no Chrome, toque nos três pontinhos no canto de cima e depois em "Instalar app" ou "Adicionar à tela inicial". O ícone do Reparo Simples aparece junto com os seus aplicativos e abre em tela cheia.' },
+      { pergunta: 'Precisa de internet o tempo todo?', resposta: 'Não. Se a internet cair, o que você lança fica guardado no aparelho e é enviado para a nuvem sozinho quando a conexão volta.' },
+      { pergunta: 'Consigo trazer meus clientes e estoque de outro sistema?', resposta: 'Dá para importar a lista de clientes e o estoque a partir de relatórios exportados de alguns sistemas. Chama a gente no WhatsApp que verificamos o seu.' },
+      { pergunta: 'Quantas pessoas podem usar ao mesmo tempo?', resposta: 'Cada pessoa da equipe tem o seu login: no Essencial, o dono e mais 2 funcionários; no Pro, o dono e mais 5. Cada um pode usar no celular, no tablet ou no computador, e tudo fica sincronizado.' },
+      { pergunta: 'Como o cliente acompanha o reparo?', resposta: 'Você manda o link pelo WhatsApp com um toque. O cliente vê cada etapa do conserto em tempo real e, quando fica pronto, baixa a garantia em PDF pelo mesmo link.' },
+      { pergunta: 'Consigo colocar a logo e as cores da minha loja?', resposta: 'Sim. A sua logo, as suas cores e os dados da empresa aparecem no sistema, na OS, na garantia em PDF e no link que o cliente recebe.' },
+      { pergunta: 'Meus dados ficam seguros?', resposta: 'Sim. Os dados de cada loja ficam separados, com acesso só da sua equipe, e você baixa um backup completo quando quiser.' },
+      { pergunta: 'O que acontece quando acabam os 7 dias de teste?', resposta: 'Nada é cobrado, porque você não deixou cartão. Seus dados continuam guardados: para continuar lançando OS e vendas, é só escolher um plano.' },
+      { pergunta: 'Como é o suporte?', resposta: 'Pelo WhatsApp (48) 99675-3360 e pelo e-mail timecomercial@reparosimples.com, com quem entende de assistência técnica.' },
     ],
     campanhaFim: null,
     // condição REAL por visitante: conta X horas a partir da 1ª visita neste aparelho (não reinicia ao recarregar).
